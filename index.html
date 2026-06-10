@@ -371,576 +371,73 @@
    Toạ độ tính bằng MÉT. Gốc (0,0) ở góc trên-trái khối nhà chính.
    ======================================================================= */
 const PLAN = {
-  "meta": {
-    "name": "NHÀ Ở GIA ĐÌNH — CẤP 4 MÁI TÔN (15.5 × 8m)",
-    "owner": "(điền tên)",
-    "addr": "(điền địa chỉ)",
-    "date": "04/06/2026",
-    "W": 15.5,
-    "D": 8,
-    "wall": 0.2,
-    "wallH": 3.3,
-    "ridgeRise": 0.8,
-    "overhang": 2,
-    "roofSlope": 0.2,
-    "entryPorchD": 2,
-    "entryPorchW": 4.6,
-    "entryStepD": 0.5,
-    "found": {
-      "Df": 1,
-      "footW": 0.9,
-      "footH": 0.3,
-      "lotT": 0.1,
-      "neck": 0.25,
-      "beamW": 0.2,
-      "beamH": 0.3
-    }
-  },
-  "groups": {
-    "living": {
-      "c": "#3f9e86",
-      "t": "Phòng khách"
-    },
-    "dine": {
-      "c": "#46ab93",
-      "t": "Phòng ăn + Bếp"
-    },
-    "circ": {
-      "c": "#5cbba4",
-      "t": "Lối chung"
-    },
-    "bed": {
-      "c": "#caa063",
-      "t": "Phòng ngủ"
-    },
-    "master": {
-      "c": "#b8924f",
-      "t": "Phòng master"
-    },
-    "worship": {
-      "c": "#bd7d4a",
-      "t": "Phòng thờ"
-    },
-    "wc": {
-      "c": "#5aa6cf",
-      "t": "Vệ sinh"
-    },
-    "out": {
-      "c": "#67ad63",
-      "t": "Ngoài trời"
-    }
-  },
+  "meta": { "name": "NHÀ Ở GIA ĐÌNH — CẤP 4 MÁI TÔN (15.5 × 8m)", "owner": "(điền tên)", "addr": "(điền địa chỉ)", "date": "04/06/2026", "W": 15.5, "D": 8, "wall": 0.2, "wallH": 3.3, "ridgeRise": 0.8, "overhang": 2, "roofSlope": 0.2, "entryPorchD": 2, "entryPorchW": 4.6, "entryStepD": 0.5, "found": { "Df": 1, "footW": 0.9, "footH": 0.3, "lotT": 0.1, "neck": 0.25, "beamW": 0.2, "beamH": 0.3 } },
+  "groups": { "living": { "c": "#3f9e86", "t": "Phòng khách" }, "dine": { "c": "#46ab93", "t": "Phòng ăn + Bếp" }, "circ": { "c": "#5cbba4", "t": "Lối chung" }, "bed": { "c": "#caa063", "t": "Phòng ngủ" }, "master": { "c": "#b8924f", "t": "Phòng master" }, "worship": { "c": "#bd7d4a", "t": "Phòng thờ" }, "wc": { "c": "#5aa6cf", "t": "Vệ sinh" }, "out": { "c": "#67ad63", "t": "Ngoài trời" } },
   "rooms": [
-    {
-      "id": "living",
-      "name": "PHÒNG KHÁCH",
-      "x": 1,
-      "y": 0,
-      "w": 5.5,
-      "h": 4.6,
-      "g": "living",
-      "open": true,
-      "nameY": 2,
-      "desc": "To nhất, khu chung phân phối phòng. CỬA CHÍNH 4 cánh nhôm-kính tường Tây (~2.45m, khung 4.5cm). Thông phòng thờ qua ô mở 1.5m + rèm; ngăn bếp bằng LAM (X6.5). Không cửa nhỏ phía khách (ở sau lam bên bếp). Mặt Tây có cửa chính nên không cửa sổ; mặt Bắc 1 cửa sổ to."
-    },
-    {
-      "id": "dine",
-      "name": "PHÒNG ĂN + BẾP",
-      "x": 6.5,
-      "y": 0,
-      "w": 4,
-      "h": 4.6,
-      "g": "dine",
-      "open": true,
-      "nameY": 2,
-      "desc": "Bếp chữ L: bồn rửa 2 chậu áp tường Bắc; bàn nấu & tủ lạnh quay DỌC áp tường Đông (giáp WC1). Cửa bên 1 cánh ngay sau lam. Mở liên thông khách & khoảng chung."
-    },
-    {
-      "id": "wc1",
-      "name": "WC1",
-      "x": 10.5,
-      "y": 0,
-      "w": 1.5,
-      "h": 2.7,
-      "g": "wc",
-      "desc": "Buồng tắm kính 1m phía trong (Bắc) + bồn cầu & lavabo 1.7m còn lại. Cửa mở lên (Bắc). Máy giặt ở góc giáp master. Cạnh WC2 (chung bể phốt)."
-    },
-    {
-      "id": "pocket",
-      "name": "",
-      "x": 10,
-      "y": 2.7,
-      "w": 2,
-      "h": 1.9,
-      "g": "circ",
-      "open": true,
-      "desc": "Khoảng chung trước WC1 — nơi cửa WC1/Master/PN3 gặp nhau."
-    },
-    {
-      "id": "throat",
-      "name": "",
-      "x": 11,
-      "y": 4.6,
-      "w": 1,
-      "h": 0.4,
-      "g": "circ",
-      "open": true,
-      "desc": ""
-    },
-    {
-      "id": "master",
-      "name": "P. MASTER",
-      "x": 12,
-      "y": 0,
-      "w": 3.5,
-      "h": 5,
-      "g": "master",
-      "nameY": 3.7,
-      "desc": "Phòng ngủ chính, sâu 5m. WC2 ensuite. Không cần bàn. Giường sát cửa sổ, đầu giường hướng Bắc; tủ đối diện giường. Cửa vào lùi xuống tránh máy giặt."
-    },
-    {
-      "id": "wc2",
-      "name": "WC2",
-      "x": 12,
-      "y": 0,
-      "w": 1.5,
-      "h": 2.7,
-      "g": "wc",
-      "desc": "WC trong master, sát vách WC1 (chung bể phốt). Buồng tắm kính phía Bắc; lavabo & bồn cầu đặt cạnh nhau phía Nam."
-    },
-    {
-      "id": "worship",
-      "name": "P. THỜ",
-      "x": 0,
-      "y": 4.6,
-      "w": 3,
-      "h": 3.4,
-      "g": "worship",
-      "nameY": 6.7,
-      "desc": "Khối thờ nhô ra trái. Cửa vào 1.5m có rèm; cửa sổ hồi Tây nhìn ra ô cây; bàn thờ rộng 2m sâu 1m áp tường Đông, đối diện cửa sổ."
-    },
-    {
-      "id": "bed1",
-      "name": "P. NGỦ 1",
-      "x": 3,
-      "y": 4.6,
-      "w": 3.9,
-      "h": 3.4,
-      "g": "bed",
-      "nameY": 6.7,
-      "desc": "4.0×3.4. Cửa ở tường Bắc đối diện cửa sổ Nam; đầu giường hướng Nam; tủ đối diện giường; bàn kê ở cửa sổ lấy sáng."
-    },
-    {
-      "id": "bed2",
-      "name": "P. NGỦ 2",
-      "x": 6.9,
-      "y": 4.6,
-      "w": 3.9,
-      "h": 3.4,
-      "g": "bed",
-      "nameY": 6.7,
-      "desc": "Cửa Bắc đối diện cửa sổ Nam; đầu giường hướng Nam; tủ đối diện giường; bàn kê ở cửa sổ."
-    },
-    {
-      "id": "bed3",
-      "name": "P. NGỦ 3",
-      "x": 10.8,
-      "y": 5,
-      "w": 4.7,
-      "h": 3,
-      "g": "bed",
-      "nameY": 6.9,
-      "desc": "Lùi Y5. Cửa vào khoảng chung; cửa sổ đối diện cửa; đầu giường hướng Nam; tủ đối diện; bàn kê ở cửa sổ."
-    },
-    {
-      "id": "planter",
-      "name": "Ô CÂY",
-      "x": -0.8,
-      "y": 5,
-      "w": 0.8,
-      "h": 2.4,
-      "g": "out",
-      "outdoor": true,
-      "desc": "Bồn cây xanh đầu hồi trái, trước cửa sổ phòng thờ."
-    }
+    { "id": "living", "name": "PHÒNG KHÁCH", "x": 1, "y": 0, "w": 5.5, "h": 4.6, "g": "living", "open": true, "nameY": 2, "desc": "To nhất, khu chung phân phối phòng. CỬA CHÍNH 4 cánh nhôm-kính tường Tây (~2.45m, khung 4.5cm). Thông phòng thờ qua ô mở 1.5m + rèm; ngăn bếp bằng LAM (X6.5). Không cửa nhỏ phía khách (ở sau lam bên bếp). Mặt Tây có cửa chính nên không cửa sổ; mặt Bắc 1 cửa sổ to." },
+    { "id": "dine", "name": "PHÒNG ĂN + BẾP", "x": 6.5, "y": 0, "w": 3.8, "h": 4.6, "g": "dine", "open": true, "nameY": 2, "desc": "Bếp chữ L: bồn rửa 2 chậu áp tường Bắc; bàn nấu & tủ lạnh quay DỌC áp tường Đông (giáp WC1). Cửa bên 1 cánh ngay sau lam. Mở liên thông khách & khoảng chung." },
+    { "id": "wc1", "name": "WC1", "x": 10.3, "y": 0, "w": 1.5, "h": 2.7, "g": "wc", "desc": "Buồng tắm kính 1m phía trong (Bắc) + bồn cầu & lavabo 1.7m còn lại. Cửa mở lên (Bắc). Máy giặt ở góc giáp master. Cạnh WC2 (chung bể phốt)." },
+    { "id": "pocket", "name": "", "x": 10, "y": 2.7, "w": 2, "h": 1.9, "g": "circ", "open": true, "desc": "Khoảng chung trước WC1 — nơi cửa WC1/Master/PN3 gặp nhau." },
+    { "id": "throat", "name": "", "x": 11, "y": 4.6, "w": 1, "h": 0.4, "g": "circ", "open": true, "desc": "" },
+    { "id": "master", "name": "P. MASTER", "x": 11.8, "y": 0, "w": 3.7, "h": 5, "g": "master", "nameY": 3.7, "desc": "Phòng ngủ chính, sâu 5m. WC2 ensuite. Không cần bàn. Giường sát cửa sổ, đầu giường hướng Bắc; tủ đối diện giường. Cửa vào lùi xuống tránh máy giặt." },
+    { "id": "wc2", "name": "WC2", "x": 11.8, "y": 0, "w": 1.5, "h": 2.7, "g": "wc", "desc": "WC trong master, sát vách WC1 (chung bể phốt). Buồng tắm kính phía Bắc; lavabo & bồn cầu đặt cạnh nhau phía Nam." },
+    { "id": "worship", "name": "P. THỜ", "x": 0, "y": 4.6, "w": 3, "h": 3.4, "g": "worship", "nameY": 6.7, "desc": "Khối thờ nhô ra trái. Cửa vào 1.5m có rèm; cửa sổ hồi Tây nhìn ra ô cây; bàn thờ rộng 2m sâu 1m áp tường Đông, đối diện cửa sổ." },
+    { "id": "bed1", "name": "P. NGỦ 1", "x": 3, "y": 4.6, "w": 3.8, "h": 3.4, "g": "bed", "nameY": 6.7, "desc": "4.0×3.4. Cửa ở tường Bắc đối diện cửa sổ Nam; đầu giường hướng Nam; tủ đối diện giường; bàn kê ở cửa sổ lấy sáng." },
+    { "id": "bed2", "name": "P. NGỦ 2", "x": 6.8, "y": 4.6, "w": 3.8, "h": 3.4, "g": "bed", "nameY": 6.7, "desc": "Cửa Bắc đối diện cửa sổ Nam; đầu giường hướng Nam; tủ đối diện giường; bàn kê ở cửa sổ." },
+    { "id": "bed3", "name": "P. NGỦ 3", "x": 10.6, "y": 5, "w": 4.9, "h": 3, "g": "bed", "nameY": 6.9, "desc": "Lùi Y5. Cửa vào khoảng chung; cửa sổ đối diện cửa; đầu giường hướng Nam; tủ đối diện; bàn kê ở cửa sổ." },
+    { "id": "planter", "name": "Ô CÂY", "x": -0.8, "y": 5, "w": 0.8, "h": 2.4, "g": "out", "outdoor": true, "desc": "Bồn cây xanh đầu hồi trái, trước cửa sổ phòng thờ." }
   ],
   "windows": [
-    {
-      "wall": "S",
-      "a": 5.2,
-      "b": 6.7,
-      "cm": true
-    },
-    {
-      "wall": "S",
-      "a": 7.1,
-      "b": 8.600000000000001,
-      "cm": true
-    },
-    {
-      "wall": "S",
-      "a": 11,
-      "b": 12.5,
-      "cm": true
-    },
-    {
-      "wall": "W",
-      "pos": 0,
-      "a": 5.5,
-      "b": 6.9,
-      "leaves": 4
-    },
-    {
-      "wall": "N",
-      "a": 3,
-      "b": 5.2,
-      "cm": true
-    },
-    {
-      "wall": "N",
-      "a": 8.2,
-      "b": 9.4
-    },
-    {
-      "wall": "N",
-      "a": 11,
-      "b": 11.5
-    },
-    {
-      "wall": "N",
-      "a": 12.5,
-      "b": 13
-    },
-    {
-      "wall": "N",
-      "a": 13.8,
-      "b": 15,
-      "cm": true
-    }
+    { "wall": "S", "a": 5.1, "b": 6.6, "cm": true },
+    { "wall": "S", "a": 7, "b": 8.5, "cm": true },
+    { "wall": "S", "a": 11, "b": 12.5, "cm": true },
+    { "wall": "W", "pos": 0, "a": 5.5, "b": 6.9, "leaves": 4 },
+    { "wall": "N", "a": 3, "b": 5.2, "cm": true },
+    { "wall": "N", "a": 8.2, "b": 9.4 },
+    { "wall": "N", "a": 10.8, "b": 11.3 },
+    { "wall": "N", "a": 12.3, "b": 12.8 },
+    { "wall": "N", "a": 13.8, "b": 15, "cm": true }
   ],
   "doors": [
-    {
-      "x": 1,
-      "y": 1.1,
-      "dir": "e",
-      "wide": 2.45,
-      "main": true,
-      "leaves": 2,
-      "sidelight": 0.41
-    },
-    {
-      "x": 6.85,
-      "y": 0,
-      "dir": "s",
-      "wide": 0.8,
-      "back": true
-    },
-    {
-      "x": 1.2,
-      "y": 4.6,
-      "dir": "n",
-      "wide": 1.5,
-      "curtain": true
-    },
-    {
-      "x": 5.8,
-      "y": 4.6,
-      "dir": "s",
-      "wide": 0.9
-    },
-    {
-      "x": 7.3,
-      "y": 4.6,
-      "dir": "s",
-      "wide": 0.9
-    },
-    {
-      "x": 11,
-      "y": 5,
-      "dir": "s",
-      "wide": 0.9
-    },
-    {
-      "x": 10.6,
-      "y": 2.7,
-      "dir": "n",
-      "wide": 0.7
-    },
-    {
-      "x": 12,
-      "y": 3.7,
-      "dir": "e",
-      "wide": 0.9,
-      "master": true
-    },
-    {
-      "x": 12.6,
-      "y": 2.7,
-      "dir": "n",
-      "wide": 0.7
-    }
+    { "x": 1, "y": 1.1, "dir": "e", "wide": 2.45, "main": true, "leaves": 2, "sidelight": 0.41 },
+    { "x": 6.85, "y": 0, "dir": "s", "wide": 0.8, "back": true },
+    { "x": 1.2, "y": 4.6, "dir": "n", "wide": 1.5, "curtain": true },
+    { "x": 5.7, "y": 4.6, "dir": "s", "wide": 0.9 },
+    { "x": 7, "y": 4.6, "dir": "s", "wide": 0.9 },
+    { "x": 10.8, "y": 5, "dir": "s", "wide": 0.9 },
+    { "x": 10.4, "y": 2.7, "dir": "n", "wide": 0.7 },
+    { "x": 11.8, "y": 3.7, "dir": "e", "wide": 0.9, "master": true },
+    { "x": 12.45, "y": 2.7, "dir": "n", "wide": 0.7 }
   ],
   "furniture": [
-    {
-      "room": "living",
-      "type": "sofa",
-      "name": "Sofa",
-      "x": 2.9,
-      "y": 0.15,
-      "w": 2.4,
-      "h": 0.85
-    },
-    {
-      "room": "living",
-      "type": "coffee",
-      "name": "Bàn trà",
-      "x": 3.4,
-      "y": 1.45,
-      "w": 1.4,
-      "h": 0.65
-    },
-    {
-      "room": "living",
-      "type": "armchair",
-      "name": "Ghế đơn 1",
-      "x": 3.1,
-      "y": 2.65,
-      "w": 0.85,
-      "h": 0.6
-    },
-    {
-      "room": "living",
-      "type": "armchair",
-      "name": "Ghế đơn 2",
-      "x": 4.2,
-      "y": 2.65,
-      "w": 0.85,
-      "h": 0.6
-    },
-    {
-      "room": "living",
-      "type": "tv",
-      "name": "Kệ tivi",
-      "x": 6.05,
-      "y": 1.15,
-      "w": 0.4,
-      "h": 1.6
-    },
-    {
-      "room": "dine",
-      "type": "washcounter",
-      "name": "Bàn rửa 2 bồn",
-      "x": 8.1,
-      "y": 0.12,
-      "w": 2.4,
-      "h": 0.6
-    },
-    {
-      "room": "dine",
-      "type": "cooktop",
-      "name": "Bàn nấu",
-      "x": 9.9,
-      "y": 0.75,
-      "w": 0.6,
-      "h": 1.3
-    },
-    {
-      "room": "dine",
-      "type": "fridge",
-      "name": "Tủ lạnh",
-      "x": 9.9,
-      "y": 2.1,
-      "w": 0.6,
-      "h": 0.65
-    },
-    {
-      "room": "dine",
-      "type": "diningtable",
-      "name": "Bàn ăn",
-      "x": 7.6,
-      "y": 1.9,
-      "w": 1.4,
-      "h": 0.85
-    },
-    {
-      "room": "wc1",
-      "type": "shower",
-      "name": "Buồng tắm kính",
-      "x": 10.5,
-      "y": 0.12,
-      "w": 1.5,
-      "h": 0.9,
-      "glass": "s"
-    },
-    {
-      "room": "wc1",
-      "type": "toilet",
-      "name": "Bồn cầu",
-      "x": 11.35,
-      "y": 1.3,
-      "w": 0.4,
-      "h": 0.6,
-      "dir": "w"
-    },
-    {
-      "room": "wc1",
-      "type": "lavabo",
-      "name": "Lavabo",
-      "x": 11.4,
-      "y": 1.95,
-      "w": 0.55,
-      "h": 0.42
-    },
-    {
-      "room": "wc1",
-      "type": "washer",
-      "name": "Máy giặt",
-      "x": 11.35,
-      "y": 2.75,
-      "w": 0.6,
-      "h": 0.6
-    },
-    {
-      "room": "wc2",
-      "type": "shower",
-      "name": "Buồng tắm kính",
-      "x": 12,
-      "y": 0.12,
-      "w": 1.5,
-      "h": 0.9,
-      "glass": "s"
-    },
-    {
-      "room": "wc2",
-      "type": "toilet",
-      "name": "Bồn cầu",
-      "x": 12.05,
-      "y": 1.3,
-      "w": 0.4,
-      "h": 0.6,
-      "dir": "e"
-    },
-    {
-      "room": "wc2",
-      "type": "lavabo",
-      "name": "Lavabo",
-      "x": 12.05,
-      "y": 1.95,
-      "w": 0.55,
-      "h": 0.42
-    },
-    {
-      "room": "master",
-      "type": "bed",
-      "name": "Giường",
-      "x": 13.6,
-      "y": 0.15,
-      "w": 1.6,
-      "h": 2,
-      "dir": "n"
-    },
-    {
-      "room": "master",
-      "type": "wardrobe",
-      "name": "Tủ áo",
-      "x": 13.6,
-      "y": 4.45,
-      "w": 1.6,
-      "h": 0.5
-    },
-    {
-      "room": "worship",
-      "type": "altar",
-      "name": "Bàn thờ",
-      "x": 2,
-      "y": 5.25,
-      "w": 1,
-      "h": 2
-    },
-    {
-      "room": "bed1",
-      "type": "bed",
-      "name": "Giường",
-      "x": 3.3,
-      "y": 5.9,
-      "w": 1.6,
-      "h": 2,
-      "dir": "s"
-    },
-    {
-      "room": "bed1",
-      "type": "wardrobe",
-      "name": "Tủ áo",
-      "x": 3.3,
-      "y": 4.6,
-      "w": 1.6,
-      "h": 0.55
-    },
-    {
-      "room": "bed1",
-      "type": "desk",
-      "name": "Bàn",
-      "x": 5.35,
-      "y": 7.35,
-      "w": 1.2,
-      "h": 0.5
-    },
-    {
-      "room": "bed2",
-      "type": "bed",
-      "name": "Giường",
-      "x": 9,
-      "y": 5.9,
-      "w": 1.6,
-      "h": 2,
-      "dir": "s"
-    },
-    {
-      "room": "bed2",
-      "type": "wardrobe",
-      "name": "Tủ áo",
-      "x": 9,
-      "y": 4.65,
-      "w": 1.6,
-      "h": 0.55
-    },
-    {
-      "room": "bed2",
-      "type": "desk",
-      "name": "Bàn",
-      "x": 7.25,
-      "y": 7.35,
-      "w": 1.2,
-      "h": 0.5
-    },
-    {
-      "room": "bed3",
-      "type": "bed",
-      "name": "Giường",
-      "x": 13.4,
-      "y": 6,
-      "w": 1.6,
-      "h": 1.9,
-      "dir": "s"
-    },
-    {
-      "room": "bed3",
-      "type": "wardrobe",
-      "name": "Tủ áo",
-      "x": 13.4,
-      "y": 5.02,
-      "w": 1.6,
-      "h": 0.5
-    },
-    {
-      "room": "bed3",
-      "type": "desk",
-      "name": "Bàn",
-      "x": 11.2,
-      "y": 7.4,
-      "w": 1.1,
-      "h": 0.5
-    }
+    { "room": "living", "type": "sofa", "name": "Sofa", "x": 2.9, "y": 0.15, "w": 2.4, "h": 0.85 },
+    { "room": "living", "type": "coffee", "name": "Bàn trà", "x": 3.4, "y": 1.45, "w": 1.4, "h": 0.65 },
+    { "room": "living", "type": "armchair", "name": "Ghế đơn 1", "x": 3.1, "y": 2.65, "w": 0.85, "h": 0.6 },
+    { "room": "living", "type": "armchair", "name": "Ghế đơn 2", "x": 4.2, "y": 2.65, "w": 0.85, "h": 0.6 },
+    { "room": "living", "type": "tv", "name": "Kệ tivi", "x": 6.05, "y": 1.15, "w": 0.4, "h": 1.6 },
+    { "room": "dine", "type": "washcounter", "name": "Bàn rửa 2 bồn", "x": 8.05, "y": 0.12, "w": 2.2, "h": 0.6 },
+    { "room": "dine", "type": "cooktop", "name": "Bàn nấu", "x": 9.65, "y": 0.75, "w": 0.6, "h": 1.3 },
+    { "room": "dine", "type": "fridge", "name": "Tủ lạnh", "x": 9.65, "y": 2.1, "w": 0.6, "h": 0.65 },
+    { "room": "dine", "type": "diningtable", "name": "Bàn ăn", "x": 7.6, "y": 1.9, "w": 1.4, "h": 0.85 },
+    { "room": "wc1", "type": "shower", "name": "Buồng tắm kính", "x": 10.3, "y": 0.12, "w": 1.5, "h": 0.9, "glass": "s" },
+    { "room": "wc1", "type": "toilet", "name": "Bồn cầu", "x": 11.15, "y": 1.3, "w": 0.4, "h": 0.6, "dir": "w" },
+    { "room": "wc1", "type": "lavabo", "name": "Lavabo", "x": 11.2, "y": 1.95, "w": 0.55, "h": 0.42 },
+    { "room": "wc1", "type": "washer", "name": "Máy giặt", "x": 11.15, "y": 2.75, "w": 0.6, "h": 0.6 },
+    { "room": "wc2", "type": "shower", "name": "Buồng tắm kính", "x": 11.8, "y": 0.12, "w": 1.5, "h": 0.9, "glass": "s" },
+    { "room": "wc2", "type": "toilet", "name": "Bồn cầu", "x": 11.85, "y": 1.3, "w": 0.4, "h": 0.6, "dir": "e" },
+    { "room": "wc2", "type": "lavabo", "name": "Lavabo", "x": 11.85, "y": 1.95, "w": 0.55, "h": 0.42 },
+    { "room": "master", "type": "bed", "name": "Giường", "x": 13.6, "y": 0.15, "w": 1.6, "h": 2, "dir": "n" },
+    { "room": "master", "type": "wardrobe", "name": "Tủ áo", "x": 13.6, "y": 4.45, "w": 1.6, "h": 0.5 },
+    { "room": "worship", "type": "altar", "name": "Bàn thờ", "x": 2, "y": 5.25, "w": 1, "h": 2 },
+    { "room": "bed1", "type": "bed", "name": "Giường", "x": 3.3, "y": 5.9, "w": 1.6, "h": 2, "dir": "s" },
+    { "room": "bed1", "type": "wardrobe", "name": "Tủ áo", "x": 3.3, "y": 4.6, "w": 1.6, "h": 0.55 },
+    { "room": "bed1", "type": "desk", "name": "Bàn", "x": 5.25, "y": 7.35, "w": 1.2, "h": 0.5 },
+    { "room": "bed2", "type": "bed", "name": "Giường", "x": 8.8, "y": 5.9, "w": 1.6, "h": 2, "dir": "s" },
+    { "room": "bed2", "type": "wardrobe", "name": "Tủ áo", "x": 8.8, "y": 4.65, "w": 1.6, "h": 0.55 },
+    { "room": "bed2", "type": "desk", "name": "Bàn", "x": 7.15, "y": 7.35, "w": 1.2, "h": 0.5 },
+    { "room": "bed3", "type": "bed", "name": "Giường", "x": 13.6, "y": 6, "w": 1.6, "h": 1.9, "dir": "s" },
+    { "room": "bed3", "type": "wardrobe", "name": "Tủ áo", "x": 13.6, "y": 5.02, "w": 1.6, "h": 0.5 },
+    { "room": "bed3", "type": "desk", "name": "Bàn", "x": 11.2, "y": 7.4, "w": 1.1, "h": 0.5 }
   ]
 };
 
@@ -1668,10 +1165,10 @@ function buildEditForm(r){
   if(drs.length){
     html+=`<div class="grp"><div class="gh">🚪 Cửa đi</div>`;
     drs.forEach(({d,i})=>{
-      const horiz=(d.dir==="n"||d.dir==="s"), posF=horiz?'x':'y', posV=horiz?d.x:d.y;
       html+=`<div class="fitem"><div class="fn">${doorLabel(d)}${d.sidelight?' · 2 cánh + ô kính bên':d.leaves?(' · '+d.leaves+' cánh'):(d.double?' · 2 cánh':'')} <span class="muted">(mở ${DIRVN[d.dir]})</span></div>`+
-        `<div class="row2"><div><label>Rộng (m)</label>${inp('door',i,'wide',d.wide||0.9,'min="0.3"')}</div>`+
-        `<div><label>Vị trí ${horiz?'X':'Y'} (m)</label>${inp('door',i,'pos',num2(posV))}</div></div></div>`;
+        `<div class="row4"><div><label>Rộng</label>${inp('door',i,'wide',d.wide||0.9,'min="0.3"')}</div>`+
+        `<div><label>X</label>${inp('door',i,'x',num2(d.x))}</div>`+
+        `<div><label>Y</label>${inp('door',i,'y',num2(d.y))}</div></div></div>`;
     });
     html+=`</div>`;
   }
@@ -1721,8 +1218,7 @@ function wireFormDelegate(){
     const f=t.dataset.field, v=t.value, n=()=>{const x=parseFloat(v);return isNaN(x)?0:x;};
     if(k==="room"){ const r=PLAN.rooms.find(x=>x.id===curRoom); if(!r)return;
       if(f==="name"||f==="g"||f==="desc") r[f]=v; else r[f]=n(); }
-    else if(k==="door"){ const d=PLAN.doors[+t.dataset.idx]; if(!d)return;
-      if(f==="pos") d[(d.dir==="n"||d.dir==="s")?"x":"y"]=n(); else d[f]=n(); }
+    else if(k==="door"){ const d=PLAN.doors[+t.dataset.idx]; if(!d)return; d[f]=n(); }
     else if(k==="win"){ const w=PLAN.windows[+t.dataset.idx]; if(!w)return;
       if(f==="wide") w.b=w.a+n(); else if(f==="pos"){ const wd=w.b-w.a; w.a=n(); w.b=w.a+wd; } }
     else if(k==="furn"){ const it=PLAN.furniture[+t.dataset.idx]; if(!it)return;
