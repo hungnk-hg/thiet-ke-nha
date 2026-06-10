@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hồ sơ thiết kế — Nhà cấp 4 mái tôn 15.5 × 8.0m</title>
+<style>
+  :root{
+    --bg:#0d2b52; --bg2:#0f335f; --panel:#103a6b; --panel2:#0c2a52;
+    --line:#dbe8fb; --line-soft:#5d83bd; --grid:#1b4a86;
+    --accent:#7fd1ff; --accent2:#ffd479; --text:#eaf2ff; --muted:#9fbbe4;
+    --g-living:#3a82c4; --g-dine:#2fa58c; --g-bed:#5a73d6;
+    --g-worship:#c79a4e; --g-wc:#39a0c4; --g-out:#46a35e; --g-roof:#9fb3c6;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:
+      radial-gradient(1200px 600px at 80% -10%, #15457f 0%, transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:"Segoe UI",system-ui,Roboto,Arial,sans-serif;
+    line-height:1.55;
+  }
+  a{color:var(--accent)}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 18px}
+
+  /* ---------- Title block / header ---------- */
+  header.titleblock{
+    border-bottom:2px solid var(--line-soft);
+    background:linear-gradient(180deg,#0c2a54,#0c2750);
+    position:sticky; top:0; z-index:30; backdrop-filter:blur(4px);
+  }
+  .tb-inner{display:flex; align-items:center; gap:18px; flex-wrap:wrap; padding:10px 18px; max-width:var(--maxw); margin:0 auto}
+  .logo{
+    width:48px;height:48px;border:2px solid var(--accent);border-radius:8px;
+    display:grid;place-items:center;font-weight:800;letter-spacing:1px;color:var(--accent);
+    background:#0a2147;flex:0 0 auto;
+  }
+  .tb-title{flex:1 1 240px;min-width:200px}
+  .tb-title h1{font-size:16px;margin:0;letter-spacing:.3px}
+  .tb-title .sub{font-size:12px;color:var(--muted)}
+  .tb-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--muted)}
+  .tb-meta b{color:var(--text);font-weight:600}
+  nav.tabs{display:flex;gap:6px;flex-wrap:wrap;padding:8px 18px;max-width:var(--maxw);margin:0 auto;border-top:1px dashed var(--grid)}
+  nav.tabs button{
+    background:transparent;border:1px solid var(--line-soft);color:var(--text);
+    padding:7px 14px;border-radius:20px;cursor:pointer;font-size:13px;transition:.15s;
+  }
+  nav.tabs button:hover{border-color:var(--accent);color:var(--accent)}
+  nav.tabs button.active{background:var(--accent);color:#06203f;border-color:var(--accent);font-weight:700}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:34px 0 18px;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:28px 28px; background-position:center;
+    border-bottom:1px solid var(--grid);
+  }
+  .hero h2{font-size:30px;margin:0 0 6px;letter-spacing:.4px}
+  .hero p{margin:0;color:var(--muted);max-width:760px}
+  .stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+  .stat{background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;padding:12px 18px;min-width:120px}
+  .stat .n{font-size:22px;font-weight:800;color:var(--accent)}
+  .stat .l{font-size:12px;color:var(--muted)}
+
+  /* ---------- Sections ---------- */
+  section.view{display:none;padding:26px 0 40px}
+  section.view.active{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .sec-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  .sec-h h3{font-size:21px;margin:0}
+  .sec-h .tag{font-size:11px;color:#06203f;background:var(--accent2);padding:2px 9px;border-radius:20px;font-weight:700}
+  .sec-h p{margin:0;color:var(--muted);font-size:13px;flex-basis:100%}
+
+  .drawing{
+    background:#0a2349;border:1px solid var(--line-soft);border-radius:14px;
+    padding:10px; overflow:auto;
+    box-shadow:inset 0 0 0 1px #15407a, 0 8px 30px rgba(0,0,0,.25);
+  }
+  .drawing svg{display:block;margin:0 auto;width:100%;height:auto;max-width:100%}
+
+  /* plan layout with side panel */
+  .plan-grid{display:grid;grid-template-columns:1fr 290px;gap:16px}
+  @media(max-width:880px){.plan-grid{grid-template-columns:1fr}}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .controls label{
+    display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--text);
+    background:var(--panel);border:1px solid var(--line-soft);padding:6px 11px;border-radius:8px;cursor:pointer;user-select:none}
+  .controls input{accent-color:var(--accent)}
+  .infopanel{background:var(--panel);border:1px solid var(--line-soft);border-radius:14px;padding:16px;align-self:start;position:sticky;top:120px}
+  .infopanel h4{margin:0 0 4px;font-size:17px;color:var(--accent)}
+  .infopanel .area{font-size:13px;color:var(--accent2);font-weight:700;margin-bottom:8px}
+  .infopanel .desc{font-size:13px;color:var(--muted)}
+  .infopanel .hint{font-size:11.5px;color:var(--line-soft);margin-top:10px;border-top:1px dashed var(--grid);padding-top:8px}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .legend span{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted)}
+  .legend i{width:13px;height:13px;border-radius:3px;display:inline-block;border:1px solid rgba(255,255,255,.4)}
+
+  /* ---------- per-room edit ---------- */
+  .room-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+  .room-tabs button{background:transparent;border:1px solid var(--line-soft);color:var(--text);padding:6px 12px;border-radius:18px;cursor:pointer;font-size:12.5px;transition:.15s}
+  .room-tabs button:hover{border-color:var(--accent2);color:var(--accent2)}
+  .room-tabs button.active{background:var(--accent2);color:#06203f;border-color:var(--accent2);font-weight:700}
+  .room-grid{display:grid;grid-template-columns:1fr 330px;gap:16px}
+  @media(max-width:880px){.room-grid{grid-template-columns:1fr}}
+  .editform{background:var(--panel);border:1px solid var(--line-soft);border-radius:14px;padding:16px;align-self:start;position:sticky;top:120px}
+  .editform h4{margin:0 0 6px;font-size:16px;color:var(--accent2)}
+  .editform label{display:block;font-size:12px;color:var(--muted);margin:9px 0 3px}
+  .editform input,.editform select,.editform textarea{width:100%;background:#0a2349;border:1px solid var(--line-soft);color:var(--text);border-radius:8px;padding:7px 9px;font-size:13px;font-family:inherit;outline:none}
+  .editform input:focus,.editform select:focus,.editform textarea:focus{border-color:var(--accent2)}
+  .editform textarea{resize:vertical;min-height:62px;line-height:1.45}
+  .editform .row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .editform .area{font-size:13px;color:var(--accent2);font-weight:700;margin:4px 0 2px}
+  .editform .muted{color:var(--muted);font-weight:400;font-size:11px}
+  .editform .grp{margin-top:14px;border-top:1px dashed var(--grid);padding-top:10px}
+  .editform .grp>.gh{font-size:12.5px;color:var(--accent);font-weight:700;margin-bottom:7px}
+  .editform .fitem{background:#0a2349;border:1px solid var(--grid);border-radius:9px;padding:8px 9px;margin-bottom:7px}
+  .editform .fitem .fn{font-size:12px;color:var(--text);margin-bottom:4px;font-weight:600}
+  .editform .row4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .editform .row4 label,.editform .fitem label{margin:0 0 2px;font-size:10px}
+  .editform .mini{padding:5px 6px;font-size:12px}
+  .savebar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .savebar .btn{padding:9px 14px;font-size:12.5px}
+
+  /* SVG plan styling + layer toggles */
+  svg .room-fill{transition:.15s}
+  svg .room{cursor:pointer}
+  svg .room:hover .room-fill,svg .room.sel .room-fill{filter:brightness(1.5)}
+  svg text{fill:var(--line);font-family:"Segoe UI",sans-serif}
+  svg .rname{font-size:12px;font-weight:700;text-anchor:middle;paint-order:stroke;stroke:#08203f;stroke-width:3px}
+  svg .rarea{font-size:9px;text-anchor:middle;fill:var(--muted)}
+  svg .wall{fill:none;stroke:#eaf2ff;stroke-width:5;stroke-linejoin:round}
+  svg .wallband{fill:#e7f0ff;stroke:#aac6ec;stroke-width:.5}
+  svg .part{fill:none;stroke:#aec5e8;stroke-width:2.4}
+  svg .tile line,svg line.tile{stroke:#bfe0d6;stroke-opacity:.13;stroke-width:.6}
+  svg .door{fill:none;stroke:var(--accent);stroke-width:1.6}
+  svg .furn{fill:none;stroke:#cfe0f5;stroke-width:1.3}
+  svg .furn.fill{fill:rgba(207,224,251,.16)}
+  svg .win rect{fill:#0a2349;stroke:none}
+  svg .win line{stroke:#9fd0ff;stroke-width:1}
+  svg .win .leaf{stroke:#9fd0ff;stroke-width:1;fill:none}
+  svg .porch{fill:#13325f;stroke:#5d83bd;stroke-width:1;stroke-dasharray:5 3}
+  svg .step{stroke:#5d83bd;stroke-width:1}
+  svg .col{fill:#9fbbe4;stroke:#dbe8fb;stroke-width:.5}
+  svg .note{fill:#9fbbe4;font-size:9px}
+  svg .curtain{stroke:#ffd479;stroke-width:1.4;fill:none}
+  svg .lam rect{fill:#cfe0f5;stroke:none}
+  svg .glass{stroke:#7fe0ff;stroke-width:2.2;opacity:.85}
+  svg .grid line{stroke:var(--grid);stroke-width:1}
+  svg .dim line{stroke:var(--accent2);stroke-width:1}
+  svg .dim .ext{stroke:var(--accent2);stroke-width:1}
+  svg .dim text{fill:var(--accent2);font-size:10px;text-anchor:middle}
+  /* layer visibility toggles via classes on the svg */
+  svg.hide-dims .dim{display:none}
+  svg.hide-grid .grid{display:none}
+  svg.hide-furn .furn{display:none}
+  svg.hide-labels .rname,svg.hide-labels .rarea{display:none}
+
+  /* ---------- schedule table ---------- */
+  table.sched{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel2);border-radius:12px;overflow:hidden}
+  table.sched th,table.sched td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--grid)}
+  table.sched th{background:var(--panel);color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+  table.sched td.num{text-align:right;font-variant-numeric:tabular-nums}
+  table.sched tr:hover td{background:#0e346a}
+  table.sched tfoot td{font-weight:800;background:#0e346a;color:var(--accent2)}
+  .swatch{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:7px;vertical-align:middle;border:1px solid rgba(255,255,255,.35)}
+  .chart-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+  @media(max-width:760px){.chart-wrap{grid-template-columns:1fr}}
+
+  /* ---------- notes ---------- */
+  .notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+  .note{background:var(--panel);border:1px solid var(--line-soft);border-left:4px solid var(--accent);border-radius:10px;padding:14px 16px}
+  .note h4{margin:0 0 6px;font-size:15px;color:var(--accent)}
+  .note p{margin:0;font-size:13px;color:var(--muted)}
+  .note.warn{border-left-color:var(--accent2)}
+  .note.warn h4{color:var(--accent2)}
+  .ask{background:#0e346a;border:1px dashed var(--accent2);border-radius:12px;padding:14px 16px;margin-top:18px;font-size:13.5px}
+
+  footer{border-top:1px solid var(--line-soft);margin-top:30px;padding:22px 0;color:var(--muted);font-size:12.5px}
+  .btn{background:var(--accent);color:#06203f;border:none;padding:10px 18px;border-radius:9px;font-weight:700;cursor:pointer;font-size:13.5px}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+  .footrow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+
+  /* ---------- mobile / responsive ---------- */
+  @media(max-width:640px){
+    .wrap{padding:0 12px}
+    .tb-inner{gap:10px;padding:8px 12px}
+    .logo{width:38px;height:38px;font-size:13px}
+    .tb-title h1{font-size:14px}
+    .tb-title .sub{font-size:11px}
+    .tb-meta{font-size:10.5px;gap:8px 12px}
+    /* tab cuộn ngang 1 hàng cho gọn */
+    nav.tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:5px;padding:7px 10px;scrollbar-width:none}
+    nav.tabs::-webkit-scrollbar{display:none}
+    nav.tabs button{flex:0 0 auto;font-size:12px;padding:6px 11px}
+    .hero{padding:22px 0 14px;background-size:22px 22px}
+    .hero h2{font-size:21px}
+    .hero p{font-size:13px}
+    .stats{gap:10px}
+    .stat{min-width:88px;padding:8px 12px}
+    .stat .n{font-size:17px}
+    section.view{padding:18px 0 30px}
+    .sec-h h3{font-size:18px}
+    .drawing{padding:6px;border-radius:10px}
+    /* panel thông tin / form: bỏ dính (sticky) khi xếp dọc */
+    .infopanel,.editform{position:static;top:auto}
+    .room-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .room-tabs::-webkit-scrollbar{display:none}
+    .room-tabs button{flex:0 0 auto}
+    .editform .row4{grid-template-columns:1fr 1fr}
+    table.sched th,table.sched td{padding:7px 8px;font-size:12px}
+    .footrow{flex-direction:column;align-items:stretch;text-align:center}
+    .footrow>div:last-child{justify-content:center}
+  }
+
+  /* ---------- print ---------- */
+  @media print{
+    body{background:#fff;color:#111}
+    header.titleblock{position:static}
+    nav.tabs,.controls,.btn,.infopanel .hint,.hero .stats,.room-tabs,.editform{display:none}
+    section.view{display:block!important;page-break-inside:avoid;border-bottom:1px solid #ccc}
+    .drawing{background:#fff;border:1px solid #333}
+    svg text{fill:#111}svg .wall{stroke:#000}svg .rname{stroke:#fff}
+    .stat,.note,.infopanel,table.sched{border-color:#999}
+    .hero{background:#fff}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== TITLE BLOCK ===== -->
+<header class="titleblock">
+  <div class="tb-inner">
+    <div class="logo">NHÀ</div>
+    <div class="tb-title">
+      <h1 id="tbName">NHÀ Ở GIA ĐÌNH — CẤP 4 MÁI TÔN</h1>
+      <div class="sub" id="tbSub">Mặt bằng 15.5 × 8.0m • 3 phòng ngủ + master • 2 WC • phòng thờ</div>
+    </div>
+    <div class="tb-meta">
+      <span>Chủ đầu tư: <b id="tbOwner">(điền tên)</b></span>
+      <span>Địa điểm: <b id="tbAddr">(điền địa chỉ)</b></span>
+      <span>Tỉ lệ: <b>1:100</b></span>
+      <span>Ngày: <b id="tbDate">03/06/2026</b></span>
+      <span>Mái: <b>Lợp tôn</b></span>
+    </div>
+  </div>
+  <nav class="tabs">
+    <button data-view="hero" class="active">Tổng quan</button>
+    <button data-view="plan">Mặt bằng 2D</button>
+    <button data-view="rooms">Từng phòng ✎</button>
+    <button data-view="iso">Phối cảnh 3D</button>
+    <button data-view="elev">Mặt đứng &amp; Mặt cắt</button>
+    <button data-view="found">Móng</button>
+    <button data-view="sched">Thống kê diện tích</button>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="view active" id="view-hero">
+  <div class="hero">
+    <div class="wrap">
+      <h2>Bản thiết kế nhà cấp 4 nông thôn — mái tôn</h2>
+      <p>Nhà một tầng khối <b>15.5m × 8.0m</b> (≈124m² sàn), tường 0.2m: phòng khách – ăn – bếp liên thông, phòng thờ + ô cây, 3 phòng ngủ con và 1 phòng master có WC riêng (chung bể phốt với WC1), hiên + tam cấp mặt trước. Hồ sơ gồm: mặt bằng tương tác, phối cảnh, mặt đứng – mặt cắt, thống kê diện tích và góp ý thiết kế.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">15.5×8.0m</div><div class="l">Kích thước phủ bì</div></div>
+        <div class="stat"><div class="n">~124 m²</div><div class="l">Diện tích sàn</div></div>
+        <div class="stat"><div class="n">3 PN + master</div><div class="l">Phòng ngủ</div></div>
+        <div class="stat"><div class="n">2 WC</div><div class="l">Vệ sinh</div></div>
+        <div class="stat"><div class="n">3.30 m</div><div class="l">Cao thông thủy</div></div>
+        <div class="stat"><div class="n">Mái tôn</div><div class="l">Dốc ~20%</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:20px">
+    <div class="drawing"><div id="heroPlan"></div></div>
+    <p style="color:var(--muted);font-size:12.5px;margin-top:10px">Sơ đồ mặt bằng tổng thể (xem chi tiết và tương tác ở mục <b>Mặt bằng 2D</b>).</p>
+  </div>
+</section>
+
+<!-- ===== PLAN ===== -->
+<section class="view" id="view-plan">
+  <div class="wrap">
+    <div class="sec-h">
+      <h3>Mặt bằng tầng trệt</h3><span class="tag">Tỉ lệ 1:100</span>
+      <p>Rê chuột (hoặc chạm) vào từng phòng để xem diện tích &amp; công năng. Dùng các công tắc để bật/tắt lớp bản vẽ.</p>
+    </div>
+    <div class="controls">
+      <label><input type="checkbox" id="t-dims" checked> Đường kích thước</label>
+      <label><input type="checkbox" id="t-grid" checked> Lưới trục</label>
+      <label><input type="checkbox" id="t-furn" checked> Nội thất</label>
+      <label><input type="checkbox" id="t-labels" checked> Tên phòng</label>
+    </div>
+    <div class="plan-grid">
+      <div class="drawing"><div id="planBox"></div></div>
+      <aside class="infopanel" id="infoPanel">
+        <h4 id="ip-name">Chọn một phòng</h4>
+        <div class="area" id="ip-area">—</div>
+        <div class="desc" id="ip-desc">Đưa con trỏ vào các phòng trên bản vẽ để xem thông tin chi tiết.</div>
+        <div class="legend" id="ip-legend"></div>
+        <div class="hint">Mẹo: mọi kích thước &amp; tên phòng nằm trong đối tượng <b>PLAN</b> ở đầu phần &lt;script&gt; — sửa ở đó là bản vẽ tự cập nhật.</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TỪNG PHÒNG (chỉnh sửa) ===== -->
+<section class="view" id="view-rooms">
+  <div class="wrap">
+    <div class="sec-h">
+      <h3>Thiết kế từng phòng</h3><span class="tag">Sửa trực tiếp</span>
+      <p>Chọn một phòng để xem phóng to &amp; chỉnh ngay (tên, kích thước, vị trí, công năng). Mọi thay đổi tự cập nhật vào mặt bằng tổng. Bấm <b>Tải file đã cập nhật</b> để lưu lại.</p>
+    </div>
+    <div class="room-tabs" id="roomTabs"></div>
+    <div class="room-grid">
+      <div class="drawing"><div id="roomDraw"></div></div>
+      <aside class="editform" id="roomEdit"></aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ISO ===== -->
+<section class="view" id="view-iso">
+  <div class="wrap">
+    <div class="sec-h">
+      <h3>Phối cảnh khối 3D</h3><span class="tag">Minh hoạ</span>
+      <p>Mô hình khối cách điệu dựng từ mặt bằng: tường cao 3.30m, mái tôn 2 mái dốc ~20%. Màu sàn theo nhóm công năng.</p>
+    </div>
+    <div class="drawing"><div id="isoBox"></div></div>
+  </div>
+</section>
+
+<!-- ===== ELEV + SECTION ===== -->
+<section class="view" id="view-elev">
+  <div class="wrap">
+    <div class="sec-h">
+      <h3>Mặt đứng Nam (mặt trước)</h3><span class="tag">Mái tôn dốc ~20%</span>
+      <p>Mặt tiền dài 15.5m: cửa sổ phòng ngủ, hiên mái che &amp; tam cấp. Tự cập nhật theo mặt bằng.</p>
+    </div>
+    <div class="drawing"><div id="elevBox"></div></div>
+    <div class="sec-h" style="margin-top:26px">
+      <h3>Mặt đứng Tây (hướng cửa chính)</h3><span class="tag">Cửa chính 4 cánh</span>
+      <p>Đầu hồi rộng 8.0m: cửa chính nhôm-kính 4 cánh + mái che lối vào.</p>
+    </div>
+    <div class="drawing"><div id="elevWBox"></div></div>
+    <div class="sec-h" style="margin-top:26px">
+      <h3>Mặt cắt A–A</h3><span class="tag">Minh hoạ kết cấu</span>
+      <p>Cắt ngang chiều sâu 8.0m: nền – móng, tường, trần la phông, kết cấu mái tôn (xà gồ + tôn), cao độ.</p>
+    </div>
+    <div class="drawing"><div id="sectBox"></div></div>
+  </div>
+</section>
+
+<!-- ===== MÓNG ===== -->
+<section class="view" id="view-found">
+  <div class="wrap">
+    <div class="sec-h">
+      <h3>Móng &amp; cách thi công</h3><span class="tag">Móng băng</span>
+      <p>Phương án <b>móng băng</b> dưới tường chịu lực cho nhà cấp 4 mái tôn (tải nhẹ). Cột hiên dùng móng đơn nối giằng. <b>Số liệu minh hoạ</b> — cần khảo sát địa chất &amp; thiết kế kết cấu của kỹ sư cho công trình thực tế.</p>
+    </div>
+    <div class="chart-wrap">
+      <div class="drawing"><div id="foundDetail"></div></div>
+      <div class="drawing" style="background:#0a2349"><div id="foundPlan"></div></div>
+    </div>
+    <div class="sec-h" style="margin-top:24px"><h3>Các bước thi công móng</h3></div>
+    <div class="notes" id="foundSteps"></div>
+    <div class="sec-h" style="margin-top:18px"><h3>Thông số &amp; lưu ý (gồm móng hiên)</h3></div>
+    <div class="notes" id="foundSpecs"></div>
+  </div>
+</section>
+
+<!-- ===== SCHEDULE ===== -->
+<section class="view" id="view-sched">
+  <div class="wrap">
+    <div class="sec-h">
+      <h3>Bảng thống kê diện tích</h3><span class="tag">Tim tường</span>
+      <p>Diện tích tính theo tim tường (chưa trừ bề dày tường ~0.1–0.22m). Hiên &amp; sân không tính vào diện tích sàn xây dựng.</p>
+    </div>
+    <div class="chart-wrap">
+      <div id="schedTable"></div>
+      <div class="drawing" style="background:#0a2349"><div id="chartBox"></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footrow">
+    <div>
+      <b>Hồ sơ thiết kế sơ bộ</b> — Nhà cấp 4 mái tôn 15.5×8.0m.<br>
+      Bản vẽ mang tính trình bày &amp; sơ phác, chưa thay thế hồ sơ thi công có dấu của đơn vị tư vấn.
+    </div>
+    <div style="display:flex;gap:10px">
+      <button class="btn" onclick="window.print()">🖨 In / Xuất PDF</button>
+      <button class="btn ghost" onclick="document.querySelector('[data-view=plan]').click()">Xem mặt bằng</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =======================================================================
+   PLAN — NGUỒN DỮ LIỆU DUY NHẤT
+   Sửa ở đây để đổi tên phòng / kích thước / ghi chú; mọi bản vẽ tự cập nhật.
+   Toạ độ tính bằng MÉT. Gốc (0,0) ở góc trên-trái khối nhà chính.
+   ======================================================================= */
+const PLAN = {
+  meta:{
+    name:"NHÀ Ở GIA ĐÌNH — CẤP 4 MÁI TÔN (15.5 × 8m)",
+    owner:"(điền tên)", addr:"(điền địa chỉ)", date:"04/06/2026",
+    W:15.5, D:8.0, wall:0.20, wallH:3.30, ridgeRise:0.80, overhang:2.0, roofSlope:0.20,
+    entryPorchD:2.0, entryPorchW:4.6, entryStepD:0.5, // HIÊN + TAM CẤP CỬA CHÍNH (Tây): sâu / rộng / tam cấp (m)
+    found:{ Df:1.0, footW:0.9, footH:0.3, lotT:0.1, neck:0.25, beamW:0.2, beamH:0.3 } // MÓNG BĂNG (m): sâu chôn / rộng đế / dày đế / lót / cổ / giằng
+  },
+  // Hệ trục: X 0→15.5 (dài), Y 0→8 (sâu). Y0 = SAU (khách/bếp), Y8 = TRƯỚC (hiên, thờ+ngủ).
+  groups:{
+    living:{c:"#3f9e86", t:"Phòng khách"},
+    dine:{c:"#46ab93", t:"Phòng ăn + Bếp"},
+    circ:{c:"#5cbba4", t:"Lối chung"},
+    bed:{c:"#caa063", t:"Phòng ngủ"},
+    master:{c:"#b8924f", t:"Phòng master"},
+    worship:{c:"#bd7d4a", t:"Phòng thờ"},
+    wc:{c:"#5aa6cf", t:"Vệ sinh"},
+    out:{c:"#67ad63", t:"Ngoài trời"}
+  },
+  // rooms: x,y = góc trên-trái (m); w,h = rộng,sâu (m); nameY = vị trí đặt tên (m, tuỳ chọn)
+  rooms:[
+    // ===== DẢI TRÊN / SAU (Y 0–4.6) =====
+    {id:"living", name:"PHÒNG KHÁCH",   x:1.0,  y:0,   w:5.5, h:4.6, g:"living", open:true, nameY:2.0, desc:"To nhất, khu chung phân phối phòng. CỬA CHÍNH 4 cánh nhôm-kính tường Tây (~2.45m, khung 4.5cm). Thông phòng thờ qua ô mở 1.5m + rèm; ngăn bếp bằng LAM (X6.5). Không cửa nhỏ phía khách (ở sau lam bên bếp). Mặt Tây có cửa chính nên không cửa sổ; mặt Bắc 1 cửa sổ to."},
+    {id:"dine",   name:"PHÒNG ĂN + BẾP", x:6.5, y:0,   w:4.0, h:4.6, g:"dine",   open:true, nameY:2.0, desc:"Bếp chữ L: bồn rửa 2 chậu áp tường Bắc; bàn nấu & tủ lạnh quay DỌC áp tường Đông (giáp WC1). Cửa bên 1 cánh ngay sau lam. Mở liên thông khách & khoảng chung."},
+    {id:"wc1",    name:"WC1",            x:10.5,y:0,   w:1.5, h:2.7, g:"wc",      desc:"Buồng tắm kính 1m phía trong (Bắc) + bồn cầu & lavabo 1.7m còn lại. Cửa mở lên (Bắc). Máy giặt ở góc giáp master. Cạnh WC2 (chung bể phốt)."},
+    {id:"pocket", name:"",               x:10.0,y:2.7, w:2.0, h:1.9, g:"circ", open:true, desc:"Khoảng chung trước WC1 — nơi cửa WC1/Master/PN3 gặp nhau."},
+    {id:"throat", name:"",               x:11.0,y:4.6, w:1.0, h:0.4, g:"circ", open:true, desc:""},
+    {id:"master", name:"P. MASTER",      x:12.0,y:0,   w:3.5, h:5.0, g:"master",  nameY:3.7, desc:"Phòng ngủ chính, sâu 5m. WC2 ensuite. Không cần bàn. Giường sát cửa sổ, đầu giường hướng Bắc; tủ đối diện giường. Cửa vào lùi xuống tránh máy giặt."},
+    {id:"wc2",    name:"WC2",            x:12.0,y:0,   w:1.5, h:2.7, g:"wc",      desc:"WC trong master, sát vách WC1 (chung bể phốt). Buồng tắm kính phía Bắc; lavabo & bồn cầu đặt cạnh nhau phía Nam."},
+    // ===== DẢI DƯỚI / TRƯỚC (Y 4.6–8) =====
+    {id:"worship",name:"P. THỜ",         x:0,   y:4.6, w:3.0, h:3.4, g:"worship", nameY:6.7, desc:"Khối thờ nhô ra trái. Cửa vào 1.5m có rèm; cửa sổ hồi Tây nhìn ra ô cây; bàn thờ rộng 2m sâu 1m áp tường Đông, đối diện cửa sổ."},
+    {id:"bed1",   name:"P. NGỦ 1",       x:3.0, y:4.6, w:4.0, h:3.4, g:"bed",     nameY:6.7, desc:"4.0×3.4. Cửa ở tường Bắc đối diện cửa sổ Nam; đầu giường hướng Nam; tủ đối diện giường; bàn kê ở cửa sổ lấy sáng."},
+    {id:"bed2",   name:"P. NGỦ 2",       x:7.0, y:4.6, w:3.8, h:3.4, g:"bed",     nameY:6.7, desc:"Cửa Bắc đối diện cửa sổ Nam; đầu giường hướng Nam; tủ đối diện giường; bàn kê ở cửa sổ."},
+    {id:"bed3",   name:"P. NGỦ 3",       x:10.8,y:5.0, w:4.7, h:3.0, g:"bed",     nameY:6.9, desc:"Lùi Y5. Cửa vào khoảng chung; cửa sổ đối diện cửa; đầu giường hướng Nam; tủ đối diện; bàn kê ở cửa sổ."},
+    // ===== NGOÀI TRỜI =====
+    {id:"planter",name:"Ô CÂY",          x:-0.8,y:5.0, w:0.8, h:2.4, g:"out", outdoor:true, desc:"Bồn cây xanh đầu hồi trái, trước cửa sổ phòng thờ."}
+  ],
+  // cửa sổ: wall N(Y0)/S(Y8)/W/E; a,b = vị trí dọc tường; pos = toạ độ tường (cho W/E); cm = 2 cánh
+  windows:[
+    {wall:"S",a:5.3, b:6.8, cm:true},                    // PN1 mặt trước (đối diện cửa)
+    {wall:"S",a:7.15,b:8.65,cm:true},                    // PN2 mặt trước (đối diện cửa)
+    {wall:"S",a:11.0,b:12.5,cm:true},                    // PN3 mặt trước (đối diện cửa)
+    {wall:"W",pos:0,a:5.5,b:6.9,leaves:4},               // phòng thờ - hồi Tây ra ô cây (4 cánh)
+    {wall:"N",a:3.0, b:5.2, cm:true},                    // KHÁCH - 1 cửa sổ to tường Bắc
+    {wall:"N",a:8.2, b:9.4},                             // BẾP - tường Bắc (trên bồn rửa, lấy sáng)
+    {wall:"N",a:11.0,b:11.5},{wall:"N",a:12.5,b:13.0},   // WC1, WC2 - tường sau (nhỏ, thông gió)
+    {wall:"N",a:13.8,b:15.0,cm:true}                     // master - cửa sổ tường sau (Bắc, 2 cánh)
+  ],
+  // cửa đi: {x,y} bản lề (m), dir = hướng mở (n,s,e,w), wide; main/master/curtain = cờ; leaves = số cánh (2/4)
+  doors:[
+    {x:1.0, y:1.1,  dir:"e", wide:2.45, main:true, leaves:2, sidelight:0.41}, // CỬA CHÍNH: 2 cánh lớn + 2 ô kính bên (1/2 cánh)
+    {x:6.85,y:0,    dir:"s", wide:0.8, back:true},     // CỬA SAU 1 cánh, ngay sau lam (bên bếp)
+    {x:1.2, y:4.6,  dir:"n", wide:1.5, curtain:true},  // THỜ ↔ KHÁCH (ô mở 1.5m + rèm)
+    {x:5.8, y:4.6,  dir:"s", wide:0.9},                // PN1 (tường Bắc, đối diện cửa sổ)
+    {x:7.3, y:4.6,  dir:"s", wide:0.9},                // PN2 (tường Bắc, đối diện cửa sổ)
+    {x:11.0,y:5.0,  dir:"s", wide:0.9},                // PN3 (tường bắc Y5, mở xuống)
+    {x:10.6,y:2.7,  dir:"n", wide:0.7},                // WC1 (tường nam Y2.7, mở lên)
+    {x:12.0,y:3.7,  dir:"e", wide:0.9, master:true},   // MASTER (tường Tây X12, lùi xuống tránh máy giặt)
+    {x:12.6,y:2.7,  dir:"n", wide:0.7}                 // WC2 (trong master)
+  ],
+  // NỘI THẤT — dữ liệu sửa được (room = phòng; type quyết định cách vẽ; x,y góc; w rộng (X), h sâu (Y); dir cho giường = cạnh kê đầu)
+  furniture:[
+    // PHÒNG KHÁCH
+    {room:"living", type:"sofa",        name:"Sofa",        x:2.9, y:0.15, w:2.4, h:0.85},
+    {room:"living", type:"coffee",      name:"Bàn trà",     x:3.4, y:1.45, w:1.4, h:0.65},
+    {room:"living", type:"armchair",    name:"Ghế đơn 1",   x:3.1, y:2.65, w:0.85,h:0.6},
+    {room:"living", type:"armchair",    name:"Ghế đơn 2",   x:4.2, y:2.65, w:0.85,h:0.6},
+    {room:"living", type:"tv",          name:"Kệ tivi",     x:6.05,y:1.15, w:0.4, h:1.6},
+    // BẾP + ĂN — chữ L: bồn rửa (Bắc) + bàn nấu & tủ lạnh quay dọc (Đông)
+    {room:"dine",   type:"washcounter", name:"Bàn rửa 2 bồn",x:8.1,y:0.12, w:2.4, h:0.6},
+    {room:"dine",   type:"cooktop",     name:"Bàn nấu",     x:9.9, y:0.75, w:0.6, h:1.3},
+    {room:"dine",   type:"fridge",      name:"Tủ lạnh",     x:9.9, y:2.1,  w:0.6, h:0.65},
+    {room:"dine",   type:"diningtable", name:"Bàn ăn",      x:7.6, y:1.9,  w:1.4, h:0.85},
+    // WC1
+    {room:"wc1",    type:"shower",      name:"Buồng tắm kính",x:10.5,y:0.12,w:1.5,h:0.9, glass:"s"},
+    {room:"wc1",    type:"toilet",      name:"Bồn cầu",     x:11.35,y:1.3, w:0.4, h:0.6, dir:"w"},
+    {room:"wc1",    type:"lavabo",      name:"Lavabo",      x:11.4, y:1.95,w:0.55,h:0.42},
+    {room:"wc1",    type:"washer",      name:"Máy giặt",    x:11.35,y:2.75,w:0.6, h:0.6},
+    // WC2 — lavabo & bồn cầu cạnh nhau phía Nam
+    {room:"wc2",    type:"shower",      name:"Buồng tắm kính",x:12.0,y:0.12,w:1.5,h:0.9, glass:"s"},
+    {room:"wc2",    type:"toilet",      name:"Bồn cầu",     x:12.05,y:1.3, w:0.4, h:0.6, dir:"e"},
+    {room:"wc2",    type:"lavabo",      name:"Lavabo",      x:12.05,y:1.95,w:0.55,h:0.42},
+    // MASTER
+    {room:"master", type:"bed",         name:"Giường",      x:13.6, y:0.15,w:1.6, h:2.0, dir:"n"},
+    {room:"master", type:"wardrobe",    name:"Tủ áo",       x:13.6, y:4.45,w:1.6, h:0.5},
+    // PHÒNG THỜ
+    {room:"worship",type:"altar",       name:"Bàn thờ",     x:2.0, y:5.25, w:1.0, h:2.0},
+    // PN1
+    {room:"bed1",   type:"bed",         name:"Giường",      x:3.3, y:5.9,  w:1.6, h:2.0, dir:"s"},
+    {room:"bed1",   type:"wardrobe",    name:"Tủ áo",       x:3.3, y:4.6,  w:1.6, h:0.55},
+    {room:"bed1",   type:"desk",        name:"Bàn",         x:5.45,y:7.35, w:1.2, h:0.5},
+    // PN2
+    {room:"bed2",   type:"bed",         name:"Giường",      x:9.0, y:5.9,  w:1.6, h:2.0, dir:"s"},
+    {room:"bed2",   type:"wardrobe",    name:"Tủ áo",       x:9.0, y:4.65, w:1.6, h:0.55},
+    {room:"bed2",   type:"desk",        name:"Bàn",         x:7.3, y:7.35, w:1.2, h:0.5},
+    // PN3
+    {room:"bed3",   type:"bed",         name:"Giường",      x:13.4,y:6.0,  w:1.6, h:1.9, dir:"s"},
+    {room:"bed3",   type:"wardrobe",    name:"Tủ áo",       x:13.4,y:5.02, w:1.6, h:0.5},
+    {room:"bed3",   type:"desk",        name:"Bàn",         x:11.2, y:7.4, w:1.1, h:0.5}
+  ]
+};
+
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const fmt=n=>n.toFixed(1);
+const area=r=>r.w*r.h;
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+
+/* ===================== MẶT BẰNG 2D ===================== */
+function buildPlan(interactive){
+  const S=40, PAD=96, PADTOP=66, PADBOT=70, MINX=-1.9;
+  const X=m=>PAD+(m-MINX)*S, Y=m=>PADTOP+m*S;
+  // HIÊN + TAM CẤP CỬA CHÍNH (mặt Tây) — đọc từ meta (không còn hiên mặt Nam)
+  const entryD=PLAN.meta.entryPorchD??1.2, entryW=PLAN.meta.entryPorchW??3.0, entryStep=PLAN.meta.entryStepD??0.5;
+  const maxY=9.0;                                         // chừa chỗ đường kích thước mặt trước
+  const W=PAD*2+(15.5-MINX)*S, H=PADTOP+maxY*S+PADBOT;
+  const o=[];
+  o.push(`<svg viewBox="0 0 ${W.toFixed(0)} ${H.toFixed(0)}" class="planSVG" role="img" aria-label="Mặt bằng nhà">`);
+
+  // ----- HIÊN + TAM CẤP CỬA CHÍNH (mặt Tây): sâu entryD, rộng entryW, bám tâm cửa chính -----
+  const md=PLAN.doors.find(d=>d.main)||{y:1.1,wide:2.45};
+  const ecy=md.y+(md.wide||2.45)/2, ey0=ecy-entryW/2, ey1=ecy+entryW/2;   // hiên full, tâm theo cửa
+  o.push(`<rect class="porch" x="${X(1-entryD)}" y="${Y(ey0)}" width="${(entryD*S).toFixed(1)}" height="${(entryW*S).toFixed(1)}"/>`);   // mái che cửa chính (full hiên)
+  // TAM CẤP lọt giữa hiên (rộng ~bằng cửa), nhô ra trước mép hiên
+  const stepW=(md.wide||2.45), sy0=ecy-stepW/2, sy1=ecy+stepW/2;
+  for(let i=0;i<3;i++){ const sx=(X(1-entryD-entryStep*(i+1)/3)).toFixed(1); o.push(`<line class="step" x1="${sx}" y1="${Y(sy0)}" x2="${sx}" y2="${Y(sy1)}"/>`); }
+  // 2 CỘT hai bên tam cấp (góc trước hiên)
+  [ey0,ey1].forEach(cy=>o.push(`<rect class="col" x="${(X(1-entryD)-4).toFixed(1)}" y="${(Y(cy)-4).toFixed(1)}" width="8" height="8"/>`));
+  o.push(`<text class="note" x="${X(1-entryD/2)}" y="${(Y(ey0)-6).toFixed(1)}" text-anchor="middle">HIÊN CỬA CHÍNH ${entryD}×${entryW}m • TAM CẤP giữa</text>`);
+
+  // grid
+  o.push('<g class="grid">');
+  for(let gx=0;gx<=15.5+0.01;gx++) o.push(`<line x1="${X(gx)}" y1="${Y(0)}" x2="${X(gx)}" y2="${Y(8)}"/>`);
+  for(let gy=0;gy<=8+0.01;gy++) o.push(`<line x1="${X(0)}" y1="${Y(gy)}" x2="${X(15.5)}" y2="${Y(gy)}"/>`);
+  o.push('</g>');
+
+  // rooms (fills + tiles + names)
+  PLAN.rooms.forEach(r=>{
+    const g=PLAN.groups[r.g], rx=X(r.x), ry=Y(r.y), rw=r.w*S, rh=r.h*S;
+    const cx=rx+rw/2, cy=ry+rh/2, ny=(r.nameY!=null)?Y(r.nameY):cy;
+    const tag = interactive? `class="room" data-id="${r.id}" tabindex="0"` : 'class="room-static"';
+    o.push(`<g ${tag}>`);
+    const fillOp = r.outdoor?0.22:(r.g==="circ"?0.28:0.42);
+    o.push(`<rect class="room-fill" x="${rx}" y="${ry}" width="${rw}" height="${rh}" fill="${g.c}" fill-opacity="${fillOp}" stroke="${g.c}" stroke-opacity=".9"/>`);
+    if(r.id==="planter"){ o.push(`<circle class="furn fill" cx="${rx+rw*0.5}" cy="${Y(5.6)}" r="${0.45*S}"/>`); o.push(`<circle class="furn fill" cx="${rx+rw*0.5}" cy="${Y(7.0)}" r="${0.45*S}"/>`); }
+    if(["living","dine","circ"].includes(r.g)){
+      for(let gx=r.x+0.6; gx<r.x+r.w-0.01; gx+=0.6) o.push(`<line class="tile" x1="${X(gx)}" y1="${ry}" x2="${X(gx)}" y2="${ry+rh}"/>`);
+      for(let gy=r.y+0.6; gy<r.y+r.h-0.01; gy+=0.6) o.push(`<line class="tile" x1="${rx}" y1="${Y(gy)}" x2="${rx+rw}" y2="${Y(gy)}"/>`);
+    }
+    if(r.name) o.push(`<text class="rname" x="${cx}" y="${ny-2}">${r.name}</text>`);
+    if(!r.outdoor && r.g!=="circ" && r.name) o.push(`<text class="rarea" x="${cx}" y="${ny+13}">${area(r).toFixed(1)} m²</text>`);
+    o.push('</g>');
+  });
+
+  // furniture
+  o.push('<g class="furn">'); o.push(furniture(X,Y,S)); o.push('</g>');
+
+  // walls + partitions — vách kín CHỈ quanh phòng riêng (bỏ qua khu chung mở)
+  o.push('<g>');
+  PLAN.rooms.forEach(r=>{ if(r.outdoor||r.open) return; o.push(`<rect class="part" x="${X(r.x)}" y="${Y(r.y)}" width="${r.w*S}" height="${r.h*S}"/>`); });
+  // LAM NGĂN khách↔ăn tại X6.5 (Y0.3–3.4, hở phần trước để đi lại)
+  o.push('<g class="lam">');
+  for(let ly=0.35; ly<3.4; ly+=0.32) o.push(`<rect x="${(X(6.5)-2).toFixed(1)}" y="${Y(ly)}" width="4" height="${0.2*S}"/>`);
+  o.push('</g>');
+  // TƯỜNG BAO hình chữ L (khuyết góc trên-trái X0–1, Y0–4.6 do khối thờ nhô ra trái), dày 0.20m
+  const oPts=[[1,0],[15.5,0],[15.5,8],[0,8],[0,4.6],[1,4.6]];
+  const iPts=[[1.2,0.2],[15.3,0.2],[15.3,7.8],[0.2,7.8],[0.2,4.8],[1.2,4.8]];
+  const toPath=pts=>'M'+pts.map(p=>`${X(p[0]).toFixed(1)} ${Y(p[1]).toFixed(1)}`).join(' L')+' Z';
+  o.push(`<path class="wallband" fill-rule="evenodd" d="${toPath(oPts)} ${toPath(iPts)}"/>`);
+  o.push(`<rect class="part" x="${X(-1.3)}" y="${Y(4.6)}" width="${1.3*S}" height="${3.4*S}" stroke-dasharray="4 4"/>`); // ô cây
+  o.push('</g>');
+
+  // windows + doors
+  o.push('<g class="win">'); PLAN.windows.forEach(w=>o.push(windowSym(w,X,Y,S))); o.push('</g>');
+  o.push('<g class="door">'); PLAN.doors.forEach(d=>o.push(door(d,X,Y,S))); o.push('</g>');
+
+  // dimension lines
+  const dimY=Y(maxY)+16;
+  o.push('<g class="dim">');
+  // mặt trước: tự tính theo các phòng dải trước (chạm tường Nam y=8)
+  const frontR=PLAN.rooms.filter(r=>!r.outdoor && Math.abs((r.y+r.h)-8)<0.6).sort((a,b)=>a.x-b.x);
+  dimChain(o, frontR.map(r=>[r.x,r.x+r.w]), dimY, X);
+  o.push(dimLabel(X(0),X(15.5), dimY+24, PLAN.meta.W.toFixed(1)+"m"));
+  // mặt sau: tự tính theo phòng chạm tường Bắc (bỏ phòng nằm lọt trong phòng khác, vd WC2 trong master)
+  let backR=PLAN.rooms.filter(r=>!r.outdoor && r.y<0.5);
+  backR=backR.filter(r=>!backR.some(o=>o!==r && o.x<=r.x+0.01 && o.x+o.w>=r.x+r.w-0.01 && o.w>r.w)).sort((a,b)=>a.x-b.x);
+  dimChain(o, backR.map(r=>[r.x,r.x+r.w]), Y(0)-26, X);
+  const bx0=backR.length?backR[0].x:1;
+  o.push(dimLabel(X(bx0),X(15.5), Y(0)-50, (15.5-bx0).toFixed(1)+"m"));
+  dimChainV(o,[[0,5],[5,8]], X(15.5)+26, Y);                           // hồi phải: master 5 / N3 3
+  o.push(dimLabelV(Y(0),Y(8), X(15.5)+52, "8.0m"));
+  dimChainV(o,[[4.6,8]], X(0)-26, Y);                                  // hồi trái: dải thờ 3.4
+  o.push('</g>');
+
+  o.push(northArrow(X(15.5)+30, Y(0)+4));
+  o.push(scaleBar(X(0), dimY+44, S));
+  o.push('</svg>');
+  return o.join("");
+}
+
+function dimChain(o,segs,ypx,X,horiz){
+  segs.forEach(s=>{ o.push(dimLabel(X(s[0]),X(s[1]),ypx,fmt(s[1]-s[0]))); });
+}
+function dimLabel(x1,x2,ypx,text){
+  return `<g><line x1="${x1}" y1="${ypx}" x2="${x2}" y2="${ypx}"/>`+
+    `<line class="ext" x1="${x1}" y1="${ypx-4}" x2="${x1}" y2="${ypx+4}"/>`+
+    `<line class="ext" x1="${x2}" y1="${ypx-4}" x2="${x2}" y2="${ypx+4}"/>`+
+    `<text x="${(x1+x2)/2}" y="${ypx-4}">${text}</text></g>`;
+}
+function dimChainV(o,segs,xpx,Y){
+  segs.forEach(s=>o.push(dimLabelV(Y(s[0]),Y(s[1]),xpx,fmt(s[1]-s[0]))));
+}
+function dimLabelV(y1,y2,xpx,text){
+  const my=(y1+y2)/2;
+  return `<g><line x1="${xpx}" y1="${y1}" x2="${xpx}" y2="${y2}"/>`+
+    `<line class="ext" x1="${xpx-4}" y1="${y1}" x2="${xpx+4}" y2="${y1}"/>`+
+    `<line class="ext" x1="${xpx-4}" y1="${y2}" x2="${xpx+4}" y2="${y2}"/>`+
+    `<text x="${xpx+12}" y="${my+3}" text-anchor="middle">${text}</text></g>`;
+}
+
+// 2 cánh kiểu Pháp cho 1 đoạn mở (hx,hy = mép đầu; len = bề rộng đoạn; horiz: tường ngang)
+function frenchPair(hx,hy,len,dir,horiz){
+  const half=len/2;
+  if(!horiz){ const dx=(dir==="e")?1:-1,s1=(dir==="e")?1:0,s2=(dir==="e")?0:1,m=(hy+half).toFixed(1),tip=(hx+dx*half).toFixed(1);
+    return `<line x1="${hx}" y1="${hy}" x2="${tip}" y2="${hy}"/>`
+      +`<line x1="${hx}" y1="${hy+len}" x2="${tip}" y2="${hy+len}"/>`
+      +`<path d="M ${tip} ${hy} A ${half} ${half} 0 0 ${s1} ${hx} ${m}"/>`
+      +`<path d="M ${tip} ${hy+len} A ${half} ${half} 0 0 ${s2} ${hx} ${m}"/>`;
+  }
+  const dy=(dir==="s")?1:-1,s1=(dir==="s")?0:1,s2=(dir==="s")?1:0,m=(hx+half).toFixed(1),tip=(hy+dy*half).toFixed(1);
+  return `<line x1="${hx}" y1="${hy}" x2="${hx}" y2="${tip}"/>`
+    +`<line x1="${hx+len}" y1="${hy}" x2="${hx+len}" y2="${tip}"/>`
+    +`<path d="M ${hx} ${tip} A ${half} ${half} 0 0 ${s1} ${m} ${hy}"/>`
+    +`<path d="M ${hx+len} ${tip} A ${half} ${half} 0 0 ${s2} ${m} ${hy}"/>`;
+}
+function door(d,X,Y,S){
+  const w=(d.wide||0.9)*S, hx=X(d.x), hy=Y(d.y), horiz=(d.dir==="n"||d.dir==="s");
+  const gap = horiz
+    ? `<line x1="${hx}" y1="${hy}" x2="${hx+w}" y2="${hy}" stroke="#0a2349" stroke-width="10"/>`
+    : `<line x1="${hx}" y1="${hy}" x2="${hx}" y2="${hy+w}" stroke="#0a2349" stroke-width="10"/>`;
+  // ô mở có rèm che (không có cánh)
+  if(d.curtain){
+    const n=Math.max(4,Math.round((d.wide)/0.2)), step=w/n; let p=`M ${hx} ${hy}`;
+    for(let i=0;i<n;i++){ const t=hx+(i+1)*step; p += horiz? ` A 4 4 0 0 1 ${t.toFixed(1)} ${hy}` : ` A 4 4 0 0 1 ${hx} ${(hy+(i+1)*step).toFixed(1)}`; }
+    const lbl = `<text x="${horiz?hx+w/2:hx}" y="${horiz?hy-5:hy-2}" fill="#ffd479" font-size="8" text-anchor="middle">rèm</text>`;
+    return gap+`<path class="curtain" d="${p}"/>`+lbl;
+  }
+  const lblMain = d.main?`<text x="${horiz?hx+w/2:hx}" y="${horiz?(d.dir==="s"?hy+18:hy-8):(hy+w+12)}" fill="#ffd479" font-size="8" text-anchor="middle">CỬA CHÍNH</text>`:'';
+  // CỬA CÓ Ô KÍNH BÊN (sidelight): 2 cánh giữa + 2 ô kính cố định liền khung
+  if(d.sidelight){
+    const sl=d.sidelight*S; let s=gap;
+    if(!horiz){
+      s+=`<line class="glass" x1="${hx}" y1="${hy}" x2="${hx}" y2="${(hy+sl).toFixed(1)}"/>`
+        +`<line class="glass" x1="${hx}" y1="${(hy+w-sl).toFixed(1)}" x2="${hx}" y2="${hy+w}"/>`;
+      s+=frenchPair(hx, hy+sl, w-2*sl, d.dir, false);
+    } else {
+      s+=`<line class="glass" x1="${hx}" y1="${hy}" x2="${(hx+sl).toFixed(1)}" y2="${hy}"/>`
+        +`<line class="glass" x1="${(hx+w-sl).toFixed(1)}" y1="${hy}" x2="${hx+w}" y2="${hy}"/>`;
+      s+=frenchPair(hx+sl, hy, w-2*sl, d.dir, true);
+    }
+    return s+lblMain;
+  }
+  // cửa nhiều cánh (2 hoặc 4): mỗi cặp = 2 cánh mở từ 2 mép vào giữa
+  const N=d.leaves||(d.double?2:1);
+  if(N>=2){
+    const pairs=Math.max(1,Math.round(N/2)), seg=w/pairs; let s=gap;
+    const lbl = d.main?`<text x="${horiz?hx+w/2:hx}" y="${horiz?(d.dir==="s"?hy+18:hy-8):(hy+w+12)}" fill="#ffd479" font-size="8" text-anchor="middle">CỬA CHÍNH${N>2?' '+N+' cánh':''}</text>`:'';
+    for(let k=0;k<pairs;k++){ s+= horiz? frenchPair(hx+k*seg, hy, seg, d.dir, true) : frenchPair(hx, hy+k*seg, seg, d.dir, false); }
+    return s+lbl;
+  }
+  // cánh cửa + cung quét (mở vào trong phòng)
+  let lx=hx,ly=hy,ax=hx,ay=hy,sweep=1;
+  if(d.dir==="e"){ lx=hx+w; ax=hx; ay=hy+w; }
+  else if(d.dir==="w"){ lx=hx-w; ax=hx; ay=hy+w; }
+  else if(d.dir==="n"){ lx=hx; ly=hy-w; ax=hx+w; ay=hy; }
+  else if(d.dir==="s"){ lx=hx; ly=hy+w; ax=hx+w; ay=hy; }
+  const lbl = d.main?`<text x="${(hx+lx)/2}" y="${hy+(d.dir==="e"?w+12:0)}" fill="#ffd479" font-size="8" text-anchor="middle">CỬA CHÍNH</text>`:'';
+  return gap+`<path d="M ${lx} ${ly} A ${w} ${w} 0 0 ${sweep} ${ax} ${ay}"/>`+
+    `<line x1="${hx}" y1="${hy}" x2="${lx}" y2="${ly}"/>`+lbl;
+}
+
+/* ---------- window symbol (cửa sổ; cm = 2 cánh, leaves = số cánh 2/4) ---------- */
+function windowSym(w,X,Y,S){
+  const th=0.14*S, fr=0.105*S;
+  const nL=w.leaves||(w.cm?2:0);            // số cánh (0 = cố định, không vẽ cánh mở)
+  if(w.wall==="N"||w.wall==="S"){
+    const yy=(w.wall==="N")?Y(0):Y(8), x1=X(w.a), x2=X(w.b);
+    let s=`<rect x="${x1}" y="${(yy-th).toFixed(1)}" width="${(x2-x1).toFixed(1)}" height="${(2*th).toFixed(1)}"/>`+
+      `<line x1="${x1}" y1="${(yy-fr).toFixed(1)}" x2="${x2}" y2="${(yy-fr).toFixed(1)}"/>`+
+      `<line x1="${x1}" y1="${yy}" x2="${x2}" y2="${yy}"/>`+
+      `<line x1="${x1}" y1="${(yy+fr).toFixed(1)}" x2="${x2}" y2="${(yy+fr).toFixed(1)}"/>`;
+    if(nL>=2){ const d=(w.wall==="N")?-1:1, pairs=Math.max(1,Math.round(nL/2)), seg=(x2-x1)/pairs, half=seg/2, oy=(yy+d*half).toFixed(1);
+      for(let k=0;k<pairs;k++){ const p1=x1+k*seg, p2=p1+seg, mid=p1+half;
+        s+=`<path class="leaf" d="M ${p1} ${yy} L ${p1} ${oy} A ${half} ${half} 0 0 ${d>0?0:1} ${mid} ${yy}"/>`+
+           `<path class="leaf" d="M ${p2} ${yy} L ${p2} ${oy} A ${half} ${half} 0 0 ${d>0?1:0} ${mid} ${yy}"/>`; } }
+    return s;
+  } else {
+    const xx=(w.wall==="W")?X(w.pos!=null?w.pos:0):X(w.pos!=null?w.pos:15.5), y1=Y(w.a), y2=Y(w.b);
+    let s=`<rect x="${(xx-th).toFixed(1)}" y="${y1}" width="${(2*th).toFixed(1)}" height="${(y2-y1).toFixed(1)}"/>`+
+      `<line x1="${(xx-fr).toFixed(1)}" y1="${y1}" x2="${(xx-fr).toFixed(1)}" y2="${y2}"/>`+
+      `<line x1="${xx}" y1="${y1}" x2="${xx}" y2="${y2}"/>`+
+      `<line x1="${(xx+fr).toFixed(1)}" y1="${y1}" x2="${(xx+fr).toFixed(1)}" y2="${y2}"/>`;
+    if(nL>=2){ const d=(w.wall==="W")?-1:1, pairs=Math.max(1,Math.round(nL/2)), seg=(y2-y1)/pairs, half=seg/2, ox=(xx+d*half).toFixed(1);
+      for(let k=0;k<pairs;k++){ const q1=y1+k*seg, q2=q1+seg, mid=q1+half;
+        s+=`<path class="leaf" d="M ${xx} ${q1} L ${ox} ${q1} A ${half} ${half} 0 0 ${d>0?1:0} ${xx} ${mid}"/>`+
+           `<path class="leaf" d="M ${xx} ${q2} L ${ox} ${q2} A ${half} ${half} 0 0 ${d>0?0:1} ${xx} ${mid}"/>`; } }
+    return s;
+  }
+}
+
+function northArrow(x,y){
+  return `<g><circle cx="${x+14}" cy="${y+14}" r="14" fill="none" stroke="#7fd1ff" stroke-width="1"/>`+
+    `<path d="M ${x+14} ${y+3} L ${x+19} ${y+18} L ${x+14} ${y+14} L ${x+9} ${y+18} Z" fill="#7fd1ff"/>`+
+    `<text x="${x+14}" y="${y+26}" fill="#7fd1ff" font-size="8" text-anchor="middle">B</text></g>`;
+}
+function scaleBar(x,y,S){
+  const seg=S; let g=`<g><text x="${x}" y="${y-4}" fill="#9fbbe4" font-size="9">0      1      2      3      4 m</text>`;
+  for(let i=0;i<4;i++){ g+=`<rect x="${x+i*seg}" y="${y}" width="${seg}" height="5" fill="${i%2?'#0a2349':'#9fbbe4'}" stroke="#9fbbe4" stroke-width=".7"/>`; }
+  return g+'</g>';
+}
+
+/* ---------- furniture (kích thước thật, đặt sát tường) ----------
+   Tham chiếu: giường đôi 1.6×2.0m, sofa 2.1×0.85m, bàn ăn 1.4×0.85m,
+   tủ áo sâu 0.55m, bồn cầu 0.4×0.68m, lavabo ~0.55m, bàn bếp sâu 0.6m. */
+function furniture(X,Y,S){
+  const f=[];
+  const R=(x,y,w,h,cls="")=>`<rect class="furn ${cls}" x="${X(x)}" y="${Y(y)}" width="${(w*S).toFixed(1)}" height="${(h*S).toFixed(1)}" rx="2"/>`;
+  const L=(x1,y1,x2,y2,cls="furn")=>`<line class="${cls}" x1="${X(x1)}" y1="${Y(y1)}" x2="${X(x2)}" y2="${Y(y2)}"/>`;
+  const C=(x,y,r,cls="")=>`<circle class="furn ${cls}" cx="${X(x)}" cy="${Y(y)}" r="${(r*S).toFixed(1)}"/>`;
+  const EL=(x,y,rx,ry,cls="")=>`<ellipse class="furn ${cls}" cx="${X(x)}" cy="${Y(y)}" rx="${(rx*S).toFixed(1)}" ry="${(ry*S).toFixed(1)}"/>`;
+  // giường: x,y góc; w×h; head ∈ n/s/e/w = cạnh kê đầu (áp tường). 2 gối + mép chăn
+  const bed=(x,y,w,h,head)=>{
+    let s=R(x,y,w,h,"fill");
+    if(head==="n"||head==="s"){ const pw=(w-0.3)/2, pd=0.42, py=(head==="n")?y+0.1:y+h-0.1-pd;
+      s+=R(x+0.1,py,pw,pd)+R(x+0.2+pw,py,pw,pd)+L(x+0.06,(head==="n")?y+0.72:y+h-0.72,x+w-0.06,(head==="n")?y+0.72:y+h-0.72); }
+    else { const ph=(h-0.3)/2, pw=0.42, px=(head==="w")?x+0.1:x+w-0.1-pw;
+      s+=R(px,y+0.1,pw,ph)+R(px,y+0.2+ph,pw,ph)+L((head==="w")?x+0.72:x+w-0.72,y+0.06,(head==="w")?x+0.72:x+w-0.72,y+h-0.06); }
+    return s;
+  };
+  const ward=(x,y,w,h)=>{ let s=R(x,y,w,h,"fill"); const n=Math.max(2,Math.round(Math.max(w,h)/0.5));
+    for(let i=1;i<n;i++){ s+=(w>=h)?L(x+i*w/n,y,x+i*w/n,y+h):L(x,y+i*h/n,x+w,y+i*h/n);} return s; };
+  // bồn cầu quay theo hướng dir (mặt ngồi hướng dir, két nước áp tường đối diện)
+  const toilet=(x,y,dir)=>{
+    if(dir==="s") return R(x,y,0.4,0.2,"fill")+EL(x+0.2,y+0.42,0.18,0.22,"fill");
+    if(dir==="n") return R(x,y+0.44,0.4,0.2,"fill")+EL(x+0.2,y+0.23,0.18,0.22,"fill");
+    if(dir==="w") return R(x+0.44,y,0.2,0.4,"fill")+EL(x+0.23,y+0.2,0.22,0.18,"fill");
+    return R(x,y,0.2,0.4,"fill")+EL(x+0.42,y+0.2,0.22,0.18,"fill"); // e
+  };
+  const lavabo=(x,y)=>R(x,y,0.55,0.42)+EL(x+0.275,y+0.21,0.2,0.13,"fill");
+  const wash=(x,y)=>R(x,y,0.6,0.6,"fill")+C(x+0.3,y+0.3,0.16);                       // máy giặt
+  const fridge=(x,y,w,h)=>R(x,y,w,h,"fill")+L(x,y+0.28*h,x+w,y+0.28*h);              // tủ lạnh
+  // buồng tắm: box + sen + VÁCH KÍNH ở cạnh "glass" (mặt mở)
+  const showerG=(x,y,w,h,glass)=>{ let s=R(x,y,w,h)+C(x+0.22,y+0.22,0.05,"fill");
+    s+=(glass==="s")?L(x,y+h,x+w,y+h,"glass"):(glass==="n")?L(x,y,x+w,y,"glass"):(glass==="e")?L(x+w,y,x+w,y+h,"glass"):L(x,y,x,y+h,"glass");
+    return s; };
+  const ntab=(x,y)=>R(x,y,0.42,0.4);
+  const chair=(x,y)=>R(x,y,0.42,0.42);
+
+  // ---- BỘ VẼ THEO TYPE (đọc từ PLAN.furniture) ----
+  const draw={
+    sofa:(it)=>{ let s=R(it.x,it.y,it.w,it.h,"fill")+L(it.x,it.y+it.h*0.6,it.x+it.w,it.y+it.h*0.6);
+      const n=Math.max(2,Math.round(it.w/0.9)); for(let i=1;i<n;i++) s+=L(it.x+i*it.w/n,it.y,it.x+i*it.w/n,it.y+it.h*0.6); return s; },
+    coffee:(it)=>R(it.x,it.y,it.w,it.h),
+    armchair:(it)=>R(it.x,it.y,it.w,it.h,"fill"),
+    tv:(it)=>R(it.x,it.y,it.w,it.h,"fill")+L(it.x,it.y+it.h/2,it.x+it.w,it.y+it.h/2),
+    bed:(it)=>bed(it.x,it.y,it.w,it.h,it.dir||"n"),
+    wardrobe:(it)=>ward(it.x,it.y,it.w,it.h),
+    desk:(it)=>R(it.x,it.y,it.w,it.h,"fill")+chair(it.x+it.w/2-0.21,it.y-0.55),
+    diningtable:(it)=>R(it.x,it.y,it.w,it.h,"fill")
+      +chair(it.x+0.12,it.y-0.5)+chair(it.x+it.w-0.54,it.y-0.5)
+      +chair(it.x+0.12,it.y+it.h+0.08)+chair(it.x+it.w-0.54,it.y+it.h+0.08),
+    cooktop:(it)=>{ let s=R(it.x,it.y,it.w,it.h,"fill");
+      [it.x+it.w*0.3,it.x+it.w*0.7].forEach(bx=>[it.y+it.h*0.35,it.y+it.h*0.7].forEach(by=>s+=C(bx,by,0.08)));
+      if(it.w>it.h) s+=R(it.x+it.w*0.25,it.y-0.16,it.w*0.5,0.14,"fill"); // hút mùi (chỉ khi đặt ngang)
+      return s; },
+    washcounter:(it)=>R(it.x,it.y,it.w,it.h,"fill")
+      +EL(it.x+it.w*0.3,it.y+it.h*0.55,0.15,0.11,"fill")+EL(it.x+it.w*0.7,it.y+it.h*0.55,0.15,0.11,"fill"),
+    fridge:(it)=>fridge(it.x,it.y,it.w,it.h),
+    altar:(it)=>R(it.x,it.y,it.w,it.h,"fill")+L(it.x,it.y+it.h*0.5,it.x+it.w,it.y+it.h*0.5),
+    shower:(it)=>showerG(it.x,it.y,it.w,it.h,it.glass||"s"),
+    toilet:(it)=>toilet(it.x,it.y,it.dir||"s"),
+    lavabo:(it)=>lavabo(it.x,it.y),
+    washer:(it)=>wash(it.x,it.y)
+  };
+  (PLAN.furniture||[]).forEach(it=>{ const fn=draw[it.type]; if(fn) f.push(fn(it)); });
+  return f.join("");
+}
+
+/* ===================== PHỐI CẢNH 3D (isometric) ===================== */
+function buildIso(){
+  const ISO=20, ang=Math.PI/6, cosA=Math.cos(ang), sinA=Math.sin(ang);
+  const H=PLAN.meta.wallH, RZ=H+PLAN.meta.ridgeRise, ov=PLAN.meta.overhang;
+  const Wm=PLAN.meta.W, Wo=Wm+0.4;
+  const iso=(x,y,z)=>[(x-y)*cosA*ISO, (x+y)*sinA*ISO - z*ISO];
+  // bounds
+  let minx=1e9,miny=1e9,maxx=-1e9,maxy=-1e9;
+  const corners=[[-ov,-ov,0],[Wo,-ov,0],[Wo,8.4,0],[-ov,8.4,0],[Wm/2,4,RZ]];
+  corners.forEach(c=>{const p=iso(...c);minx=Math.min(minx,p[0]);maxx=Math.max(maxx,p[0]);miny=Math.min(miny,p[1]);maxy=Math.max(maxy,p[1]);});
+  const tx=40-minx, ty=30-miny, W=maxx-minx+80, Ht=maxy-miny+60;
+  const P=(x,y,z)=>{const p=iso(x,y,z);return (p[0]+tx).toFixed(1)+","+(p[1]+ty).toFixed(1);};
+  const poly=(pts,fill,op,stroke="#cfe0f5",sw=1)=>`<polygon points="${pts.map(p=>P(...p)).join(" ")}" fill="${fill}" fill-opacity="${op}" stroke="${stroke}" stroke-width="${sw}" stroke-linejoin="round"/>`;
+  const o=[`<svg viewBox="0 0 ${W.toFixed(0)} ${Ht.toFixed(0)}" role="img" aria-label="Phối cảnh 3D">`];
+
+  // floor rooms (z=0)
+  PLAN.rooms.filter(r=>!r.outdoor).forEach(r=>{
+    const g=PLAN.groups[r.g];
+    o.push(poly([[r.x,r.y,0],[r.x+r.w,r.y,0],[r.x+r.w,r.y+r.h,0],[r.x,r.y+r.h,0]],g.c,0.85,"#0a2349",1));
+    const c=iso(r.x+r.w/2,r.y+r.h/2,0);
+    o.push(`<text x="${(c[0]+tx).toFixed(1)}" y="${(c[1]+ty).toFixed(1)}" font-size="8" text-anchor="middle" fill="#08203f" style="paint-order:stroke;stroke:#dbe8fb;stroke-width:2px">${r.name}</text>`);
+  });
+  // perimeter walls (extrude) — draw far walls then near
+  const wall=(a,b)=>poly([[a[0],a[1],0],[b[0],b[1],0],[b[0],b[1],H],[a[0],a[1],H]],"#bcd4f5",0.16,"#cfe0f5",1);
+  o.push(wall([0,0],[Wm,0]));   // back
+  o.push(wall([0,0],[0,8]));      // left
+  o.push(wall([Wm,0],[Wm,8]));// right
+  // roof (two slopes) — back then front
+  o.push(poly([[-ov,-ov,H],[Wo,-ov,H],[Wo,4,RZ],[-ov,4,RZ]],"#9fb3c6",0.55,"#e7f0ff",1.2)); // back slope
+  o.push(poly([[-ov,4,RZ],[Wo,4,RZ],[Wo,8.4,H],[-ov,8.4,H]],"#b6c6d6",0.62,"#e7f0ff",1.2));  // front slope
+  // sóng tôn (ridge + lines)
+  o.push(`<line x1="${P(-ov,4,RZ).split(',')[0]}" y1="${P(-ov,4,RZ).split(',')[1]}" x2="${P(Wo,4,RZ).split(',')[0]}" y2="${P(Wo,4,RZ).split(',')[1]}" stroke="#ffffff" stroke-width="1.4"/>`);
+  for(let xx=0;xx<=Wm;xx+=1.2){
+    o.push(`<line x1="${P(xx,4,RZ).split(',')[0]}" y1="${P(xx,4,RZ).split(',')[1]}" x2="${P(xx,8.4,H).split(',')[0]}" y2="${P(xx,8.4,H).split(',')[1]}" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"/>`);
+  }
+  o.push(wall([0,8],[Wm,8]));   // front wall (near, on top)
+
+  o.push(`<text x="${(W-10).toFixed(0)}" y="${(Ht-10).toFixed(0)}" font-size="9" text-anchor="end" fill="#9fbbe4">Phối cảnh minh hoạ • mái tôn 2 mái dốc ~20%</text>`);
+  o.push('</svg>');
+  return o.join("");
+}
+
+/* ===================== MẶT ĐỨNG NAM (mặt trước) — cửa sổ lấy từ PLAN ===================== */
+function buildElev(){
+  const m=PLAN.meta, SE=34, PADL=70, PADR=128, PADT=46;
+  const H=m.wallH, RZ=H+m.ridgeRise, W=m.W, ov=m.overhang||0.4;
+  const base=PADT+RZ*SE+52, X=x=>PADL+x*SE, Z=z=>base-z*SE;
+  const Wsvg=PADL+PADR+W*SE, Hsvg=base+50;
+  const o=[`<svg viewBox="0 0 ${Wsvg.toFixed(0)} ${Hsvg.toFixed(0)}" role="img" aria-label="Mặt đứng Nam">`];
+  o.push(`<line x1="${X(-1)}" y1="${Z(0)}" x2="${X(W+1)}" y2="${Z(0)}" stroke="#9fbbe4" stroke-width="2"/>`);
+  for(let g=-1;g<W+1;g+=0.6) o.push(`<line x1="${X(g)}" y1="${Z(0)}" x2="${(X(g)-7).toFixed(1)}" y2="${(Z(0)+9).toFixed(1)}" stroke="#5d83bd" stroke-width="1"/>`);
+  o.push(`<rect x="${X(0)}" y="${Z(H)}" width="${(W*SE).toFixed(1)}" height="${(H*SE).toFixed(1)}" fill="#1b3f72" stroke="#eaf2ff" stroke-width="2"/>`);
+  o.push(`<polygon points="${X(-ov)},${Z(H)} ${X(W+ov)},${Z(H)} ${X(W-2)},${Z(RZ)} ${X(2)},${Z(RZ)}" fill="#7e93a8" stroke="#eaf2ff" stroke-width="2" stroke-linejoin="round"/>`);
+  for(let i=0;i<=Math.round(W);i++){ const xb=Math.min(Math.max(i,2),W-2); o.push(`<line x1="${X(i)}" y1="${Z(H)}" x2="${X(xb)}" y2="${Z(RZ)}" stroke="#5d83bd" stroke-width=".6"/>`); }
+  // CỬA SỔ tường Nam (từ PLAN) — không có cửa chính ở mặt này
+  const sill=0.95, wh=1.35;
+  PLAN.windows.filter(w=>w.wall==="S").forEach(w=>{ const wd=w.b-w.a, nL=w.leaves||(w.cm?2:0);
+    o.push(`<rect x="${X(w.a)}" y="${Z(sill+wh)}" width="${(wd*SE).toFixed(1)}" height="${(wh*SE).toFixed(1)}" fill="#0c2a52" stroke="#7fd1ff" stroke-width="1.4"/>`);
+    for(let i=1;i<nL;i++){ const lx=X(w.a+wd*i/nL); o.push(`<line x1="${lx}" y1="${Z(sill+wh)}" x2="${lx}" y2="${Z(sill)}" stroke="#7fd1ff" stroke-width=".8"/>`); }
+  });
+  const lvl=(z,txt)=>{o.push(`<line x1="${X(W)+6}" y1="${Z(z)}" x2="${X(W)+40}" y2="${Z(z)}" stroke="#ffd479" stroke-width="1"/>`);
+    o.push(`<text x="${X(W)+44}" y="${(Z(z)+3).toFixed(1)}" fill="#ffd479" font-size="10">${txt}</text>`);};
+  lvl(0,"±0.00"); lvl(H,"+"+H.toFixed(2)+" (mái)"); lvl(RZ,"+"+RZ.toFixed(2)+" (nóc)");
+  o.push(`<g class="dim">${dimLabel(X(0),X(W),Z(0)+34,W.toFixed(1)+"m")}</g>`);
+  o.push(`<text x="${(Wsvg/2).toFixed(0)}" y="${(Hsvg-8).toFixed(0)}" text-anchor="middle" fill="#9fbbe4" font-size="10">MẶT ĐỨNG NAM • cửa sổ phòng ngủ • mái tôn dốc ~20% • cao ${H.toFixed(2)}m</text>`);
+  o.push('</svg>');
+  return `<style>svg .dim line{stroke:#ffd479}svg .dim text{fill:#ffd479}</style>`+o.join("");
+}
+
+/* ===================== MẶT ĐỨNG TÂY (hướng cửa chính) ===================== */
+function buildElevW(){
+  const m=PLAN.meta, SE=34, PADL=66, PADR=120, PADT=46;
+  const H=m.wallH, RZ=H+m.ridgeRise, D=m.D, ov=m.overhang||0.4;
+  const base=PADT+RZ*SE+52, X=d=>PADL+d*SE, Z=z=>base-z*SE;
+  const Wsvg=PADL+PADR+D*SE, Hsvg=base+50;
+  const o=[`<svg viewBox="0 0 ${Wsvg.toFixed(0)} ${Hsvg.toFixed(0)}" role="img" aria-label="Mặt đứng Tây">`];
+  o.push(`<line x1="${X(-1)}" y1="${Z(0)}" x2="${X(D+1)}" y2="${Z(0)}" stroke="#9fbbe4" stroke-width="2"/>`);
+  for(let g=-1;g<D+1;g+=0.6) o.push(`<line x1="${X(g)}" y1="${Z(0)}" x2="${(X(g)-7).toFixed(1)}" y2="${(Z(0)+9).toFixed(1)}" stroke="#5d83bd" stroke-width="1"/>`);
+  o.push(`<rect x="${X(0)}" y="${Z(H)}" width="${(D*SE).toFixed(1)}" height="${(H*SE).toFixed(1)}" fill="#1b3f72" stroke="#eaf2ff" stroke-width="2"/>`);
+  // đầu hồi mái dốc (đỉnh giữa)
+  o.push(`<polygon points="${X(-ov)},${Z(H)} ${X(D/2)},${Z(RZ)} ${X(D+ov)},${Z(H)}" fill="#7e93a8" stroke="#eaf2ff" stroke-width="2" stroke-linejoin="round"/>`);
+  for(let i=0;i<=Math.round(D);i++){ const zt=i<=D/2?H+(RZ-H)*(i/(D/2)):RZ-(RZ-H)*((i-D/2)/(D/2)); o.push(`<line x1="${X(i)}" y1="${Z(H)}" x2="${X(i)}" y2="${Z(zt)}" stroke="#5d83bd" stroke-width=".5" stroke-opacity=".6"/>`); }
+  // CỬA CHÍNH: 2 cánh lớn + 2 ô kính bên + transom trên
+  const md=PLAN.doors.find(d=>d.main)||{y:1.1,wide:2.45}, dh=2.2, th=0.5, dx0=md.y, dw=md.wide;
+  o.push(`<rect x="${X(dx0)}" y="${Z(dh+th)}" width="${(dw*SE).toFixed(1)}" height="${((dh+th)*SE).toFixed(1)}" fill="#0c2a52" stroke="#7fd1ff" stroke-width="1.8"/>`);
+  o.push(`<line x1="${X(dx0)}" y1="${Z(dh)}" x2="${X(dx0+dw)}" y2="${Z(dh)}" stroke="#7fd1ff" stroke-width="1.2"/>`); // đố ngang (transom)
+  if(md.sidelight){ const sl=md.sidelight;
+    [dx0+sl, dx0+dw/2, dx0+dw-sl].forEach(xx=>o.push(`<line x1="${X(xx)}" y1="${Z(dh)}" x2="${X(xx)}" y2="${Z(0)}" stroke="#7fd1ff" stroke-width="1"/>`)); // ô kính bên | cánh | cánh | ô kính bên
+  } else { const np=md.leaves||2; for(let i=1;i<np;i++){ const lx=X(dx0+dw*i/np); o.push(`<line x1="${lx}" y1="${Z(dh)}" x2="${lx}" y2="${Z(0)}" stroke="#7fd1ff" stroke-width="1"/>`); } }
+  for(let i=1;i<4;i++){ const lx=X(dx0+dw*i/4); o.push(`<line x1="${lx}" y1="${Z(dh)}" x2="${lx}" y2="${Z(dh+th)}" stroke="#7fd1ff" stroke-width=".6"/>`); } // transom chia ô
+  // mái che lối vào + 2 cột (rộng entryPorchW)
+  const ew=m.entryPorchW??3.0, ec=dx0+dw/2, cz=dh+th+0.25;
+  o.push(`<line x1="${X(ec-ew/2)}" y1="${Z(cz)}" x2="${X(ec+ew/2)}" y2="${Z(cz)}" stroke="#cfe0f5" stroke-width="3"/>`);
+  [ec-ew/2, ec+ew/2].forEach(xx=>o.push(`<rect x="${(X(xx)-3).toFixed(1)}" y="${Z(cz)}" width="6" height="${(cz*SE).toFixed(1)}" fill="none" stroke="#cfe0f5" stroke-width="1.5"/>`)); // 2 cột
+  // cửa sổ Tây (phòng thờ) — số cánh = leaves
+  const ww=PLAN.windows.find(w=>w.wall==="W");
+  if(ww){ const wd=ww.b-ww.a, sill=0.95, wh=1.35, nL=ww.leaves||(ww.cm?2:0);
+    o.push(`<rect x="${X(ww.a)}" y="${Z(sill+wh)}" width="${(wd*SE).toFixed(1)}" height="${(wh*SE).toFixed(1)}" fill="#0c2a52" stroke="#7fd1ff" stroke-width="1.4"/>`);
+    for(let i=1;i<nL;i++){ const lx=X(ww.a+wd*i/nL); o.push(`<line x1="${lx}" y1="${Z(sill+wh)}" x2="${lx}" y2="${Z(sill)}" stroke="#7fd1ff" stroke-width=".7"/>`); }
+  }
+  const lvl=(z,txt)=>{o.push(`<line x1="${X(D)+6}" y1="${Z(z)}" x2="${X(D)+38}" y2="${Z(z)}" stroke="#ffd479" stroke-width="1"/>`);
+    o.push(`<text x="${X(D)+42}" y="${(Z(z)+3).toFixed(1)}" fill="#ffd479" font-size="10">${txt}</text>`);};
+  lvl(0,"±0.00"); lvl(H,"+"+H.toFixed(2)); lvl(RZ,"+"+RZ.toFixed(2));
+  o.push(`<g class="dim">${dimLabel(X(0),X(D),Z(0)+34,D.toFixed(1)+"m")}</g>`);
+  o.push(`<text x="${(Wsvg/2).toFixed(0)}" y="${(Hsvg-8).toFixed(0)}" text-anchor="middle" fill="#9fbbe4" font-size="10">MẶT ĐỨNG TÂY • cửa chính 2 cánh + 2 ô kính (${md.wide}m) • đầu hồi mái dốc</text>`);
+  o.push('</svg>');
+  return `<style>svg .dim line{stroke:#ffd479}svg .dim text{fill:#ffd479}</style>`+o.join("");
+}
+
+/* ===================== MẶT CẮT A-A (cắt theo chiều sâu) ===================== */
+function buildSect(){
+  const m=PLAN.meta, SE=30, PADL=92, PADT=46;
+  const H=m.wallH, RZ=H+m.ridgeRise, D=m.D, ov=m.overhang||0.4, mid=4.6;
+  const base=PADT+RZ*SE+54, X=d=>PADL+d*SE, Z=z=>base-z*SE;
+  const Wsvg=PADL+(D+1.4)*SE+30, Hsvg=base+48;
+  const o=[`<svg viewBox="0 0 ${Wsvg.toFixed(0)} ${Hsvg.toFixed(0)}" role="img" aria-label="Mặt cắt A-A">`];
+  // nền + móng
+  o.push(`<line x1="${X(-0.6)}" y1="${Z(0)}" x2="${X(D+0.6)}" y2="${Z(0)}" stroke="#9fbbe4" stroke-width="2"/>`);
+  for(let g=-0.6;g<D+0.6;g+=0.6) o.push(`<line x1="${X(g)}" y1="${Z(0)}" x2="${(X(g)-7).toFixed(1)}" y2="${(Z(0)+9).toFixed(1)}" stroke="#5d83bd" stroke-width="1"/>`);
+  const found=(d)=>o.push(`<polygon points="${X(d-0.5)},${Z(0)} ${X(d+0.5)},${Z(0)} ${X(d+0.25)},${Z(-0.6)} ${X(d-0.25)},${Z(-0.6)}" fill="#1b3f72" stroke="#cfe0f5" stroke-width="1"/>`);
+  found(0); found(mid); found(D);
+  o.push(`<rect x="${X(0)}" y="${Z(0)}" width="${(D*SE).toFixed(1)}" height="6" fill="#cfe0f5"/>`);
+  const cwall=(d)=>o.push(`<rect x="${(X(d)-3).toFixed(1)}" y="${Z(H)}" width="6" height="${(H*SE).toFixed(1)}" fill="#1b3f72" stroke="#eaf2ff" stroke-width="1.5"/>`);
+  cwall(0); cwall(mid); cwall(D);
+  o.push(`<line x1="${X(0)}" y1="${Z(H)}" x2="${X(D)}" y2="${Z(H)}" stroke="#7fd1ff" stroke-width="1" stroke-dasharray="6 4"/>`); // trần la phông
+  // mái dốc (đỉnh giữa) + tôn
+  o.push(`<polygon points="${X(-ov)},${Z(H)} ${X(D/2)},${Z(RZ)} ${X(D+ov)},${Z(H)}" fill="none" stroke="#eaf2ff" stroke-width="2" stroke-linejoin="round"/>`);
+  o.push(`<polyline points="${X(-ov)},${Z(H+0.12)} ${X(D/2)},${Z(RZ+0.12)} ${X(D+ov)},${Z(H+0.12)}" fill="none" stroke="#9fb3c6" stroke-width="3" stroke-linejoin="round"/>`);
+  for(let i=0;i<=8;i++){ const t=i/8, yy=-ov+t*(D+2*ov), zz=t<0.5?H+(RZ-H)*(t/0.5):RZ-(RZ-H)*((t-0.5)/0.5); o.push(`<circle cx="${X(yy)}" cy="${Z(zz)}" r="2.2" fill="#9fb3c6"/>`); }
+  // nhãn khu (Y0=SAU, Y4.6..8=TRƯỚC)
+  o.push(`<text x="${X(mid/2)}" y="${Z(1.6)}" text-anchor="middle" font-size="10" fill="#bcd4f5">Khu sau (khách/bếp/master)</text>`);
+  o.push(`<text x="${X(mid/2)}" y="${Z(1.2)}" text-anchor="middle" font-size="8" fill="#9fbbe4">sâu ${mid.toFixed(1)}m</text>`);
+  o.push(`<text x="${X((mid+D)/2)}" y="${Z(1.6)}" text-anchor="middle" font-size="10" fill="#bcd4f5">Khu trước (thờ/ngủ)</text>`);
+  o.push(`<text x="${X((mid+D)/2)}" y="${Z(1.2)}" text-anchor="middle" font-size="8" fill="#9fbbe4">sâu ${(D-mid).toFixed(1)}m</text>`);
+  // cao độ — bên trái
+  const lvl=(z,txt)=>{o.push(`<line x1="${X(0)-6}" y1="${Z(z)}" x2="${X(0)-42}" y2="${Z(z)}" stroke="#ffd479" stroke-width="1"/>`);
+    o.push(`<text x="${X(0)-46}" y="${(Z(z)+3).toFixed(1)}" text-anchor="end" fill="#ffd479" font-size="9.5">${txt}</text>`);};
+  lvl(0,"±0.00"); lvl(H,"+"+H.toFixed(2)); lvl(RZ,"+"+RZ.toFixed(2));
+  o.push(`<g class="dim2">${dimLabel(X(0),X(mid),Z(0)+30,mid.toFixed(1)+"m")}${dimLabel(X(mid),X(D),Z(0)+30,(D-mid).toFixed(1)+"m")}</g>`);
+  o.push(`<text x="${(Wsvg/2).toFixed(0)}" y="${(Hsvg-6).toFixed(0)}" text-anchor="middle" fill="#9fbbe4" font-size="10">MẶT CẮT A–A • xà gồ + tôn dốc • trần la phông chống nóng</text>`);
+  o.push('</svg>');
+  return `<style>svg .dim2 line{stroke:#ffd479}svg .dim2 text{fill:#ffd479;font-size:10px;text-anchor:middle}</style>`+o.join("");
+}
+
+/* ===================== MÓNG ===================== */
+// chi tiết móng băng (mặt cắt cấu tạo)
+function buildFoundDetail(){
+  const F=PLAN.meta.found||{}, Df=F.Df??1.0, fw=F.footW??0.9, fh=F.footH??0.3, lot=F.lotT??0.1, neck=F.neck??0.25, bw=F.beamW??0.2, bh=F.beamH??0.3;
+  const SE=150, PADL=120, PADR=250, PADT=26;
+  const xMin=-(fw/2+0.35), xMax=fw/2+0.35, zTop=0.45, zBot=-(Df+lot+0.12);
+  const X=x=>PADL+(x-xMin)*SE, Z=z=>PADT+(zTop-z)*SE;
+  const Wsvg=PADL+PADR+(xMax-xMin)*SE, Hsvg=PADT+(zTop-zBot)*SE+26;
+  const zG=-0.3, zFB=-Df, zLT=zFB+lot, zFT=zLT+fh, zBB=-0.3, zBT=0.0; // cao độ
+  const o=[`<svg viewBox="0 0 ${Wsvg.toFixed(0)} ${Hsvg.toFixed(0)}" role="img" aria-label="Chi tiết móng băng">`];
+  // đất tự nhiên + gạch chéo
+  o.push(`<rect x="${X(xMin).toFixed(1)}" y="${Z(zG).toFixed(1)}" width="${((xMax-xMin)*SE).toFixed(1)}" height="${((zG-zBot)*SE).toFixed(1)}" fill="#12305c"/>`);
+  for(let gx=xMin;gx<xMax;gx+=0.13) o.push(`<line x1="${X(gx).toFixed(1)}" y1="${Z(zG).toFixed(1)}" x2="${X(gx-0.16).toFixed(1)}" y2="${(Z(zG)+24).toFixed(1)}" stroke="#264c83" stroke-width=".8"/>`);
+  o.push(`<line x1="${X(xMin)}" y1="${Z(zG)}" x2="${X(xMax)}" y2="${Z(zG)}" stroke="#9fbbe4" stroke-width="1.5"/>`);
+  // bê tông lót
+  o.push(`<rect x="${X(-(fw/2+0.1)).toFixed(1)}" y="${Z(zLT).toFixed(1)}" width="${((fw+0.2)*SE).toFixed(1)}" height="${(lot*SE).toFixed(1)}" fill="#6f7f93" stroke="#cfe0f5" stroke-width="1"/>`);
+  // đế móng (vát lên cổ)
+  o.push(`<polygon points="${X(-fw/2)},${Z(zLT)} ${X(fw/2)},${Z(zLT)} ${X(fw/2)},${Z(zLT+fh*0.4)} ${X(neck/2)},${Z(zFT)} ${X(-neck/2)},${Z(zFT)} ${X(-fw/2)},${Z(zLT+fh*0.4)}" fill="#3f5b86" stroke="#eaf2ff" stroke-width="1.5"/>`);
+  // cổ móng
+  o.push(`<rect x="${X(-neck/2).toFixed(1)}" y="${Z(zBB).toFixed(1)}" width="${(neck*SE).toFixed(1)}" height="${((zBB-zFT)*SE).toFixed(1)}" fill="#3f5b86" stroke="#eaf2ff" stroke-width="1.5"/>`);
+  // giằng móng (đà kiềng)
+  o.push(`<rect x="${X(-bw/2).toFixed(1)}" y="${Z(zBT).toFixed(1)}" width="${(bw*SE).toFixed(1)}" height="${(bh*SE).toFixed(1)}" fill="#1b3f72" stroke="#eaf2ff" stroke-width="1.5"/>`);
+  const gx1=X(-bw/2)+6, gx2=X(bw/2)-6, gy1=Z(zBT)+6, gy2=Z(zBB)-6;
+  o.push(`<rect x="${gx1.toFixed(1)}" y="${gy1.toFixed(1)}" width="${(gx2-gx1).toFixed(1)}" height="${(gy2-gy1).toFixed(1)}" fill="none" stroke="#ffd479" stroke-width="1"/>`);
+  [[gx1,gy1],[gx2,gy1],[gx1,gy2],[gx2,gy2]].forEach(p=>o.push(`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="2.4" fill="#ffd479"/>`));
+  // tường gạch trên giằng
+  o.push(`<rect x="${X(-bw/2).toFixed(1)}" y="${Z(zTop).toFixed(1)}" width="${(bw*SE).toFixed(1)}" height="${((zTop-zBT)*SE).toFixed(1)}" fill="#2a4f86" stroke="#eaf2ff" stroke-width="1.2"/>`);
+  // thép đế móng (hàng dưới)
+  for(let i=0;i<=6;i++){ const xx=-fw/2+0.09+i*(fw-0.18)/6; o.push(`<circle cx="${X(xx).toFixed(1)}" cy="${Z(zLT+0.06).toFixed(1)}" r="2.3" fill="#ffd479"/>`); }
+  // nền nhà 2 bên (z=0)
+  o.push(`<rect x="${X(bw/2).toFixed(1)}" y="${Z(0).toFixed(1)}" width="${((xMax-bw/2)*SE).toFixed(1)}" height="6" fill="#cfe0f5"/>`);
+  o.push(`<rect x="${X(xMin).toFixed(1)}" y="${Z(0).toFixed(1)}" width="${((-bw/2-xMin)*SE).toFixed(1)}" height="6" fill="#cfe0f5"/>`);
+  // cao độ (trái)
+  const lvl=(z,txt)=>{o.push(`<line x1="${X(xMin)-6}" y1="${Z(z)}" x2="${X(xMin)-44}" y2="${Z(z)}" stroke="#ffd479" stroke-width="1"/>`);
+    o.push(`<text x="${(X(xMin)-48).toFixed(1)}" y="${(Z(z)+3).toFixed(1)}" text-anchor="end" fill="#ffd479" font-size="10">${txt}</text>`);};
+  lvl(0,"±0.00"); lvl(zG,(zG).toFixed(2)+" đất TN"); lvl(zFT,(zFT).toFixed(2)); lvl(zFB,(zFB).toFixed(2)+" đáy móng");
+  // nhãn (phải) + leader
+  const tag=(z,txt)=>{o.push(`<line x1="${X(xMax)}" y1="${Z(z)}" x2="${X(xMax)+16}" y2="${Z(z)}" stroke="#5d83bd" stroke-width=".7" stroke-dasharray="3 2"/>`);
+    o.push(`<text x="${(X(xMax)+20).toFixed(1)}" y="${(Z(z)+3).toFixed(1)}" fill="#cfe0f5" font-size="10">${txt}</text>`);};
+  tag(zTop-0.12,"Tường xây gạch");
+  tag((zBT+zBB)/2,`Giằng móng BTCT ${Math.round(bw*1000)}×${Math.round(bh*1000)}`);
+  tag((zFT+zBB)/2,"Cổ móng BTCT");
+  tag((zLT+zFT)/2,`Đế móng rộng ${Math.round(fw*1000)} dày ${Math.round(fh*1000)} (Ø12a150)`);
+  tag(zLT-lot/2,`BT lót đá 4×6 M100 dày ${Math.round(lot*1000)}`);
+  tag(zG-0.3,"Đất nền đầm chặt");
+  o.push(`<g class="dim2">${dimLabel(X(-fw/2),X(fw/2),Z(zFB)+20,Math.round(fw*1000)+"")}</g>`);
+  o.push(`<text x="${(Wsvg/2).toFixed(0)}" y="${(Hsvg-7).toFixed(0)}" text-anchor="middle" fill="#9fbbe4" font-size="10">CHI TIẾT MÓNG BĂNG • chôn sâu ${Df.toFixed(2)}m • minh hoạ</text>`);
+  o.push('</svg>');
+  return `<style>svg .dim2 line{stroke:#ffd479}svg .dim2 text{fill:#ffd479;font-size:10px;text-anchor:middle}</style>`+o.join("");
+}
+// mặt bằng móng: dải móng băng dưới tường + móng đơn dưới 2 cột hiên
+function buildFoundPlan(){
+  const F=PLAN.meta.found||{}, fw=F.footW??0.9;
+  const S=30, PAD=64, PADT=46, X=m=>PAD+m*S, Y=m=>PADT+m*S, bw=fw*S;
+  const Wsvg=PAD*2+15.5*S+30, Hsvg=PADT+8*S+70;
+  const o=[`<svg viewBox="0 0 ${Wsvg.toFixed(0)} ${Hsvg.toFixed(0)}" role="img" aria-label="Mặt bằng móng">`];
+  const band=(x1,y1,x2,y2)=>{
+    if(Math.abs(y1-y2)<0.01){ const a=Math.min(x1,x2),b=Math.max(x1,x2);
+      o.push(`<rect x="${X(a).toFixed(1)}" y="${(Y(y1)-bw/2).toFixed(1)}" width="${((b-a)*S).toFixed(1)}" height="${bw.toFixed(1)}" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"/>`);
+      o.push(`<line x1="${X(a)}" y1="${Y(y1)}" x2="${X(b)}" y2="${Y(y1)}" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"/>`);
+    } else { const a=Math.min(y1,y2),b=Math.max(y1,y2);
+      o.push(`<rect x="${(X(x1)-bw/2).toFixed(1)}" y="${Y(a).toFixed(1)}" width="${bw.toFixed(1)}" height="${((b-a)*S).toFixed(1)}" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"/>`);
+      o.push(`<line x1="${X(x1)}" y1="${Y(a)}" x2="${X(x1)}" y2="${Y(b)}" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"/>`);
+    }
+  };
+  // móng băng dưới tường bao (chữ L) + spine + vách phòng
+  const peri=[[1,0],[15.5,0],[15.5,8],[0,8],[0,4.6],[1,4.6],[1,0]];
+  for(let i=0;i<peri.length-1;i++) band(peri[i][0],peri[i][1],peri[i+1][0],peri[i+1][1]);
+  band(0,4.6,15.5,4.6);
+  [6.5,10.5,12].forEach(x=>band(x,0,x,4.6));
+  [3,7,10.8].forEach(x=>band(x,4.6,x,8));
+  // MÓNG ĐƠN dưới 2 cột hiên cửa chính (mặt Tây)
+  const md=PLAN.doors.find(d=>d.main)||{y:1.1,wide:2.45}, eW=PLAN.meta.entryPorchW??3.0, eD=PLAN.meta.entryPorchD??1.2;
+  const ec=md.y+(md.wide||2.45)/2, fcx=1-eD;
+  [ec-eW/2, ec+eW/2].forEach(cy=>{ const sz=0.6*S; o.push(`<rect x="${(X(fcx)-sz/2).toFixed(1)}" y="${(Y(cy)-sz/2).toFixed(1)}" width="${sz.toFixed(1)}" height="${sz.toFixed(1)}" fill="#67ad63" fill-opacity=".55" stroke="#cfe0f5" stroke-width="1"/>`);
+    o.push(`<line x1="${X(fcx)}" y1="${Y(cy)}" x2="${X(1)}" y2="${Y(cy)}" stroke="#5cbba4" stroke-width="1" stroke-dasharray="4 3"/>`); }); // giằng nối về nhà
+  o.push(`<text x="${X(fcx).toFixed(1)}" y="${(Y(ec)).toFixed(1)}" text-anchor="middle" fill="#9fbbe4" font-size="9">móng cột hiên</text>`);
+  o.push(`<text x="${X(7.75).toFixed(1)}" y="${(Y(8)+44).toFixed(1)}" text-anchor="middle" fill="#9fbbe4" font-size="11">MẶT BẰNG MÓNG • dải móng băng rộng ${Math.round(fw*1000)}mm dưới tường + móng đơn dưới cột hiên</text>`);
+  o.push('</svg>'); return o.join("");
+}
+const FOUND_STEPS=[
+  "Định vị tim trục & giác móng theo bản vẽ; căng dây, đóng cọc mốc.",
+  "Đào hố móng tới cao độ thiết kế (đáy ≈ -1.0m hoặc tới lớp đất tốt); làm phẳng &amp; đầm chặt đáy hố.",
+  "Đổ bê tông lót đá 4×6 mác 100 dày 100mm để tạo phẳng &amp; chống mất nước xi măng.",
+  "Gia công, lắp đặt cốt thép đế móng + cổ móng; kê con kê đảm bảo lớp bảo vệ.",
+  "Ghép cốp pha, nghiệm thu thép – cốp pha trước khi đổ bê tông.",
+  "Đổ bê tông móng mác ≥200 (B15), đầm kỹ; bảo dưỡng ẩm ≥7 ngày.",
+  "Đổ/đặt giằng móng (đà kiềng) liên kết các móng &amp; chân cột, chống lún lệch.",
+  "Lấp đất hố móng theo từng lớp 200–300mm, đầm chặt; tôn nền, đổ bê tông nền nhà."
+];
+const FOUND_SPECS=[
+  {t:"Chiều sâu chôn móng",b:"Đáy móng đặt vào lớp đất chịu lực tốt; chôn sâu thường <b>0.8–1.2m</b> tuỳ địa chất. Đất yếu/bùn → cân nhắc cừ tràm, móng cọc hoặc gia cố nền."},
+  {t:"Đế &amp; giằng móng",b:"Đế móng băng rộng <b>0.8–1.0m</b>, dày <b>0.25–0.35m</b>, thép Ø12 a150 hai phương. Giằng móng <b>200×300</b>, thép 4Ø14–16, đai Ø6 a150–200. Bê tông mác ≥200."},
+  {t:"Móng cho HIÊN (cột hiên)",b:"Cột hiên đỡ mái che cần <b>móng đơn riêng</b> dưới mỗi chân cột (≈0.6×0.6m) và <b>giằng nối về móng nhà</b> để không lún tách. Hiên KHÔNG nằm chung trên dải móng băng của tường nhà."},
+  {t:"Nền hiên &amp; tam cấp",b:"Sàn hiên tải nhẹ: chỉ cần <b>đầm chặt nền + bê tông nền</b>, làm <b>dầm bo (đà kiềng) ở mép hiên</b> để chống nứt/sụt mép. Không phải đào móng sâu như tường nhà."},
+  {t:"Nếu dùng khung cột BTCT",b:"Trường hợp nhà khung (cột – kèo BTCT) thay vì tường chịu lực thì chuyển sang <b>móng đơn dưới từng cột</b> + giằng, thay cho móng băng."},
+  {t:"⚠ Bắt buộc",w:true,b:"Đây là phương án MINH HOẠ. Phải có <b>khảo sát địa chất</b> và <b>bản vẽ kết cấu móng do kỹ sư</b> lập &amp; ký cho công trình thực tế — đặc biệt với nền đất yếu."}
+];
+function buildFoundNotes(){
+  $("#foundSteps").innerHTML=FOUND_STEPS.map((s,i)=>`<div class="note"><h4>Bước ${i+1}</h4><p>${s}</p></div>`).join("");
+  $("#foundSpecs").innerHTML=FOUND_SPECS.map(s=>`<div class="note ${s.w?'warn':''}"><h4>${s.t}</h4><p>${s.b}</p></div>`).join("");
+}
+
+/* ===================== BẢNG THỐNG KÊ ===================== */
+function buildSched(){
+  const rooms=PLAN.rooms.filter(r=>!r.outdoor);
+  const total=rooms.reduce((s,r)=>s+area(r),0);
+  let rows="";
+  rooms.forEach(r=>{
+    const a=area(r), g=PLAN.groups[r.g], nm=r.name||g.t;
+    rows+=`<tr><td><span class="swatch" style="background:${g.c}"></span>${nm}</td>`+
+      `<td class="num">${fmt(r.w)} × ${fmt(r.h)}</td>`+
+      `<td class="num">${a.toFixed(1)}</td>`+
+      `<td class="num">${(a/total*100).toFixed(1)}%</td></tr>`;
+  });
+  const tbl=`<table class="sched"><thead><tr><th>Phòng / Khu vực</th><th class="num">Kích thước (m)</th><th class="num">Diện tích (m²)</th><th class="num">Tỉ lệ</th></tr></thead>`+
+    `<tbody>${rows}</tbody>`+
+    `<tfoot><tr><td>TỔNG (tim tường)</td><td class="num">${PLAN.meta.W.toFixed(1)} × ${PLAN.meta.D.toFixed(1)}</td><td class="num">${total.toFixed(1)}</td><td class="num">100%</td></tr></tfoot></table>`+
+    `<p style="color:var(--muted);font-size:12px;margin-top:8px">Phủ bì ${PLAN.meta.W.toFixed(1)}×${PLAN.meta.D.toFixed(1)} = ${(PLAN.meta.W*PLAN.meta.D).toFixed(1)} m². Chênh lệch nhỏ so với tổng phòng do tường &amp; lối đi chung.</p>`;
+  $("#schedTable").innerHTML=tbl;
+  $("#chartBox").innerHTML=buildDonut(rooms,total);
+}
+function buildDonut(rooms,total){
+  // gộp theo nhóm
+  const byG={}; rooms.forEach(r=>{byG[r.g]=(byG[r.g]||0)+area(r);});
+  const cx=130,cy=120,r=85,ir=48; let a0=-Math.PI/2; const o=[`<svg viewBox="0 0 320 240" role="img">`];
+  Object.keys(byG).forEach(k=>{
+    const frac=byG[k]/total, a1=a0+frac*2*Math.PI;
+    const x0=cx+r*Math.cos(a0),y0=cy+r*Math.sin(a0),x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1);
+    const xi0=cx+ir*Math.cos(a0),yi0=cy+ir*Math.sin(a0),xi1=cx+ir*Math.cos(a1),yi1=cy+ir*Math.sin(a1);
+    const large=frac>0.5?1:0;
+    o.push(`<path d="M ${x0} ${y0} A ${r} ${r} 0 ${large} 1 ${x1} ${y1} L ${xi1} ${yi1} A ${ir} ${ir} 0 ${large} 0 ${xi0} ${yi0} Z" fill="${PLAN.groups[k].c}" fill-opacity=".85" stroke="#0a2349" stroke-width="1.5"/>`);
+    a0=a1;
+  });
+  o.push(`<text x="${cx}" y="${cy-4}" text-anchor="middle" fill="#eaf2ff" font-size="16" font-weight="700">${total.toFixed(0)} m²</text>`);
+  o.push(`<text x="${cx}" y="${cy+12}" text-anchor="middle" fill="#9fbbe4" font-size="9">tổng phòng</text>`);
+  // legend
+  let ly=30; Object.keys(byG).forEach(k=>{
+    o.push(`<rect x="240" y="${ly}" width="11" height="11" rx="2" fill="${PLAN.groups[k].c}"/>`);
+    o.push(`<text x="256" y="${ly+9}" fill="#cfe0f5" font-size="9">${PLAN.groups[k].t} (${byG[k].toFixed(1)})</text>`); ly+=20;
+  });
+  o.push('</svg>'); return o.join("");
+}
+
+/* ===================== NOTES ===================== */
+const NOTES=[
+  {t:"Lấy sáng & thông gió khu giữa",b:"Các P.Ngủ 2/3/4 ở dải sâu 3.4m và bếp–ăn nằm giữa nhà dễ thiếu sáng. Nên bố trí <b>giếng trời / ô thông gió</b> giữa nhà để đối lưu không khí."},
+  {t:"Mái tôn — chống nóng & ồn",w:true,b:"Tôn rẻ, thi công nhanh nhưng nóng & ồn khi mưa. Cân nhắc <b>tôn cách nhiệt PU</b> hoặc <b>tôn giả ngói</b>, làm <b>trần thạch cao/la phông</b>, độ dốc ≥15% chống dột."},
+  {t:"Phòng thờ",b:"Nên đặt nơi trang nghiêm, yên tĩnh; <b>tránh đối diện cửa WC hoặc cửa chính</b>. Kiểm tra hướng và lối tiếp cận của P.Thờ ở góc cạnh sân."},
+  {t:"Bếp",b:"Bếp sát phòng ăn là hợp lý. Theo chuẩn nhà nông thôn nên có <b>cửa/cửa sổ bếp mở ra sân sau</b> để thoát mùi & thông gió; tránh cửa WC2 mở thẳng vào khu bếp–ăn."},
+  {t:"Giao thông trong nhà",b:"Nhà dài 16.5m cần <b>lối đi/hành lang rõ ràng</b> để vào 4 phòng ngủ mà không phải đi xuyên phòng khác. Các vị trí cửa trên bản vẽ chỉ là phương án minh hoạ."},
+  {t:"Khu vệ sinh & kỹ thuật",b:"2 WC đặt hai đầu hợp lý. Nên <b>gom hộp kỹ thuật/đường thoát nước</b> về một phía để tiết kiệm chi phí & dễ bảo trì."},
+  {t:"Hiên & sân trước",b:"Tận dụng hiên làm <b>khoảng đệm che nắng</b> và sân vườn đón gió. Hiệu quả phụ thuộc <b>hướng nhà</b> — cần biết hướng để tối ưu che nắng hướng Tây."}
+];
+function buildNotes(){
+  $("#notesBox").innerHTML=NOTES.map(n=>`<div class="note ${n.w?'warn':''}"><h4>${n.t}</h4><p>${n.b}</p></div>`).join("");
+  $("#askBox").innerHTML=`<b>Để góp ý sâu hơn (phong thuỷ – kết cấu – dự toán), tôi cần thêm:</b> hướng nhà (cửa chính quay hướng nào), nhu cầu sử dụng & số người ở, và ngân sách dự kiến. Cho tôi biết là tư vấn cụ thể được ngay — đây cũng là bước nền cho lần "sửa lại" phương án tiếp theo.`;
+}
+
+/* ===================== INFO PANEL ===================== */
+function selectRoom(id){
+  const r=PLAN.rooms.find(x=>x.id===id); if(!r) return;
+  const g=PLAN.groups[r.g];
+  $("#ip-name").textContent=r.name;
+  $("#ip-area").textContent = r.outdoor? `${fmt(r.w)} × ${fmt(r.h)} m (ngoài trời)` : `${area(r).toFixed(1)} m²  •  ${fmt(r.w)} × ${fmt(r.h)} m`;
+  $("#ip-desc").innerHTML=esc(r.desc);
+  $("#ip-legend").innerHTML=`<span><i style="background:${g.c}"></i>${g.t}</span>`;
+  document.querySelectorAll('.planSVG .room').forEach(el=>el.classList.toggle('sel',el.dataset.id===id));
+}
+const LAYER_MAP={'t-dims':'hide-dims','t-grid':'hide-grid','t-furn':'hide-furn','t-labels':'hide-labels'};
+// hover/click chọn phòng trên mặt bằng 2D (gọi lại sau mỗi lần dựng lại planBox)
+function wireRooms(){
+  $("#planBox").querySelectorAll('.room').forEach(el=>{
+    const id=el.dataset.id;
+    el.addEventListener('mouseenter',()=>selectRoom(id));
+    el.addEventListener('click',()=>selectRoom(id));
+    el.addEventListener('focus',()=>selectRoom(id));
+  });
+}
+// công tắc bật/tắt lớp — gắn 1 lần; áp lại trạng thái sau mỗi lần dựng lại
+function wireToggles(){
+  Object.keys(LAYER_MAP).forEach(id=>$("#"+id).addEventListener('change',applyToggles));
+}
+function applyToggles(){
+  const svg=$("#planBox").querySelector('svg'); if(!svg) return;
+  Object.keys(LAYER_MAP).forEach(id=>svg.classList.toggle(LAYER_MAP[id],!$("#"+id).checked));
+}
+
+/* ===================== TỪNG PHÒNG (chỉnh sửa trực tiếp) ===================== */
+// hình học PHẢI khớp với buildPlan()
+const PG={S:40,PAD:96,PADTOP:66,MINX:-1.9};
+const PX=m=>PG.PAD+(m-PG.MINX)*PG.S, PY=m=>PG.PADTOP+m*PG.S;
+let curRoom=null;
+const editableRooms=()=>PLAN.rooms.filter(r=>r.name); // phòng có tên (bỏ lối chung trống)
+
+function buildRoomTabs(){
+  const wrap=$("#roomTabs");
+  wrap.innerHTML=editableRooms().map(r=>`<button data-room="${r.id}">${esc(r.name)}</button>`).join("")
+    +`<button data-room="__meta__">⌂ Hiên &amp; tam cấp</button>`;
+  wrap.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>showRoom(b.dataset.room)));
+}
+// dựng lại bản vẽ phóng to phòng đang chọn (không đụng tới form -> không mất con trỏ khi gõ)
+function redrawRoom(r){
+  const box=$("#roomDraw"); box.innerHTML=buildPlan(true);
+  const svg=box.querySelector('svg'), mg=1.3;
+  svg.setAttribute('viewBox',
+    `${PX(r.x-mg).toFixed(0)} ${PY(r.y-mg).toFixed(0)} ${((r.w+2*mg)*PG.S).toFixed(0)} ${((r.h+2*mg)*PG.S).toFixed(0)}`);
+  svg.querySelectorAll('.room').forEach(el=>el.classList.toggle('sel',el.dataset.id===r.id));
+}
+function showRoom(id){
+  if(id==="__meta__") return showMeta();
+  const r=PLAN.rooms.find(x=>x.id===id); if(!r) return;
+  curRoom=id;
+  $("#roomTabs").querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.room===id));
+  redrawRoom(r);
+  buildEditForm(r);
+}
+// tab "Hiên & tam cấp" — chỉnh tham số tổng thể trong PLAN.meta
+function showMeta(){
+  curRoom="__meta__";
+  $("#roomTabs").querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.room==="__meta__"));
+  redrawMeta();
+  buildMetaForm();
+}
+function redrawMeta(){ $("#roomDraw").innerHTML=buildPlan(true); } // hiện toàn bộ mặt bằng (không zoom)
+function buildMetaForm(){
+  const m=PLAN.meta;
+  $("#roomEdit").innerHTML=
+    `<h4>⌂ Hiên &amp; Tam cấp</h4>`+
+    `<div class="grp"><div class="gh">🚪 Hiên cửa chính (mặt Tây)</div>`+
+    `<div class="row2"><div><label>Sâu hiên (m)</label>${inp('meta','','entryPorchD',m.entryPorchD??1.2,'min="0"')}</div>`+
+    `<div><label>Rộng hiên (m)</label>${inp('meta','','entryPorchW',m.entryPorchW??3.0,'min="0"')}</div></div>`+
+    `<div class="row2"><div><label>Sâu tam cấp (m)</label>${inp('meta','','entryStepD',m.entryStepD??0.5,'min="0"')}</div></div>`+
+    `<div class="hint" style="font-size:11px;color:var(--line-soft);margin-top:4px">Mái che &amp; bậc tam cấp trước cửa chính 4 cánh. Sâu = nhô ra hướng Tây; rộng = bề ngang dọc tường.</div></div>`+
+    `<div class="grp"><div class="gh">🏠 Mái</div>`+
+    `<div class="row2"><div><label>Vươn mái — overhang (m)</label>${inp('meta','','overhang',m.overhang??0.4,'min="0"')}</div></div></div>`+
+    `<div class="savebar"><button class="btn" id="re-save">⬇ Tải file đã cập nhật</button>`+
+    `<button class="btn ghost" id="re-copy">Sao chép dữ liệu</button></div>`+
+    `<div class="hint" style="font-size:11.5px;color:var(--line-soft);margin-top:10px;border-top:1px dashed var(--grid);padding-top:8px">`+
+    `Sửa số → mặt bằng &amp; mặt đứng/mặt cắt tự cập nhật. (Hiên mặt Nam đã bỏ.)</div>`;
+  $("#re-save").addEventListener('click',downloadHTML);
+  $("#re-copy").addEventListener('click',copyPlan);
+}
+const WALLVN={N:"Bắc",S:"Nam",W:"Tây",E:"Đông"};
+const DIRVN={n:"Bắc",s:"Nam",e:"Đông",w:"Tây"};
+const RESIZABLE=["sofa","coffee","armchair","tv","bed","wardrobe","desk","diningtable","cooktop","washcounter","fridge","altar","shower"];
+const doorLabel=d=>d.main?"Cửa chính":d.curtain?"Ô thông (rèm)":d.master?"Cửa master":d.back?"Cửa sau/bên":"Cửa phòng";
+const winLabel=w=>"Cửa sổ "+(WALLVN[w.wall]||w.wall);
+// các cửa/cửa sổ nằm trên chu vi của phòng r (trả về {obj,i})
+function doorsOfRoom(r){
+  const tol=0.35;
+  return PLAN.doors.map((d,i)=>({d,i})).filter(({d})=>{
+    const wide=d.wide||0.9;
+    if(d.dir==="n"||d.dir==="s"){
+      return (Math.abs(d.y-r.y)<tol||Math.abs(d.y-(r.y+r.h))<tol) && d.x<r.x+r.w-0.01 && d.x+wide>r.x+0.01;
+    }
+    return (Math.abs(d.x-r.x)<tol||Math.abs(d.x-(r.x+r.w))<tol) && d.y<r.y+r.h-0.01 && d.y+wide>r.y+0.01;
+  });
+}
+function windowsOfRoom(r){
+  const tol=0.5;
+  return PLAN.windows.map((w,i)=>({w,i})).filter(({w})=>{
+    const mid=(w.a+w.b)/2;
+    if(w.wall==="N"||w.wall==="S"){
+      const onWall=w.wall==="N"?Math.abs(r.y)<tol:Math.abs((r.y+r.h)-8)<tol;
+      return onWall && mid>=r.x-0.01 && mid<=r.x+r.w+0.01;
+    }
+    const wx=w.pos!=null?w.pos:(w.wall==="W"?0:15.5);
+    const onWall=w.wall==="W"?Math.abs(r.x-wx)<tol:Math.abs((r.x+r.w)-wx)<tol;
+    return onWall && mid>=r.y-0.01 && mid<=r.y+r.h+0.01;
+  });
+}
+function num2(v){const n=parseFloat(v);return isNaN(n)?'':(+n.toFixed(2));}
+function inp(kind,idx,field,val,extra=""){
+  return `<input class="mini" type="number" step="0.05" value="${val}" data-kind="${kind}" data-idx="${idx}" data-field="${field}" ${extra}>`;
+}
+function buildEditForm(r){
+  const opts=Object.keys(PLAN.groups).map(k=>`<option value="${k}"${k===r.g?' selected':''}>${PLAN.groups[k].t}</option>`).join("");
+  let html=
+    `<h4 id="re-title"></h4>`+
+    `<div class="area" id="re-area"></div>`+
+    `<label>Tên phòng</label><input value="${(r.name||'').replace(/"/g,'&quot;')}" data-kind="room" data-field="name">`+
+    `<label>Nhóm công năng (màu)</label><select data-kind="room" data-field="g">${opts}</select>`+
+    `<div class="row2"><div><label>Rộng – ngang (m)</label>${inp('room','','w',r.w,'min="0"')}</div>`+
+    `<div><label>Sâu (m)</label>${inp('room','','h',r.h,'min="0"')}</div></div>`+
+    `<div class="row2"><div><label>Vị trí X (m)</label>${inp('room','','x',r.x)}</div>`+
+    `<div><label>Vị trí Y (m)</label>${inp('room','','y',r.y)}</div></div>`+
+    `<label>Mô tả / công năng</label><textarea data-kind="room" data-field="desc">${esc(r.desc||'')}</textarea>`;
+
+  // ---- CỬA ĐI ----
+  const drs=doorsOfRoom(r);
+  if(drs.length){
+    html+=`<div class="grp"><div class="gh">🚪 Cửa đi</div>`;
+    drs.forEach(({d,i})=>{
+      const horiz=(d.dir==="n"||d.dir==="s"), posF=horiz?'x':'y', posV=horiz?d.x:d.y;
+      html+=`<div class="fitem"><div class="fn">${doorLabel(d)}${d.sidelight?' · 2 cánh + ô kính bên':d.leaves?(' · '+d.leaves+' cánh'):(d.double?' · 2 cánh':'')} <span class="muted">(mở ${DIRVN[d.dir]})</span></div>`+
+        `<div class="row2"><div><label>Rộng (m)</label>${inp('door',i,'wide',d.wide||0.9,'min="0.3"')}</div>`+
+        `<div><label>Vị trí ${horiz?'X':'Y'} (m)</label>${inp('door',i,'pos',num2(posV))}</div></div></div>`;
+    });
+    html+=`</div>`;
+  }
+  // ---- CỬA SỔ ----
+  const wns=windowsOfRoom(r);
+  if(wns.length){
+    html+=`<div class="grp"><div class="gh">🪟 Cửa sổ</div>`;
+    wns.forEach(({w,i})=>{
+      html+=`<div class="fitem"><div class="fn">${winLabel(w)}${w.leaves?(' · '+w.leaves+' cánh'):(w.cm?' · 2 cánh':'')}</div>`+
+        `<div class="row2"><div><label>Rộng (m)</label>${inp('win',i,'wide',num2(w.b-w.a),'min="0.3"')}</div>`+
+        `<div><label>Vị trí (m)</label>${inp('win',i,'pos',num2(w.a))}</div></div></div>`;
+    });
+    html+=`</div>`;
+  }
+  // ---- NỘI THẤT ----
+  const fns=PLAN.furniture.map((it,i)=>({it,i})).filter(({it})=>it.room===r.id);
+  if(fns.length){
+    html+=`<div class="grp"><div class="gh">🛋 Nội thất</div>`;
+    fns.forEach(({it,i})=>{
+      const resz=RESIZABLE.includes(it.type);
+      html+=`<div class="fitem"><div class="fn">${esc(it.name||it.type)}${resz?'':' <span class="muted">(cố định)</span>'}</div>`+
+        `<div class="row4">`+
+        (resz?`<div><label>Rộng</label>${inp('furn',i,'w',it.w)}</div><div><label>Sâu</label>${inp('furn',i,'h',it.h)}</div>`:'')+
+        `<div><label>X</label>${inp('furn',i,'x',it.x)}</div><div><label>Y</label>${inp('furn',i,'y',it.y)}</div></div>`+
+        (it.type==="bed"?`<label>Đầu giường hướng</label><select class="mini" data-kind="furn" data-idx="${i}" data-field="dir">`+
+          ['n','s','e','w'].map(dd=>`<option value="${dd}"${(it.dir||'n')===dd?' selected':''}>${DIRVN[dd]}</option>`).join('')+`</select>`:'')+
+        `</div>`;
+    });
+    html+=`</div>`;
+  }
+
+  html+=`<div class="savebar"><button class="btn" id="re-save">⬇ Tải file đã cập nhật</button>`+
+    `<button class="btn ghost" id="re-copy">Sao chép dữ liệu</button></div>`+
+    `<div class="hint" style="font-size:11.5px;color:var(--line-soft);margin-top:10px;border-top:1px dashed var(--grid);padding-top:8px">`+
+    `Sửa ô bất kỳ → bản vẽ &amp; mặt bằng tổng tự cập nhật. Đổi kích thước PHÒNG xong nên bấm lại tab phòng để danh sách cửa/cửa sổ cập nhật. Bấm "Tải file đã cập nhật" để lưu.</div>`;
+
+  $("#roomEdit").innerHTML=html;
+  refreshFormHeader(r);
+  $("#re-save").addEventListener('click',downloadHTML);
+  $("#re-copy").addEventListener('click',copyPlan);
+}
+// gắn 1 lần: bắt mọi input có data-kind trong form (ủy quyền sự kiện)
+function wireFormDelegate(){
+  const box=$("#roomEdit");
+  const handler=e=>{
+    const t=e.target, k=t.dataset.kind; if(!k) return;
+    const f=t.dataset.field, v=t.value, n=()=>{const x=parseFloat(v);return isNaN(x)?0:x;};
+    if(k==="room"){ const r=PLAN.rooms.find(x=>x.id===curRoom); if(!r)return;
+      if(f==="name"||f==="g"||f==="desc") r[f]=v; else r[f]=n(); }
+    else if(k==="door"){ const d=PLAN.doors[+t.dataset.idx]; if(!d)return;
+      if(f==="pos") d[(d.dir==="n"||d.dir==="s")?"x":"y"]=n(); else d[f]=n(); }
+    else if(k==="win"){ const w=PLAN.windows[+t.dataset.idx]; if(!w)return;
+      if(f==="wide") w.b=w.a+n(); else if(f==="pos"){ const wd=w.b-w.a; w.a=n(); w.b=w.a+wd; } }
+    else if(k==="furn"){ const it=PLAN.furniture[+t.dataset.idx]; if(!it)return;
+      if(f==="dir") it.dir=v; else it[f]=n(); }
+    else if(k==="meta"){ PLAN.meta[f]=n(); }
+    onRoomEdited();
+  };
+  box.addEventListener('input',handler);
+  box.addEventListener('change',handler);
+}
+function refreshFormHeader(r){
+  const t=$("#re-title"); if(t) t.textContent='Chỉnh: '+(r.name||'(chưa đặt tên)');
+  const a=$("#re-area");
+  if(a) a.textContent = r.outdoor
+    ? `${fmt(r.w)} × ${fmt(r.h)} m (ngoài trời)`
+    : `${(r.w*r.h).toFixed(2)} m²  •  ${fmt(r.w)} × ${fmt(r.h)} m`;
+}
+// gọi mỗi lần gõ: cập nhật bản vẽ phòng + mặt bằng tổng, KHÔNG dựng lại form
+function onRoomEdited(){
+  if(curRoom==="__meta__"){ redrawMeta(); rerenderAll(); return; }
+  const r=PLAN.rooms.find(x=>x.id===curRoom); if(!r) return;
+  redrawRoom(r);
+  refreshFormHeader(r);
+  const tb=$("#roomTabs").querySelector(`button[data-room="${curRoom}"]`);
+  if(tb) tb.textContent=r.name||'(phòng)';
+  rerenderAll(); // ghép chung vào toàn bộ bản vẽ khác
+}
+
+/* ---------- lưu / xuất ---------- */
+function planSource(){ return 'const PLAN = '+JSON.stringify(PLAN,null,2)+';'; }
+function copyPlan(){
+  const txt=planSource();
+  if(navigator.clipboard) navigator.clipboard.writeText(txt)
+    .then(()=>alert('Đã sao chép dữ liệu PLAN.\nDán đè đoạn bắt đầu bằng "const PLAN = {" trong file .html để lưu.'),
+          ()=>prompt('Sao chép thủ công:',txt));
+  else prompt('Sao chép thủ công:',txt);
+}
+function downloadHTML(){
+  let html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  html=html.replace(/const PLAN = \{[\s\S]*?\n\};/, ()=>planSource());
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='index.html';
+  document.body.appendChild(a); a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},800);
+}
+
+/* ===================== DỰNG LẠI TOÀN BỘ BẢN VẼ ===================== */
+function rerenderAll(){
+  $("#heroPlan").innerHTML=buildPlan(false);
+  $("#planBox").innerHTML=buildPlan(true);
+  $("#isoBox").innerHTML=buildIso();
+  $("#elevBox").innerHTML=buildElev();
+  $("#elevWBox").innerHTML=buildElevW();
+  $("#sectBox").innerHTML=buildSect();
+  $("#foundDetail").innerHTML=buildFoundDetail();
+  $("#foundPlan").innerHTML=buildFoundPlan();
+  buildSched();
+  wireRooms();
+  applyToggles();
+}
+
+/* ===================== TABS ===================== */
+function initTabs(){
+  document.querySelectorAll('nav.tabs button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('nav.tabs button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      document.querySelectorAll('section.view').forEach(s=>s.classList.remove('active'));
+      $("#view-"+b.dataset.view).classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+}
+
+/* ===================== INIT ===================== */
+function init(){
+  // title block
+  $("#tbName").textContent=PLAN.meta.name;
+  $("#tbOwner").textContent=PLAN.meta.owner;
+  $("#tbAddr").textContent=PLAN.meta.addr;
+  $("#tbDate").textContent=PLAN.meta.date;
+  // drawings (dựng + nối lại tương tác)
+  rerenderAll();
+  // legend trong bảng thông tin mặt bằng
+  $("#ip-legend").innerHTML=Object.values(PLAN.groups).map(g=>`<span><i style="background:${g.c}"></i>${g.t}</span>`).join("");
+  buildFoundNotes();
+  wireToggles();
+  initTabs();
+  // khu chỉnh sửa từng phòng
+  buildRoomTabs();
+  wireFormDelegate();
+  const first=editableRooms()[0];
+  if(first) showRoom(first.id);
+}
+document.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>
