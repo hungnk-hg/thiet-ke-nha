@@ -214,9 +214,9 @@
     </div>
   </div>
   <nav class="tabs">
-    <button data-view="hero" class="">Tổng quan</button>
+    <button data-view="hero" class="active">Tổng quan</button>
     <button data-view="plan">Mặt bằng 2D</button>
-    <button data-view="rooms" class="active">Từng phòng ✎</button>
+    <button data-view="rooms">Từng phòng ✎</button>
     <button data-view="iso" class="">Phối cảnh 3D</button>
     <button data-view="elev">Mặt đứng &amp; Mặt cắt</button>
     <button data-view="found" class="">Móng</button>
@@ -225,7 +225,7 @@
 </header>
 
 <!-- ===== HERO ===== -->
-<section class="view" id="view-hero">
+<section class="view active" id="view-hero">
   <div class="hero">
     <div class="wrap">
       <h2>Bản thiết kế nhà cấp 4 nông thôn — mái tôn</h2>
@@ -273,7 +273,7 @@
 </section>
 
 <!-- ===== TỪNG PHÒNG (chỉnh sửa) ===== -->
-<section class="view active" id="view-rooms">
+<section class="view" id="view-rooms">
   <div class="wrap">
     <div class="sec-h">
       <h3>Thiết kế từng phòng</h3><span class="tag">Sửa trực tiếp</span>
@@ -1314,6 +1314,9 @@ function init(){
   wireFormDelegate();
   const first=editableRooms()[0];
   if(first) showRoom(first.id);
+  // LUÔN mở tab "Tổng quan" khi tải trang (chống trạng thái tab bị lưu lệch khi tải file)
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('active',b.dataset.view==='hero'));
+  document.querySelectorAll('section.view').forEach(s=>s.classList.toggle('active',s.id==='view-hero'));
 }
 document.addEventListener('DOMContentLoaded',init);
 </script>
