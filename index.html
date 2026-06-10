@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="vi"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hồ sơ thiết kế — Nhà cấp 4 mái tôn 15.5 × 8.0m</title>
 <style>
   :root{
@@ -183,38 +182,6 @@
   .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
   .footrow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
 
-  /* ---------- mobile / responsive ---------- */
-  @media(max-width:640px){
-    .wrap{padding:0 12px}
-    .tb-inner{gap:10px;padding:8px 12px}
-    .logo{width:38px;height:38px;font-size:13px}
-    .tb-title h1{font-size:14px}
-    .tb-title .sub{font-size:11px}
-    .tb-meta{font-size:10.5px;gap:8px 12px}
-    /* tab cuộn ngang 1 hàng cho gọn */
-    nav.tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:5px;padding:7px 10px;scrollbar-width:none}
-    nav.tabs::-webkit-scrollbar{display:none}
-    nav.tabs button{flex:0 0 auto;font-size:12px;padding:6px 11px}
-    .hero{padding:22px 0 14px;background-size:22px 22px}
-    .hero h2{font-size:21px}
-    .hero p{font-size:13px}
-    .stats{gap:10px}
-    .stat{min-width:88px;padding:8px 12px}
-    .stat .n{font-size:17px}
-    section.view{padding:18px 0 30px}
-    .sec-h h3{font-size:18px}
-    .drawing{padding:6px;border-radius:10px}
-    /* panel thông tin / form: bỏ dính (sticky) khi xếp dọc */
-    .infopanel,.editform{position:static;top:auto}
-    .room-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-    .room-tabs::-webkit-scrollbar{display:none}
-    .room-tabs button{flex:0 0 auto}
-    .editform .row4{grid-template-columns:1fr 1fr}
-    table.sched th,table.sched td{padding:7px 8px;font-size:12px}
-    .footrow{flex-direction:column;align-items:stretch;text-align:center}
-    .footrow>div:last-child{justify-content:center}
-  }
-
   /* ---------- print ---------- */
   @media print{
     body{background:#fff;color:#111}
@@ -235,30 +202,30 @@
   <div class="tb-inner">
     <div class="logo">NHÀ</div>
     <div class="tb-title">
-      <h1 id="tbName">NHÀ Ở GIA ĐÌNH — CẤP 4 MÁI TÔN</h1>
+      <h1 id="tbName">NHÀ Ở GIA ĐÌNH — CẤP 4 MÁI TÔN (15.5 × 8m)</h1>
       <div class="sub" id="tbSub">Mặt bằng 15.5 × 8.0m • 3 phòng ngủ + master • 2 WC • phòng thờ</div>
     </div>
     <div class="tb-meta">
       <span>Chủ đầu tư: <b id="tbOwner">(điền tên)</b></span>
       <span>Địa điểm: <b id="tbAddr">(điền địa chỉ)</b></span>
       <span>Tỉ lệ: <b>1:100</b></span>
-      <span>Ngày: <b id="tbDate">03/06/2026</b></span>
+      <span>Ngày: <b id="tbDate">04/06/2026</b></span>
       <span>Mái: <b>Lợp tôn</b></span>
     </div>
   </div>
   <nav class="tabs">
-    <button data-view="hero" class="active">Tổng quan</button>
+    <button data-view="hero" class="">Tổng quan</button>
     <button data-view="plan">Mặt bằng 2D</button>
-    <button data-view="rooms">Từng phòng ✎</button>
-    <button data-view="iso">Phối cảnh 3D</button>
+    <button data-view="rooms" class="active">Từng phòng ✎</button>
+    <button data-view="iso" class="">Phối cảnh 3D</button>
     <button data-view="elev">Mặt đứng &amp; Mặt cắt</button>
-    <button data-view="found">Móng</button>
-    <button data-view="sched">Thống kê diện tích</button>
+    <button data-view="found" class="">Móng</button>
+    <button data-view="sched" class="">Thống kê diện tích</button>
   </nav>
 </header>
 
 <!-- ===== HERO ===== -->
-<section class="view active" id="view-hero">
+<section class="view" id="view-hero">
   <div class="hero">
     <div class="wrap">
       <h2>Bản thiết kế nhà cấp 4 nông thôn — mái tôn</h2>
@@ -274,7 +241,7 @@
     </div>
   </div>
   <div class="wrap" style="margin-top:20px">
-    <div class="drawing"><div id="heroPlan"></div></div>
+    <div class="drawing"><div id="heroPlan"><svg viewBox="0 0 888 496" class="planSVG" role="img" aria-label="Mặt bằng nhà"><rect class="porch" x="132" y="67.00000000000001" width="80.0" height="184.0"></rect><line class="step" x1="125.3" y1="110" x2="125.3" y2="208"></line><line class="step" x1="118.7" y1="110" x2="118.7" y2="208"></line><line class="step" x1="112.0" y1="110" x2="112.0" y2="208"></line><rect class="col" x="128.0" y="63.0" width="8" height="8"></rect><rect class="col" x="128.0" y="247.0" width="8" height="8"></rect><text class="note" x="172" y="61.0" text-anchor="middle">HIÊN CỬA CHÍNH 2×4.6m • TAM CẤP giữa</text><g class="grid"><line x1="172" y1="66" x2="172" y2="386"></line><line x1="212" y1="66" x2="212" y2="386"></line><line x1="252" y1="66" x2="252" y2="386"></line><line x1="292" y1="66" x2="292" y2="386"></line><line x1="332" y1="66" x2="332" y2="386"></line><line x1="372" y1="66" x2="372" y2="386"></line><line x1="412" y1="66" x2="412" y2="386"></line><line x1="452" y1="66" x2="452" y2="386"></line><line x1="492" y1="66" x2="492" y2="386"></line><line x1="532" y1="66" x2="532" y2="386"></line><line x1="572" y1="66" x2="572" y2="386"></line><line x1="612" y1="66" x2="612" y2="386"></line><line x1="652" y1="66" x2="652" y2="386"></line><line x1="692" y1="66" x2="692" y2="386"></line><line x1="732" y1="66" x2="732" y2="386"></line><line x1="772" y1="66" x2="772" y2="386"></line><line x1="172" y1="66" x2="792" y2="66"></line><line x1="172" y1="106" x2="792" y2="106"></line><line x1="172" y1="146" x2="792" y2="146"></line><line x1="172" y1="186" x2="792" y2="186"></line><line x1="172" y1="226" x2="792" y2="226"></line><line x1="172" y1="266" x2="792" y2="266"></line><line x1="172" y1="306" x2="792" y2="306"></line><line x1="172" y1="346" x2="792" y2="346"></line><line x1="172" y1="386" x2="792" y2="386"></line></g><g class="room-static"><rect class="room-fill" x="212" y="66" width="220" height="184" fill="#3f9e86" fill-opacity="0.42" stroke="#3f9e86" stroke-opacity=".9"></rect><line class="tile" x1="236" y1="66" x2="236" y2="250"></line><line class="tile" x1="260" y1="66" x2="260" y2="250"></line><line class="tile" x1="284" y1="66" x2="284" y2="250"></line><line class="tile" x1="308" y1="66" x2="308" y2="250"></line><line class="tile" x1="332" y1="66" x2="332" y2="250"></line><line class="tile" x1="356" y1="66" x2="356" y2="250"></line><line class="tile" x1="380" y1="66" x2="380" y2="250"></line><line class="tile" x1="404" y1="66" x2="404" y2="250"></line><line class="tile" x1="427.99999999999994" y1="66" x2="427.99999999999994" y2="250"></line><line class="tile" x1="212" y1="90" x2="432" y2="90"></line><line class="tile" x1="212" y1="114" x2="432" y2="114"></line><line class="tile" x1="212" y1="138" x2="432" y2="138"></line><line class="tile" x1="212" y1="162" x2="432" y2="162"></line><line class="tile" x1="212" y1="186" x2="432" y2="186"></line><line class="tile" x1="212" y1="210" x2="432" y2="210"></line><line class="tile" x1="212" y1="234" x2="432" y2="234"></line><text class="rname" x="322" y="144">PHÒNG KHÁCH</text><text class="rarea" x="322" y="159">25.3 m²</text></g><g class="room-static"><rect class="room-fill" x="432" y="66" width="160" height="184" fill="#46ab93" fill-opacity="0.42" stroke="#46ab93" stroke-opacity=".9"></rect><line class="tile" x1="456" y1="66" x2="456" y2="250"></line><line class="tile" x1="480" y1="66" x2="480" y2="250"></line><line class="tile" x1="504" y1="66" x2="504" y2="250"></line><line class="tile" x1="528" y1="66" x2="528" y2="250"></line><line class="tile" x1="552" y1="66" x2="552" y2="250"></line><line class="tile" x1="576" y1="66" x2="576" y2="250"></line><line class="tile" x1="432" y1="90" x2="592" y2="90"></line><line class="tile" x1="432" y1="114" x2="592" y2="114"></line><line class="tile" x1="432" y1="138" x2="592" y2="138"></line><line class="tile" x1="432" y1="162" x2="592" y2="162"></line><line class="tile" x1="432" y1="186" x2="592" y2="186"></line><line class="tile" x1="432" y1="210" x2="592" y2="210"></line><line class="tile" x1="432" y1="234" x2="592" y2="234"></line><text class="rname" x="512" y="144">PHÒNG ĂN + BẾP</text><text class="rarea" x="512" y="159">18.4 m²</text></g><g class="room-static"><rect class="room-fill" x="592" y="66" width="60" height="108" fill="#5aa6cf" fill-opacity="0.42" stroke="#5aa6cf" stroke-opacity=".9"></rect><text class="rname" x="622" y="118">WC1</text><text class="rarea" x="622" y="133">4.1 m²</text></g><g class="room-static"><rect class="room-fill" x="572" y="174" width="80" height="76" fill="#5cbba4" fill-opacity="0.28" stroke="#5cbba4" stroke-opacity=".9"></rect><line class="tile" x1="596" y1="174" x2="596" y2="250"></line><line class="tile" x1="620" y1="174" x2="620" y2="250"></line><line class="tile" x1="644" y1="174" x2="644" y2="250"></line><line class="tile" x1="572" y1="198" x2="652" y2="198"></line><line class="tile" x1="572" y1="222" x2="652" y2="222"></line><line class="tile" x1="572" y1="246" x2="652" y2="246"></line></g><g class="room-static"><rect class="room-fill" x="612" y="250" width="40" height="16" fill="#5cbba4" fill-opacity="0.28" stroke="#5cbba4" stroke-opacity=".9"></rect><line class="tile" x1="636" y1="250" x2="636" y2="266"></line></g><g class="room-static"><rect class="room-fill" x="652" y="66" width="140" height="200" fill="#b8924f" fill-opacity="0.42" stroke="#b8924f" stroke-opacity=".9"></rect><text class="rname" x="722" y="212">P. MASTER</text><text class="rarea" x="722" y="227">17.5 m²</text></g><g class="room-static"><rect class="room-fill" x="652" y="66" width="60" height="108" fill="#5aa6cf" fill-opacity="0.42" stroke="#5aa6cf" stroke-opacity=".9"></rect><text class="rname" x="682" y="118">WC2</text><text class="rarea" x="682" y="133">4.1 m²</text></g><g class="room-static"><rect class="room-fill" x="172" y="250" width="120" height="136" fill="#bd7d4a" fill-opacity="0.42" stroke="#bd7d4a" stroke-opacity=".9"></rect><text class="rname" x="232" y="332">P. THỜ</text><text class="rarea" x="232" y="347">10.2 m²</text></g><g class="room-static"><rect class="room-fill" x="292" y="250" width="156" height="136" fill="#caa063" fill-opacity="0.42" stroke="#caa063" stroke-opacity=".9"></rect><text class="rname" x="370" y="332">P. NGỦ 1</text><text class="rarea" x="370" y="347">13.3 m²</text></g><g class="room-static"><rect class="room-fill" x="448" y="250" width="156" height="136" fill="#caa063" fill-opacity="0.42" stroke="#caa063" stroke-opacity=".9"></rect><text class="rname" x="526" y="332">P. NGỦ 2</text><text class="rarea" x="526" y="347">13.3 m²</text></g><g class="room-static"><rect class="room-fill" x="604" y="266" width="188" height="120" fill="#caa063" fill-opacity="0.42" stroke="#caa063" stroke-opacity=".9"></rect><text class="rname" x="698" y="340">P. NGỦ 3</text><text class="rarea" x="698" y="355">14.1 m²</text></g><g class="room-static"><rect class="room-fill" x="140" y="266" width="32" height="96" fill="#67ad63" fill-opacity="0.22" stroke="#67ad63" stroke-opacity=".9"></rect><circle class="furn fill" cx="156" cy="290" r="18"></circle><circle class="furn fill" cx="156" cy="346" r="18"></circle><text class="rname" x="156" y="312">Ô CÂY</text></g><g class="furn"><rect class="furn fill" x="288" y="72" width="96.0" height="34.0" rx="2"></rect><line class="furn" x1="288" y1="92.4" x2="384" y2="92.4"></line><line class="furn" x1="320" y1="72" x2="320" y2="92.4"></line><line class="furn" x1="352" y1="72" x2="352" y2="92.4"></line><rect class="furn " x="308" y="124" width="56.0" height="26.0" rx="2"></rect><rect class="furn fill" x="296" y="172" width="34.0" height="24.0" rx="2"></rect><rect class="furn fill" x="340" y="172" width="34.0" height="24.0" rx="2"></rect><rect class="furn fill" x="414" y="112" width="16.0" height="64.0" rx="2"></rect><line class="furn" x1="414" y1="144" x2="430" y2="144"></line><rect class="furn fill" x="496" y="70.8" width="96.0" height="24.0" rx="2"></rect><ellipse class="furn fill" cx="524.8" cy="84" rx="6.0" ry="4.4"></ellipse><ellipse class="furn fill" cx="563.2" cy="84" rx="6.0" ry="4.4"></ellipse><rect class="furn fill" x="568" y="96" width="24.0" height="52.0" rx="2"></rect><circle class="furn " cx="575.2" cy="114.2" r="3.2"></circle><circle class="furn " cx="575.2" cy="132.39999999999998" r="3.2"></circle><circle class="furn " cx="584.8" cy="114.2" r="3.2"></circle><circle class="furn " cx="584.8" cy="132.39999999999998" r="3.2"></circle><rect class="furn fill" x="568" y="150" width="24.0" height="26.0" rx="2"></rect><line class="furn" x1="568" y1="157.28" x2="592" y2="157.28"></line><rect class="furn fill" x="476" y="142" width="56.0" height="34.0" rx="2"></rect><rect class="furn " x="480.79999999999995" y="122" width="16.8" height="16.8" rx="2"></rect><rect class="furn " x="510.40000000000003" y="122" width="16.8" height="16.8" rx="2"></rect><rect class="furn " x="480.79999999999995" y="179.2" width="16.8" height="16.8" rx="2"></rect><rect class="furn " x="510.40000000000003" y="179.2" width="16.8" height="16.8" rx="2"></rect><rect class="furn " x="592" y="70.8" width="60.0" height="36.0" rx="2"></rect><circle class="furn fill" cx="600.8000000000001" cy="79.6" r="2.0"></circle><line class="glass" x1="592" y1="106.8" x2="652" y2="106.8"></line><rect class="furn fill" x="643.6" y="118" width="8.0" height="16.0" rx="2"></rect><ellipse class="furn fill" cx="635.2" cy="126" rx="8.8" ry="7.2"></ellipse><rect class="furn " x="628" y="144" width="22.0" height="16.8" rx="2"></rect><ellipse class="furn fill" cx="639" cy="152.4" rx="8.0" ry="5.2"></ellipse><rect class="furn fill" x="626" y="176" width="24.0" height="24.0" rx="2"></rect><circle class="furn " cx="638" cy="188" r="6.4"></circle><rect class="furn " x="652" y="70.8" width="60.0" height="36.0" rx="2"></rect><circle class="furn fill" cx="660.8000000000001" cy="79.6" r="2.0"></circle><line class="glass" x1="652" y1="106.8" x2="712" y2="106.8"></line><rect class="furn fill" x="654" y="118" width="8.0" height="16.0" rx="2"></rect><ellipse class="furn fill" cx="670.8000000000001" cy="126" rx="8.8" ry="7.2"></ellipse><rect class="furn " x="654" y="144" width="22.0" height="16.8" rx="2"></rect><ellipse class="furn fill" cx="665" cy="152.4" rx="8.0" ry="5.2"></ellipse><rect class="furn fill" x="716" y="72" width="64.0" height="80.0" rx="2"></rect><rect class="furn " x="720" y="76" width="26.0" height="16.8" rx="2"></rect><rect class="furn " x="749.9999999999999" y="76" width="26.0" height="16.8" rx="2"></rect><line class="furn" x1="718.4" y1="100.8" x2="777.5999999999999" y2="100.8"></line><rect class="furn fill" x="716" y="244" width="64.0" height="20.0" rx="2"></rect><line class="furn" x1="737.3333333333333" y1="244" x2="737.3333333333333" y2="264"></line><line class="furn" x1="758.6666666666666" y1="244" x2="758.6666666666666" y2="264"></line><rect class="furn fill" x="252" y="276" width="40.0" height="80.0" rx="2"></rect><line class="furn" x1="252" y1="316" x2="292" y2="316"></line><rect class="furn fill" x="304" y="302" width="64.0" height="80.0" rx="2"></rect><rect class="furn " x="308" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><rect class="furn " x="338" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><line class="furn" x1="306.4" y1="353.20000000000005" x2="365.6" y2="353.20000000000005"></line><rect class="furn fill" x="304" y="250" width="64.0" height="22.0" rx="2"></rect><line class="furn" x1="325.3333333333333" y1="250" x2="325.3333333333333" y2="272"></line><line class="furn" x1="346.66666666666663" y1="250" x2="346.66666666666663" y2="272"></line><rect class="furn fill" x="386" y="360" width="48.0" height="20.0" rx="2"></rect><rect class="furn " x="401.59999999999997" y="338" width="16.8" height="16.8" rx="2"></rect><rect class="furn fill" x="532" y="302" width="64.0" height="80.0" rx="2"></rect><rect class="furn " x="536" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><rect class="furn " x="566" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><line class="furn" x1="534.4000000000001" y1="353.20000000000005" x2="593.5999999999999" y2="353.20000000000005"></line><rect class="furn fill" x="532" y="252" width="64.0" height="22.0" rx="2"></rect><line class="furn" x1="553.3333333333334" y1="252" x2="553.3333333333334" y2="274"></line><line class="furn" x1="574.6666666666667" y1="252" x2="574.6666666666667" y2="274"></line><rect class="furn fill" x="462" y="360" width="48.0" height="20.0" rx="2"></rect><rect class="furn " x="477.59999999999997" y="338" width="16.8" height="16.8" rx="2"></rect><rect class="furn fill" x="708" y="306" width="64.0" height="76.0" rx="2"></rect><rect class="furn " x="712" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><rect class="furn " x="742" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><line class="furn" x1="710.4000000000001" y1="353.20000000000005" x2="769.6" y2="353.20000000000005"></line><rect class="furn fill" x="708" y="266.79999999999995" width="64.0" height="20.0" rx="2"></rect><line class="furn" x1="729.3333333333334" y1="266.79999999999995" x2="729.3333333333334" y2="286.79999999999995"></line><line class="furn" x1="750.6666666666667" y1="266.79999999999995" x2="750.6666666666667" y2="286.79999999999995"></line><rect class="furn fill" x="620" y="362" width="44.0" height="20.0" rx="2"></rect><rect class="furn " x="633.6" y="340" width="16.8" height="16.8" rx="2"></rect></g><g><rect class="part" x="592" y="66" width="60" height="108"></rect><rect class="part" x="652" y="66" width="140" height="200"></rect><rect class="part" x="652" y="66" width="60" height="108"></rect><rect class="part" x="172" y="250" width="120" height="136"></rect><rect class="part" x="292" y="250" width="156" height="136"></rect><rect class="part" x="448" y="250" width="156" height="136"></rect><rect class="part" x="604" y="266" width="188" height="120"></rect><g class="lam"><rect x="430.0" y="80" width="4" height="8"></rect><rect x="430.0" y="92.8" width="4" height="8"></rect><rect x="430.0" y="105.6" width="4" height="8"></rect><rect x="430.0" y="118.4" width="4" height="8"></rect><rect x="430.0" y="131.2" width="4" height="8"></rect><rect x="430.0" y="144" width="4" height="8"></rect><rect x="430.0" y="156.8" width="4" height="8"></rect><rect x="430.0" y="169.6" width="4" height="8"></rect><rect x="430.0" y="182.39999999999998" width="4" height="8"></rect><rect x="430.0" y="195.2" width="4" height="8"></rect></g><path class="wallband" fill-rule="evenodd" d="M212.0 66.0 L792.0 66.0 L792.0 386.0 L172.0 386.0 L172.0 250.0 L212.0 250.0 Z M220.0 74.0 L784.0 74.0 L784.0 378.0 L180.0 378.0 L180.0 258.0 L220.0 258.0 Z"></path><rect class="part" x="120" y="250" width="52" height="136" stroke-dasharray="4 4"></rect></g><g class="win"><rect x="380" y="380.4" width="60.0" height="11.2"></rect><line x1="380" y1="381.8" x2="440" y2="381.8"></line><line x1="380" y1="386" x2="440" y2="386"></line><line x1="380" y1="390.2" x2="440" y2="390.2"></line><path class="leaf" d="M 380 386 L 380 416.0 A 30 30 0 0 0 410 386"></path><path class="leaf" d="M 440 386 L 440 416.0 A 30 30 0 0 1 410 386"></path><rect x="456" y="380.4" width="60.0" height="11.2"></rect><line x1="456" y1="381.8" x2="516" y2="381.8"></line><line x1="456" y1="386" x2="516" y2="386"></line><line x1="456" y1="390.2" x2="516" y2="390.2"></line><path class="leaf" d="M 456 386 L 456 416.0 A 30 30 0 0 0 486 386"></path><path class="leaf" d="M 516 386 L 516 416.0 A 30 30 0 0 1 486 386"></path><rect x="612" y="380.4" width="60.0" height="11.2"></rect><line x1="612" y1="381.8" x2="672" y2="381.8"></line><line x1="612" y1="386" x2="672" y2="386"></line><line x1="612" y1="390.2" x2="672" y2="390.2"></line><path class="leaf" d="M 612 386 L 612 416.0 A 30 30 0 0 0 642 386"></path><path class="leaf" d="M 672 386 L 672 416.0 A 30 30 0 0 1 642 386"></path><rect x="166.4" y="286" width="11.2" height="56.0"></rect><line x1="167.8" y1="286" x2="167.8" y2="342"></line><line x1="172" y1="286" x2="172" y2="342"></line><line x1="176.2" y1="286" x2="176.2" y2="342"></line><path class="leaf" d="M 172 286 L 158.0 286 A 14 14 0 0 0 172 300"></path><path class="leaf" d="M 172 314 L 158.0 314 A 14 14 0 0 1 172 300"></path><path class="leaf" d="M 172 314 L 158.0 314 A 14 14 0 0 0 172 328"></path><path class="leaf" d="M 172 342 L 158.0 342 A 14 14 0 0 1 172 328"></path><rect x="292" y="60.4" width="88.0" height="11.2"></rect><line x1="292" y1="61.8" x2="380" y2="61.8"></line><line x1="292" y1="66" x2="380" y2="66"></line><line x1="292" y1="70.2" x2="380" y2="70.2"></line><path class="leaf" d="M 292 66 L 292 22.0 A 44 44 0 0 1 336 66"></path><path class="leaf" d="M 380 66 L 380 22.0 A 44 44 0 0 0 336 66"></path><rect x="500" y="60.4" width="48.0" height="11.2"></rect><line x1="500" y1="61.8" x2="548" y2="61.8"></line><line x1="500" y1="66" x2="548" y2="66"></line><line x1="500" y1="70.2" x2="548" y2="70.2"></line><rect x="612" y="60.4" width="20.0" height="11.2"></rect><line x1="612" y1="61.8" x2="632" y2="61.8"></line><line x1="612" y1="66" x2="632" y2="66"></line><line x1="612" y1="70.2" x2="632" y2="70.2"></line><rect x="672" y="60.4" width="20.0" height="11.2"></rect><line x1="672" y1="61.8" x2="692" y2="61.8"></line><line x1="672" y1="66" x2="692" y2="66"></line><line x1="672" y1="70.2" x2="692" y2="70.2"></line><rect x="724" y="60.4" width="48.0" height="11.2"></rect><line x1="724" y1="61.8" x2="772" y2="61.8"></line><line x1="724" y1="66" x2="772" y2="66"></line><line x1="724" y1="70.2" x2="772" y2="70.2"></line><path class="leaf" d="M 724 66 L 724 42.0 A 24 24 0 0 1 748 66"></path><path class="leaf" d="M 772 66 L 772 42.0 A 24 24 0 0 0 748 66"></path></g><g class="door"><line x1="212" y1="110" x2="212" y2="208" stroke="#0a2349" stroke-width="10"></line><line class="glass" x1="212" y1="110" x2="212" y2="126.4"></line><line class="glass" x1="212" y1="191.6" x2="212" y2="208"></line><line x1="212" y1="126.4" x2="244.6" y2="126.4"></line><line x1="212" y1="191.60000000000002" x2="244.6" y2="191.60000000000002"></line><path d="M 244.6 126.4 A 32.6 32.6 0 0 1 212 159.0"></path><path d="M 244.6 191.60000000000002 A 32.6 32.6 0 0 0 212 159.0"></path><text x="212" y="220" fill="#ffd479" font-size="8" text-anchor="middle">CỬA CHÍNH</text><line x1="446" y1="66" x2="478" y2="66" stroke="#0a2349" stroke-width="10"></line><path d="M 446 98 A 32 32 0 0 1 478 66"></path><line x1="446" y1="66" x2="446" y2="98"></line><line x1="220" y1="250" x2="280" y2="250" stroke="#0a2349" stroke-width="10"></line><path class="curtain" d="M 220 250 A 4 4 0 0 1 227.5 250 A 4 4 0 0 1 235.0 250 A 4 4 0 0 1 242.5 250 A 4 4 0 0 1 250.0 250 A 4 4 0 0 1 257.5 250 A 4 4 0 0 1 265.0 250 A 4 4 0 0 1 272.5 250 A 4 4 0 0 1 280.0 250"></path><text x="250" y="245" fill="#ffd479" font-size="8" text-anchor="middle">rèm</text><line x1="404" y1="250" x2="440" y2="250" stroke="#0a2349" stroke-width="10"></line><path d="M 404 286 A 36 36 0 0 1 440 250"></path><line x1="404" y1="250" x2="404" y2="286"></line><line x1="464" y1="250" x2="500" y2="250" stroke="#0a2349" stroke-width="10"></line><path d="M 464 286 A 36 36 0 0 1 500 250"></path><line x1="464" y1="250" x2="464" y2="286"></line><line x1="612" y1="266" x2="648" y2="266" stroke="#0a2349" stroke-width="10"></line><path d="M 612 302 A 36 36 0 0 1 648 266"></path><line x1="612" y1="266" x2="612" y2="302"></line><line x1="596" y1="174" x2="624" y2="174" stroke="#0a2349" stroke-width="10"></line><path d="M 596 146 A 28 28 0 0 1 624 174"></path><line x1="596" y1="174" x2="596" y2="146"></line><line x1="652" y1="214" x2="652" y2="250" stroke="#0a2349" stroke-width="10"></line><path d="M 688 214 A 36 36 0 0 1 652 250"></path><line x1="652" y1="214" x2="688" y2="214"></line><line x1="676" y1="174" x2="704" y2="174" stroke="#0a2349" stroke-width="10"></line><path d="M 676 146 A 28 28 0 0 1 704 174"></path><line x1="676" y1="174" x2="676" y2="146"></line></g><g class="dim"><g><line x1="172" y1="442" x2="292" y2="442"></line><line class="ext" x1="172" y1="438" x2="172" y2="446"></line><line class="ext" x1="292" y1="438" x2="292" y2="446"></line><text x="232" y="438">3.0</text></g><g><line x1="292" y1="442" x2="448" y2="442"></line><line class="ext" x1="292" y1="438" x2="292" y2="446"></line><line class="ext" x1="448" y1="438" x2="448" y2="446"></line><text x="370" y="438">3.9</text></g><g><line x1="448" y1="442" x2="604" y2="442"></line><line class="ext" x1="448" y1="438" x2="448" y2="446"></line><line class="ext" x1="604" y1="438" x2="604" y2="446"></line><text x="526" y="438">3.9</text></g><g><line x1="604" y1="442" x2="792" y2="442"></line><line class="ext" x1="604" y1="438" x2="604" y2="446"></line><line class="ext" x1="792" y1="438" x2="792" y2="446"></line><text x="698" y="438">4.7</text></g><g><line x1="172" y1="466" x2="792" y2="466"></line><line class="ext" x1="172" y1="462" x2="172" y2="470"></line><line class="ext" x1="792" y1="462" x2="792" y2="470"></line><text x="482" y="462">15.5m</text></g><g><line x1="212" y1="40" x2="432" y2="40"></line><line class="ext" x1="212" y1="36" x2="212" y2="44"></line><line class="ext" x1="432" y1="36" x2="432" y2="44"></line><text x="322" y="36">5.5</text></g><g><line x1="432" y1="40" x2="592" y2="40"></line><line class="ext" x1="432" y1="36" x2="432" y2="44"></line><line class="ext" x1="592" y1="36" x2="592" y2="44"></line><text x="512" y="36">4.0</text></g><g><line x1="592" y1="40" x2="652" y2="40"></line><line class="ext" x1="592" y1="36" x2="592" y2="44"></line><line class="ext" x1="652" y1="36" x2="652" y2="44"></line><text x="622" y="36">1.5</text></g><g><line x1="652" y1="40" x2="792" y2="40"></line><line class="ext" x1="652" y1="36" x2="652" y2="44"></line><line class="ext" x1="792" y1="36" x2="792" y2="44"></line><text x="722" y="36">3.5</text></g><g><line x1="212" y1="16" x2="792" y2="16"></line><line class="ext" x1="212" y1="12" x2="212" y2="20"></line><line class="ext" x1="792" y1="12" x2="792" y2="20"></line><text x="502" y="12">14.5m</text></g><g><line x1="818" y1="66" x2="818" y2="266"></line><line class="ext" x1="814" y1="66" x2="822" y2="66"></line><line class="ext" x1="814" y1="266" x2="822" y2="266"></line><text x="830" y="169" text-anchor="middle">5.0</text></g><g><line x1="818" y1="266" x2="818" y2="386"></line><line class="ext" x1="814" y1="266" x2="822" y2="266"></line><line class="ext" x1="814" y1="386" x2="822" y2="386"></line><text x="830" y="329" text-anchor="middle">3.0</text></g><g><line x1="844" y1="66" x2="844" y2="386"></line><line class="ext" x1="840" y1="66" x2="848" y2="66"></line><line class="ext" x1="840" y1="386" x2="848" y2="386"></line><text x="856" y="229" text-anchor="middle">8.0m</text></g><g><line x1="146" y1="250" x2="146" y2="386"></line><line class="ext" x1="142" y1="250" x2="150" y2="250"></line><line class="ext" x1="142" y1="386" x2="150" y2="386"></line><text x="158" y="321" text-anchor="middle">3.4</text></g></g><g><circle cx="836" cy="84" r="14" fill="none" stroke="#7fd1ff" stroke-width="1"></circle><path d="M 836 73 L 841 88 L 836 84 L 831 88 Z" fill="#7fd1ff"></path><text x="836" y="96" fill="#7fd1ff" font-size="8" text-anchor="middle">B</text></g><g><text x="172" y="482" fill="#9fbbe4" font-size="9">0      1      2      3      4 m</text><rect x="172" y="486" width="40" height="5" fill="#9fbbe4" stroke="#9fbbe4" stroke-width=".7"></rect><rect x="212" y="486" width="40" height="5" fill="#0a2349" stroke="#9fbbe4" stroke-width=".7"></rect><rect x="252" y="486" width="40" height="5" fill="#9fbbe4" stroke="#9fbbe4" stroke-width=".7"></rect><rect x="292" y="486" width="40" height="5" fill="#0a2349" stroke="#9fbbe4" stroke-width=".7"></rect></g></svg></div></div>
     <p style="color:var(--muted);font-size:12.5px;margin-top:10px">Sơ đồ mặt bằng tổng thể (xem chi tiết và tương tác ở mục <b>Mặt bằng 2D</b>).</p>
   </div>
 </section>
@@ -287,18 +254,18 @@
       <p>Rê chuột (hoặc chạm) vào từng phòng để xem diện tích &amp; công năng. Dùng các công tắc để bật/tắt lớp bản vẽ.</p>
     </div>
     <div class="controls">
-      <label><input type="checkbox" id="t-dims" checked> Đường kích thước</label>
-      <label><input type="checkbox" id="t-grid" checked> Lưới trục</label>
-      <label><input type="checkbox" id="t-furn" checked> Nội thất</label>
-      <label><input type="checkbox" id="t-labels" checked> Tên phòng</label>
+      <label><input type="checkbox" id="t-dims" checked=""> Đường kích thước</label>
+      <label><input type="checkbox" id="t-grid" checked=""> Lưới trục</label>
+      <label><input type="checkbox" id="t-furn" checked=""> Nội thất</label>
+      <label><input type="checkbox" id="t-labels" checked=""> Tên phòng</label>
     </div>
     <div class="plan-grid">
-      <div class="drawing"><div id="planBox"></div></div>
+      <div class="drawing"><div id="planBox"><svg viewBox="0 0 888 496" class="planSVG" role="img" aria-label="Mặt bằng nhà"><rect class="porch" x="132" y="67.00000000000001" width="80.0" height="184.0"></rect><line class="step" x1="125.3" y1="110" x2="125.3" y2="208"></line><line class="step" x1="118.7" y1="110" x2="118.7" y2="208"></line><line class="step" x1="112.0" y1="110" x2="112.0" y2="208"></line><rect class="col" x="128.0" y="63.0" width="8" height="8"></rect><rect class="col" x="128.0" y="247.0" width="8" height="8"></rect><text class="note" x="172" y="61.0" text-anchor="middle">HIÊN CỬA CHÍNH 2×4.6m • TAM CẤP giữa</text><g class="grid"><line x1="172" y1="66" x2="172" y2="386"></line><line x1="212" y1="66" x2="212" y2="386"></line><line x1="252" y1="66" x2="252" y2="386"></line><line x1="292" y1="66" x2="292" y2="386"></line><line x1="332" y1="66" x2="332" y2="386"></line><line x1="372" y1="66" x2="372" y2="386"></line><line x1="412" y1="66" x2="412" y2="386"></line><line x1="452" y1="66" x2="452" y2="386"></line><line x1="492" y1="66" x2="492" y2="386"></line><line x1="532" y1="66" x2="532" y2="386"></line><line x1="572" y1="66" x2="572" y2="386"></line><line x1="612" y1="66" x2="612" y2="386"></line><line x1="652" y1="66" x2="652" y2="386"></line><line x1="692" y1="66" x2="692" y2="386"></line><line x1="732" y1="66" x2="732" y2="386"></line><line x1="772" y1="66" x2="772" y2="386"></line><line x1="172" y1="66" x2="792" y2="66"></line><line x1="172" y1="106" x2="792" y2="106"></line><line x1="172" y1="146" x2="792" y2="146"></line><line x1="172" y1="186" x2="792" y2="186"></line><line x1="172" y1="226" x2="792" y2="226"></line><line x1="172" y1="266" x2="792" y2="266"></line><line x1="172" y1="306" x2="792" y2="306"></line><line x1="172" y1="346" x2="792" y2="346"></line><line x1="172" y1="386" x2="792" y2="386"></line></g><g class="room" data-id="living" tabindex="0"><rect class="room-fill" x="212" y="66" width="220" height="184" fill="#3f9e86" fill-opacity="0.42" stroke="#3f9e86" stroke-opacity=".9"></rect><line class="tile" x1="236" y1="66" x2="236" y2="250"></line><line class="tile" x1="260" y1="66" x2="260" y2="250"></line><line class="tile" x1="284" y1="66" x2="284" y2="250"></line><line class="tile" x1="308" y1="66" x2="308" y2="250"></line><line class="tile" x1="332" y1="66" x2="332" y2="250"></line><line class="tile" x1="356" y1="66" x2="356" y2="250"></line><line class="tile" x1="380" y1="66" x2="380" y2="250"></line><line class="tile" x1="404" y1="66" x2="404" y2="250"></line><line class="tile" x1="427.99999999999994" y1="66" x2="427.99999999999994" y2="250"></line><line class="tile" x1="212" y1="90" x2="432" y2="90"></line><line class="tile" x1="212" y1="114" x2="432" y2="114"></line><line class="tile" x1="212" y1="138" x2="432" y2="138"></line><line class="tile" x1="212" y1="162" x2="432" y2="162"></line><line class="tile" x1="212" y1="186" x2="432" y2="186"></line><line class="tile" x1="212" y1="210" x2="432" y2="210"></line><line class="tile" x1="212" y1="234" x2="432" y2="234"></line><text class="rname" x="322" y="144">PHÒNG KHÁCH</text><text class="rarea" x="322" y="159">25.3 m²</text></g><g class="room" data-id="dine" tabindex="0"><rect class="room-fill" x="432" y="66" width="160" height="184" fill="#46ab93" fill-opacity="0.42" stroke="#46ab93" stroke-opacity=".9"></rect><line class="tile" x1="456" y1="66" x2="456" y2="250"></line><line class="tile" x1="480" y1="66" x2="480" y2="250"></line><line class="tile" x1="504" y1="66" x2="504" y2="250"></line><line class="tile" x1="528" y1="66" x2="528" y2="250"></line><line class="tile" x1="552" y1="66" x2="552" y2="250"></line><line class="tile" x1="576" y1="66" x2="576" y2="250"></line><line class="tile" x1="432" y1="90" x2="592" y2="90"></line><line class="tile" x1="432" y1="114" x2="592" y2="114"></line><line class="tile" x1="432" y1="138" x2="592" y2="138"></line><line class="tile" x1="432" y1="162" x2="592" y2="162"></line><line class="tile" x1="432" y1="186" x2="592" y2="186"></line><line class="tile" x1="432" y1="210" x2="592" y2="210"></line><line class="tile" x1="432" y1="234" x2="592" y2="234"></line><text class="rname" x="512" y="144">PHÒNG ĂN + BẾP</text><text class="rarea" x="512" y="159">18.4 m²</text></g><g class="room" data-id="wc1" tabindex="0"><rect class="room-fill" x="592" y="66" width="60" height="108" fill="#5aa6cf" fill-opacity="0.42" stroke="#5aa6cf" stroke-opacity=".9"></rect><text class="rname" x="622" y="118">WC1</text><text class="rarea" x="622" y="133">4.1 m²</text></g><g class="room" data-id="pocket" tabindex="0"><rect class="room-fill" x="572" y="174" width="80" height="76" fill="#5cbba4" fill-opacity="0.28" stroke="#5cbba4" stroke-opacity=".9"></rect><line class="tile" x1="596" y1="174" x2="596" y2="250"></line><line class="tile" x1="620" y1="174" x2="620" y2="250"></line><line class="tile" x1="644" y1="174" x2="644" y2="250"></line><line class="tile" x1="572" y1="198" x2="652" y2="198"></line><line class="tile" x1="572" y1="222" x2="652" y2="222"></line><line class="tile" x1="572" y1="246" x2="652" y2="246"></line></g><g class="room" data-id="throat" tabindex="0"><rect class="room-fill" x="612" y="250" width="40" height="16" fill="#5cbba4" fill-opacity="0.28" stroke="#5cbba4" stroke-opacity=".9"></rect><line class="tile" x1="636" y1="250" x2="636" y2="266"></line></g><g class="room" data-id="master" tabindex="0"><rect class="room-fill" x="652" y="66" width="140" height="200" fill="#b8924f" fill-opacity="0.42" stroke="#b8924f" stroke-opacity=".9"></rect><text class="rname" x="722" y="212">P. MASTER</text><text class="rarea" x="722" y="227">17.5 m²</text></g><g class="room" data-id="wc2" tabindex="0"><rect class="room-fill" x="652" y="66" width="60" height="108" fill="#5aa6cf" fill-opacity="0.42" stroke="#5aa6cf" stroke-opacity=".9"></rect><text class="rname" x="682" y="118">WC2</text><text class="rarea" x="682" y="133">4.1 m²</text></g><g class="room" data-id="worship" tabindex="0"><rect class="room-fill" x="172" y="250" width="120" height="136" fill="#bd7d4a" fill-opacity="0.42" stroke="#bd7d4a" stroke-opacity=".9"></rect><text class="rname" x="232" y="332">P. THỜ</text><text class="rarea" x="232" y="347">10.2 m²</text></g><g class="room" data-id="bed1" tabindex="0"><rect class="room-fill" x="292" y="250" width="156" height="136" fill="#caa063" fill-opacity="0.42" stroke="#caa063" stroke-opacity=".9"></rect><text class="rname" x="370" y="332">P. NGỦ 1</text><text class="rarea" x="370" y="347">13.3 m²</text></g><g class="room" data-id="bed2" tabindex="0"><rect class="room-fill" x="448" y="250" width="156" height="136" fill="#caa063" fill-opacity="0.42" stroke="#caa063" stroke-opacity=".9"></rect><text class="rname" x="526" y="332">P. NGỦ 2</text><text class="rarea" x="526" y="347">13.3 m²</text></g><g class="room" data-id="bed3" tabindex="0"><rect class="room-fill" x="604" y="266" width="188" height="120" fill="#caa063" fill-opacity="0.42" stroke="#caa063" stroke-opacity=".9"></rect><text class="rname" x="698" y="340">P. NGỦ 3</text><text class="rarea" x="698" y="355">14.1 m²</text></g><g class="room" data-id="planter" tabindex="0"><rect class="room-fill" x="140" y="266" width="32" height="96" fill="#67ad63" fill-opacity="0.22" stroke="#67ad63" stroke-opacity=".9"></rect><circle class="furn fill" cx="156" cy="290" r="18"></circle><circle class="furn fill" cx="156" cy="346" r="18"></circle><text class="rname" x="156" y="312">Ô CÂY</text></g><g class="furn"><rect class="furn fill" x="288" y="72" width="96.0" height="34.0" rx="2"></rect><line class="furn" x1="288" y1="92.4" x2="384" y2="92.4"></line><line class="furn" x1="320" y1="72" x2="320" y2="92.4"></line><line class="furn" x1="352" y1="72" x2="352" y2="92.4"></line><rect class="furn " x="308" y="124" width="56.0" height="26.0" rx="2"></rect><rect class="furn fill" x="296" y="172" width="34.0" height="24.0" rx="2"></rect><rect class="furn fill" x="340" y="172" width="34.0" height="24.0" rx="2"></rect><rect class="furn fill" x="414" y="112" width="16.0" height="64.0" rx="2"></rect><line class="furn" x1="414" y1="144" x2="430" y2="144"></line><rect class="furn fill" x="496" y="70.8" width="96.0" height="24.0" rx="2"></rect><ellipse class="furn fill" cx="524.8" cy="84" rx="6.0" ry="4.4"></ellipse><ellipse class="furn fill" cx="563.2" cy="84" rx="6.0" ry="4.4"></ellipse><rect class="furn fill" x="568" y="96" width="24.0" height="52.0" rx="2"></rect><circle class="furn " cx="575.2" cy="114.2" r="3.2"></circle><circle class="furn " cx="575.2" cy="132.39999999999998" r="3.2"></circle><circle class="furn " cx="584.8" cy="114.2" r="3.2"></circle><circle class="furn " cx="584.8" cy="132.39999999999998" r="3.2"></circle><rect class="furn fill" x="568" y="150" width="24.0" height="26.0" rx="2"></rect><line class="furn" x1="568" y1="157.28" x2="592" y2="157.28"></line><rect class="furn fill" x="476" y="142" width="56.0" height="34.0" rx="2"></rect><rect class="furn " x="480.79999999999995" y="122" width="16.8" height="16.8" rx="2"></rect><rect class="furn " x="510.40000000000003" y="122" width="16.8" height="16.8" rx="2"></rect><rect class="furn " x="480.79999999999995" y="179.2" width="16.8" height="16.8" rx="2"></rect><rect class="furn " x="510.40000000000003" y="179.2" width="16.8" height="16.8" rx="2"></rect><rect class="furn " x="592" y="70.8" width="60.0" height="36.0" rx="2"></rect><circle class="furn fill" cx="600.8000000000001" cy="79.6" r="2.0"></circle><line class="glass" x1="592" y1="106.8" x2="652" y2="106.8"></line><rect class="furn fill" x="643.6" y="118" width="8.0" height="16.0" rx="2"></rect><ellipse class="furn fill" cx="635.2" cy="126" rx="8.8" ry="7.2"></ellipse><rect class="furn " x="628" y="144" width="22.0" height="16.8" rx="2"></rect><ellipse class="furn fill" cx="639" cy="152.4" rx="8.0" ry="5.2"></ellipse><rect class="furn fill" x="626" y="176" width="24.0" height="24.0" rx="2"></rect><circle class="furn " cx="638" cy="188" r="6.4"></circle><rect class="furn " x="652" y="70.8" width="60.0" height="36.0" rx="2"></rect><circle class="furn fill" cx="660.8000000000001" cy="79.6" r="2.0"></circle><line class="glass" x1="652" y1="106.8" x2="712" y2="106.8"></line><rect class="furn fill" x="654" y="118" width="8.0" height="16.0" rx="2"></rect><ellipse class="furn fill" cx="670.8000000000001" cy="126" rx="8.8" ry="7.2"></ellipse><rect class="furn " x="654" y="144" width="22.0" height="16.8" rx="2"></rect><ellipse class="furn fill" cx="665" cy="152.4" rx="8.0" ry="5.2"></ellipse><rect class="furn fill" x="716" y="72" width="64.0" height="80.0" rx="2"></rect><rect class="furn " x="720" y="76" width="26.0" height="16.8" rx="2"></rect><rect class="furn " x="749.9999999999999" y="76" width="26.0" height="16.8" rx="2"></rect><line class="furn" x1="718.4" y1="100.8" x2="777.5999999999999" y2="100.8"></line><rect class="furn fill" x="716" y="244" width="64.0" height="20.0" rx="2"></rect><line class="furn" x1="737.3333333333333" y1="244" x2="737.3333333333333" y2="264"></line><line class="furn" x1="758.6666666666666" y1="244" x2="758.6666666666666" y2="264"></line><rect class="furn fill" x="252" y="276" width="40.0" height="80.0" rx="2"></rect><line class="furn" x1="252" y1="316" x2="292" y2="316"></line><rect class="furn fill" x="304" y="302" width="64.0" height="80.0" rx="2"></rect><rect class="furn " x="308" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><rect class="furn " x="338" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><line class="furn" x1="306.4" y1="353.20000000000005" x2="365.6" y2="353.20000000000005"></line><rect class="furn fill" x="304" y="250" width="64.0" height="22.0" rx="2"></rect><line class="furn" x1="325.3333333333333" y1="250" x2="325.3333333333333" y2="272"></line><line class="furn" x1="346.66666666666663" y1="250" x2="346.66666666666663" y2="272"></line><rect class="furn fill" x="386" y="360" width="48.0" height="20.0" rx="2"></rect><rect class="furn " x="401.59999999999997" y="338" width="16.8" height="16.8" rx="2"></rect><rect class="furn fill" x="532" y="302" width="64.0" height="80.0" rx="2"></rect><rect class="furn " x="536" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><rect class="furn " x="566" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><line class="furn" x1="534.4000000000001" y1="353.20000000000005" x2="593.5999999999999" y2="353.20000000000005"></line><rect class="furn fill" x="532" y="252" width="64.0" height="22.0" rx="2"></rect><line class="furn" x1="553.3333333333334" y1="252" x2="553.3333333333334" y2="274"></line><line class="furn" x1="574.6666666666667" y1="252" x2="574.6666666666667" y2="274"></line><rect class="furn fill" x="462" y="360" width="48.0" height="20.0" rx="2"></rect><rect class="furn " x="477.59999999999997" y="338" width="16.8" height="16.8" rx="2"></rect><rect class="furn fill" x="708" y="306" width="64.0" height="76.0" rx="2"></rect><rect class="furn " x="712" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><rect class="furn " x="742" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><line class="furn" x1="710.4000000000001" y1="353.20000000000005" x2="769.6" y2="353.20000000000005"></line><rect class="furn fill" x="708" y="266.79999999999995" width="64.0" height="20.0" rx="2"></rect><line class="furn" x1="729.3333333333334" y1="266.79999999999995" x2="729.3333333333334" y2="286.79999999999995"></line><line class="furn" x1="750.6666666666667" y1="266.79999999999995" x2="750.6666666666667" y2="286.79999999999995"></line><rect class="furn fill" x="620" y="362" width="44.0" height="20.0" rx="2"></rect><rect class="furn " x="633.6" y="340" width="16.8" height="16.8" rx="2"></rect></g><g><rect class="part" x="592" y="66" width="60" height="108"></rect><rect class="part" x="652" y="66" width="140" height="200"></rect><rect class="part" x="652" y="66" width="60" height="108"></rect><rect class="part" x="172" y="250" width="120" height="136"></rect><rect class="part" x="292" y="250" width="156" height="136"></rect><rect class="part" x="448" y="250" width="156" height="136"></rect><rect class="part" x="604" y="266" width="188" height="120"></rect><g class="lam"><rect x="430.0" y="80" width="4" height="8"></rect><rect x="430.0" y="92.8" width="4" height="8"></rect><rect x="430.0" y="105.6" width="4" height="8"></rect><rect x="430.0" y="118.4" width="4" height="8"></rect><rect x="430.0" y="131.2" width="4" height="8"></rect><rect x="430.0" y="144" width="4" height="8"></rect><rect x="430.0" y="156.8" width="4" height="8"></rect><rect x="430.0" y="169.6" width="4" height="8"></rect><rect x="430.0" y="182.39999999999998" width="4" height="8"></rect><rect x="430.0" y="195.2" width="4" height="8"></rect></g><path class="wallband" fill-rule="evenodd" d="M212.0 66.0 L792.0 66.0 L792.0 386.0 L172.0 386.0 L172.0 250.0 L212.0 250.0 Z M220.0 74.0 L784.0 74.0 L784.0 378.0 L180.0 378.0 L180.0 258.0 L220.0 258.0 Z"></path><rect class="part" x="120" y="250" width="52" height="136" stroke-dasharray="4 4"></rect></g><g class="win"><rect x="380" y="380.4" width="60.0" height="11.2"></rect><line x1="380" y1="381.8" x2="440" y2="381.8"></line><line x1="380" y1="386" x2="440" y2="386"></line><line x1="380" y1="390.2" x2="440" y2="390.2"></line><path class="leaf" d="M 380 386 L 380 416.0 A 30 30 0 0 0 410 386"></path><path class="leaf" d="M 440 386 L 440 416.0 A 30 30 0 0 1 410 386"></path><rect x="456" y="380.4" width="60.0" height="11.2"></rect><line x1="456" y1="381.8" x2="516" y2="381.8"></line><line x1="456" y1="386" x2="516" y2="386"></line><line x1="456" y1="390.2" x2="516" y2="390.2"></line><path class="leaf" d="M 456 386 L 456 416.0 A 30 30 0 0 0 486 386"></path><path class="leaf" d="M 516 386 L 516 416.0 A 30 30 0 0 1 486 386"></path><rect x="612" y="380.4" width="60.0" height="11.2"></rect><line x1="612" y1="381.8" x2="672" y2="381.8"></line><line x1="612" y1="386" x2="672" y2="386"></line><line x1="612" y1="390.2" x2="672" y2="390.2"></line><path class="leaf" d="M 612 386 L 612 416.0 A 30 30 0 0 0 642 386"></path><path class="leaf" d="M 672 386 L 672 416.0 A 30 30 0 0 1 642 386"></path><rect x="166.4" y="286" width="11.2" height="56.0"></rect><line x1="167.8" y1="286" x2="167.8" y2="342"></line><line x1="172" y1="286" x2="172" y2="342"></line><line x1="176.2" y1="286" x2="176.2" y2="342"></line><path class="leaf" d="M 172 286 L 158.0 286 A 14 14 0 0 0 172 300"></path><path class="leaf" d="M 172 314 L 158.0 314 A 14 14 0 0 1 172 300"></path><path class="leaf" d="M 172 314 L 158.0 314 A 14 14 0 0 0 172 328"></path><path class="leaf" d="M 172 342 L 158.0 342 A 14 14 0 0 1 172 328"></path><rect x="292" y="60.4" width="88.0" height="11.2"></rect><line x1="292" y1="61.8" x2="380" y2="61.8"></line><line x1="292" y1="66" x2="380" y2="66"></line><line x1="292" y1="70.2" x2="380" y2="70.2"></line><path class="leaf" d="M 292 66 L 292 22.0 A 44 44 0 0 1 336 66"></path><path class="leaf" d="M 380 66 L 380 22.0 A 44 44 0 0 0 336 66"></path><rect x="500" y="60.4" width="48.0" height="11.2"></rect><line x1="500" y1="61.8" x2="548" y2="61.8"></line><line x1="500" y1="66" x2="548" y2="66"></line><line x1="500" y1="70.2" x2="548" y2="70.2"></line><rect x="612" y="60.4" width="20.0" height="11.2"></rect><line x1="612" y1="61.8" x2="632" y2="61.8"></line><line x1="612" y1="66" x2="632" y2="66"></line><line x1="612" y1="70.2" x2="632" y2="70.2"></line><rect x="672" y="60.4" width="20.0" height="11.2"></rect><line x1="672" y1="61.8" x2="692" y2="61.8"></line><line x1="672" y1="66" x2="692" y2="66"></line><line x1="672" y1="70.2" x2="692" y2="70.2"></line><rect x="724" y="60.4" width="48.0" height="11.2"></rect><line x1="724" y1="61.8" x2="772" y2="61.8"></line><line x1="724" y1="66" x2="772" y2="66"></line><line x1="724" y1="70.2" x2="772" y2="70.2"></line><path class="leaf" d="M 724 66 L 724 42.0 A 24 24 0 0 1 748 66"></path><path class="leaf" d="M 772 66 L 772 42.0 A 24 24 0 0 0 748 66"></path></g><g class="door"><line x1="212" y1="110" x2="212" y2="208" stroke="#0a2349" stroke-width="10"></line><line class="glass" x1="212" y1="110" x2="212" y2="126.4"></line><line class="glass" x1="212" y1="191.6" x2="212" y2="208"></line><line x1="212" y1="126.4" x2="244.6" y2="126.4"></line><line x1="212" y1="191.60000000000002" x2="244.6" y2="191.60000000000002"></line><path d="M 244.6 126.4 A 32.6 32.6 0 0 1 212 159.0"></path><path d="M 244.6 191.60000000000002 A 32.6 32.6 0 0 0 212 159.0"></path><text x="212" y="220" fill="#ffd479" font-size="8" text-anchor="middle">CỬA CHÍNH</text><line x1="446" y1="66" x2="478" y2="66" stroke="#0a2349" stroke-width="10"></line><path d="M 446 98 A 32 32 0 0 1 478 66"></path><line x1="446" y1="66" x2="446" y2="98"></line><line x1="220" y1="250" x2="280" y2="250" stroke="#0a2349" stroke-width="10"></line><path class="curtain" d="M 220 250 A 4 4 0 0 1 227.5 250 A 4 4 0 0 1 235.0 250 A 4 4 0 0 1 242.5 250 A 4 4 0 0 1 250.0 250 A 4 4 0 0 1 257.5 250 A 4 4 0 0 1 265.0 250 A 4 4 0 0 1 272.5 250 A 4 4 0 0 1 280.0 250"></path><text x="250" y="245" fill="#ffd479" font-size="8" text-anchor="middle">rèm</text><line x1="404" y1="250" x2="440" y2="250" stroke="#0a2349" stroke-width="10"></line><path d="M 404 286 A 36 36 0 0 1 440 250"></path><line x1="404" y1="250" x2="404" y2="286"></line><line x1="464" y1="250" x2="500" y2="250" stroke="#0a2349" stroke-width="10"></line><path d="M 464 286 A 36 36 0 0 1 500 250"></path><line x1="464" y1="250" x2="464" y2="286"></line><line x1="612" y1="266" x2="648" y2="266" stroke="#0a2349" stroke-width="10"></line><path d="M 612 302 A 36 36 0 0 1 648 266"></path><line x1="612" y1="266" x2="612" y2="302"></line><line x1="596" y1="174" x2="624" y2="174" stroke="#0a2349" stroke-width="10"></line><path d="M 596 146 A 28 28 0 0 1 624 174"></path><line x1="596" y1="174" x2="596" y2="146"></line><line x1="652" y1="214" x2="652" y2="250" stroke="#0a2349" stroke-width="10"></line><path d="M 688 214 A 36 36 0 0 1 652 250"></path><line x1="652" y1="214" x2="688" y2="214"></line><line x1="676" y1="174" x2="704" y2="174" stroke="#0a2349" stroke-width="10"></line><path d="M 676 146 A 28 28 0 0 1 704 174"></path><line x1="676" y1="174" x2="676" y2="146"></line></g><g class="dim"><g><line x1="172" y1="442" x2="292" y2="442"></line><line class="ext" x1="172" y1="438" x2="172" y2="446"></line><line class="ext" x1="292" y1="438" x2="292" y2="446"></line><text x="232" y="438">3.0</text></g><g><line x1="292" y1="442" x2="448" y2="442"></line><line class="ext" x1="292" y1="438" x2="292" y2="446"></line><line class="ext" x1="448" y1="438" x2="448" y2="446"></line><text x="370" y="438">3.9</text></g><g><line x1="448" y1="442" x2="604" y2="442"></line><line class="ext" x1="448" y1="438" x2="448" y2="446"></line><line class="ext" x1="604" y1="438" x2="604" y2="446"></line><text x="526" y="438">3.9</text></g><g><line x1="604" y1="442" x2="792" y2="442"></line><line class="ext" x1="604" y1="438" x2="604" y2="446"></line><line class="ext" x1="792" y1="438" x2="792" y2="446"></line><text x="698" y="438">4.7</text></g><g><line x1="172" y1="466" x2="792" y2="466"></line><line class="ext" x1="172" y1="462" x2="172" y2="470"></line><line class="ext" x1="792" y1="462" x2="792" y2="470"></line><text x="482" y="462">15.5m</text></g><g><line x1="212" y1="40" x2="432" y2="40"></line><line class="ext" x1="212" y1="36" x2="212" y2="44"></line><line class="ext" x1="432" y1="36" x2="432" y2="44"></line><text x="322" y="36">5.5</text></g><g><line x1="432" y1="40" x2="592" y2="40"></line><line class="ext" x1="432" y1="36" x2="432" y2="44"></line><line class="ext" x1="592" y1="36" x2="592" y2="44"></line><text x="512" y="36">4.0</text></g><g><line x1="592" y1="40" x2="652" y2="40"></line><line class="ext" x1="592" y1="36" x2="592" y2="44"></line><line class="ext" x1="652" y1="36" x2="652" y2="44"></line><text x="622" y="36">1.5</text></g><g><line x1="652" y1="40" x2="792" y2="40"></line><line class="ext" x1="652" y1="36" x2="652" y2="44"></line><line class="ext" x1="792" y1="36" x2="792" y2="44"></line><text x="722" y="36">3.5</text></g><g><line x1="212" y1="16" x2="792" y2="16"></line><line class="ext" x1="212" y1="12" x2="212" y2="20"></line><line class="ext" x1="792" y1="12" x2="792" y2="20"></line><text x="502" y="12">14.5m</text></g><g><line x1="818" y1="66" x2="818" y2="266"></line><line class="ext" x1="814" y1="66" x2="822" y2="66"></line><line class="ext" x1="814" y1="266" x2="822" y2="266"></line><text x="830" y="169" text-anchor="middle">5.0</text></g><g><line x1="818" y1="266" x2="818" y2="386"></line><line class="ext" x1="814" y1="266" x2="822" y2="266"></line><line class="ext" x1="814" y1="386" x2="822" y2="386"></line><text x="830" y="329" text-anchor="middle">3.0</text></g><g><line x1="844" y1="66" x2="844" y2="386"></line><line class="ext" x1="840" y1="66" x2="848" y2="66"></line><line class="ext" x1="840" y1="386" x2="848" y2="386"></line><text x="856" y="229" text-anchor="middle">8.0m</text></g><g><line x1="146" y1="250" x2="146" y2="386"></line><line class="ext" x1="142" y1="250" x2="150" y2="250"></line><line class="ext" x1="142" y1="386" x2="150" y2="386"></line><text x="158" y="321" text-anchor="middle">3.4</text></g></g><g><circle cx="836" cy="84" r="14" fill="none" stroke="#7fd1ff" stroke-width="1"></circle><path d="M 836 73 L 841 88 L 836 84 L 831 88 Z" fill="#7fd1ff"></path><text x="836" y="96" fill="#7fd1ff" font-size="8" text-anchor="middle">B</text></g><g><text x="172" y="482" fill="#9fbbe4" font-size="9">0      1      2      3      4 m</text><rect x="172" y="486" width="40" height="5" fill="#9fbbe4" stroke="#9fbbe4" stroke-width=".7"></rect><rect x="212" y="486" width="40" height="5" fill="#0a2349" stroke="#9fbbe4" stroke-width=".7"></rect><rect x="252" y="486" width="40" height="5" fill="#9fbbe4" stroke="#9fbbe4" stroke-width=".7"></rect><rect x="292" y="486" width="40" height="5" fill="#0a2349" stroke="#9fbbe4" stroke-width=".7"></rect></g></svg></div></div>
       <aside class="infopanel" id="infoPanel">
         <h4 id="ip-name">Chọn một phòng</h4>
         <div class="area" id="ip-area">—</div>
         <div class="desc" id="ip-desc">Đưa con trỏ vào các phòng trên bản vẽ để xem thông tin chi tiết.</div>
-        <div class="legend" id="ip-legend"></div>
+        <div class="legend" id="ip-legend"><span><i style="background:#3f9e86"></i>Phòng khách</span><span><i style="background:#46ab93"></i>Phòng ăn + Bếp</span><span><i style="background:#5cbba4"></i>Lối chung</span><span><i style="background:#caa063"></i>Phòng ngủ</span><span><i style="background:#b8924f"></i>Phòng master</span><span><i style="background:#bd7d4a"></i>Phòng thờ</span><span><i style="background:#5aa6cf"></i>Vệ sinh</span><span><i style="background:#67ad63"></i>Ngoài trời</span></div>
         <div class="hint">Mẹo: mọi kích thước &amp; tên phòng nằm trong đối tượng <b>PLAN</b> ở đầu phần &lt;script&gt; — sửa ở đó là bản vẽ tự cập nhật.</div>
       </aside>
     </div>
@@ -306,16 +273,16 @@
 </section>
 
 <!-- ===== TỪNG PHÒNG (chỉnh sửa) ===== -->
-<section class="view" id="view-rooms">
+<section class="view active" id="view-rooms">
   <div class="wrap">
     <div class="sec-h">
       <h3>Thiết kế từng phòng</h3><span class="tag">Sửa trực tiếp</span>
       <p>Chọn một phòng để xem phóng to &amp; chỉnh ngay (tên, kích thước, vị trí, công năng). Mọi thay đổi tự cập nhật vào mặt bằng tổng. Bấm <b>Tải file đã cập nhật</b> để lưu lại.</p>
     </div>
-    <div class="room-tabs" id="roomTabs"></div>
+    <div class="room-tabs" id="roomTabs"><button data-room="living" class="">PHÒNG KHÁCH</button><button data-room="dine">PHÒNG ĂN + BẾP</button><button data-room="wc1">WC1</button><button data-room="master">P. MASTER</button><button data-room="wc2">WC2</button><button data-room="worship">P. THỜ</button><button data-room="bed1" class="">P. NGỦ 1</button><button data-room="bed2" class="active">P. NGỦ 2</button><button data-room="bed3">P. NGỦ 3</button><button data-room="planter">Ô CÂY</button><button data-room="__meta__" class="">⌂ Hiên &amp; tam cấp</button></div>
     <div class="room-grid">
-      <div class="drawing"><div id="roomDraw"></div></div>
-      <aside class="editform" id="roomEdit"></aside>
+      <div class="drawing"><div id="roomDraw"><svg viewBox="396 198 260 240" class="planSVG" role="img" aria-label="Mặt bằng nhà"><rect class="porch" x="132" y="67.00000000000001" width="80.0" height="184.0"></rect><line class="step" x1="125.3" y1="110" x2="125.3" y2="208"></line><line class="step" x1="118.7" y1="110" x2="118.7" y2="208"></line><line class="step" x1="112.0" y1="110" x2="112.0" y2="208"></line><rect class="col" x="128.0" y="63.0" width="8" height="8"></rect><rect class="col" x="128.0" y="247.0" width="8" height="8"></rect><text class="note" x="172" y="61.0" text-anchor="middle">HIÊN CỬA CHÍNH 2×4.6m • TAM CẤP giữa</text><g class="grid"><line x1="172" y1="66" x2="172" y2="386"></line><line x1="212" y1="66" x2="212" y2="386"></line><line x1="252" y1="66" x2="252" y2="386"></line><line x1="292" y1="66" x2="292" y2="386"></line><line x1="332" y1="66" x2="332" y2="386"></line><line x1="372" y1="66" x2="372" y2="386"></line><line x1="412" y1="66" x2="412" y2="386"></line><line x1="452" y1="66" x2="452" y2="386"></line><line x1="492" y1="66" x2="492" y2="386"></line><line x1="532" y1="66" x2="532" y2="386"></line><line x1="572" y1="66" x2="572" y2="386"></line><line x1="612" y1="66" x2="612" y2="386"></line><line x1="652" y1="66" x2="652" y2="386"></line><line x1="692" y1="66" x2="692" y2="386"></line><line x1="732" y1="66" x2="732" y2="386"></line><line x1="772" y1="66" x2="772" y2="386"></line><line x1="172" y1="66" x2="792" y2="66"></line><line x1="172" y1="106" x2="792" y2="106"></line><line x1="172" y1="146" x2="792" y2="146"></line><line x1="172" y1="186" x2="792" y2="186"></line><line x1="172" y1="226" x2="792" y2="226"></line><line x1="172" y1="266" x2="792" y2="266"></line><line x1="172" y1="306" x2="792" y2="306"></line><line x1="172" y1="346" x2="792" y2="346"></line><line x1="172" y1="386" x2="792" y2="386"></line></g><g class="room" data-id="living" tabindex="0"><rect class="room-fill" x="212" y="66" width="220" height="184" fill="#3f9e86" fill-opacity="0.42" stroke="#3f9e86" stroke-opacity=".9"></rect><line class="tile" x1="236" y1="66" x2="236" y2="250"></line><line class="tile" x1="260" y1="66" x2="260" y2="250"></line><line class="tile" x1="284" y1="66" x2="284" y2="250"></line><line class="tile" x1="308" y1="66" x2="308" y2="250"></line><line class="tile" x1="332" y1="66" x2="332" y2="250"></line><line class="tile" x1="356" y1="66" x2="356" y2="250"></line><line class="tile" x1="380" y1="66" x2="380" y2="250"></line><line class="tile" x1="404" y1="66" x2="404" y2="250"></line><line class="tile" x1="427.99999999999994" y1="66" x2="427.99999999999994" y2="250"></line><line class="tile" x1="212" y1="90" x2="432" y2="90"></line><line class="tile" x1="212" y1="114" x2="432" y2="114"></line><line class="tile" x1="212" y1="138" x2="432" y2="138"></line><line class="tile" x1="212" y1="162" x2="432" y2="162"></line><line class="tile" x1="212" y1="186" x2="432" y2="186"></line><line class="tile" x1="212" y1="210" x2="432" y2="210"></line><line class="tile" x1="212" y1="234" x2="432" y2="234"></line><text class="rname" x="322" y="144">PHÒNG KHÁCH</text><text class="rarea" x="322" y="159">25.3 m²</text></g><g class="room" data-id="dine" tabindex="0"><rect class="room-fill" x="432" y="66" width="160" height="184" fill="#46ab93" fill-opacity="0.42" stroke="#46ab93" stroke-opacity=".9"></rect><line class="tile" x1="456" y1="66" x2="456" y2="250"></line><line class="tile" x1="480" y1="66" x2="480" y2="250"></line><line class="tile" x1="504" y1="66" x2="504" y2="250"></line><line class="tile" x1="528" y1="66" x2="528" y2="250"></line><line class="tile" x1="552" y1="66" x2="552" y2="250"></line><line class="tile" x1="576" y1="66" x2="576" y2="250"></line><line class="tile" x1="432" y1="90" x2="592" y2="90"></line><line class="tile" x1="432" y1="114" x2="592" y2="114"></line><line class="tile" x1="432" y1="138" x2="592" y2="138"></line><line class="tile" x1="432" y1="162" x2="592" y2="162"></line><line class="tile" x1="432" y1="186" x2="592" y2="186"></line><line class="tile" x1="432" y1="210" x2="592" y2="210"></line><line class="tile" x1="432" y1="234" x2="592" y2="234"></line><text class="rname" x="512" y="144">PHÒNG ĂN + BẾP</text><text class="rarea" x="512" y="159">18.4 m²</text></g><g class="room" data-id="wc1" tabindex="0"><rect class="room-fill" x="592" y="66" width="60" height="108" fill="#5aa6cf" fill-opacity="0.42" stroke="#5aa6cf" stroke-opacity=".9"></rect><text class="rname" x="622" y="118">WC1</text><text class="rarea" x="622" y="133">4.1 m²</text></g><g class="room" data-id="pocket" tabindex="0"><rect class="room-fill" x="572" y="174" width="80" height="76" fill="#5cbba4" fill-opacity="0.28" stroke="#5cbba4" stroke-opacity=".9"></rect><line class="tile" x1="596" y1="174" x2="596" y2="250"></line><line class="tile" x1="620" y1="174" x2="620" y2="250"></line><line class="tile" x1="644" y1="174" x2="644" y2="250"></line><line class="tile" x1="572" y1="198" x2="652" y2="198"></line><line class="tile" x1="572" y1="222" x2="652" y2="222"></line><line class="tile" x1="572" y1="246" x2="652" y2="246"></line></g><g class="room" data-id="throat" tabindex="0"><rect class="room-fill" x="612" y="250" width="40" height="16" fill="#5cbba4" fill-opacity="0.28" stroke="#5cbba4" stroke-opacity=".9"></rect><line class="tile" x1="636" y1="250" x2="636" y2="266"></line></g><g class="room" data-id="master" tabindex="0"><rect class="room-fill" x="652" y="66" width="140" height="200" fill="#b8924f" fill-opacity="0.42" stroke="#b8924f" stroke-opacity=".9"></rect><text class="rname" x="722" y="212">P. MASTER</text><text class="rarea" x="722" y="227">17.5 m²</text></g><g class="room" data-id="wc2" tabindex="0"><rect class="room-fill" x="652" y="66" width="60" height="108" fill="#5aa6cf" fill-opacity="0.42" stroke="#5aa6cf" stroke-opacity=".9"></rect><text class="rname" x="682" y="118">WC2</text><text class="rarea" x="682" y="133">4.1 m²</text></g><g class="room" data-id="worship" tabindex="0"><rect class="room-fill" x="172" y="250" width="120" height="136" fill="#bd7d4a" fill-opacity="0.42" stroke="#bd7d4a" stroke-opacity=".9"></rect><text class="rname" x="232" y="332">P. THỜ</text><text class="rarea" x="232" y="347">10.2 m²</text></g><g class="room" data-id="bed1" tabindex="0"><rect class="room-fill" x="292" y="250" width="156" height="136" fill="#caa063" fill-opacity="0.42" stroke="#caa063" stroke-opacity=".9"></rect><text class="rname" x="370" y="332">P. NGỦ 1</text><text class="rarea" x="370" y="347">13.3 m²</text></g><g class="room sel" data-id="bed2" tabindex="0"><rect class="room-fill" x="448" y="250" width="156" height="136" fill="#caa063" fill-opacity="0.42" stroke="#caa063" stroke-opacity=".9"></rect><text class="rname" x="526" y="332">P. NGỦ 2</text><text class="rarea" x="526" y="347">13.3 m²</text></g><g class="room" data-id="bed3" tabindex="0"><rect class="room-fill" x="604" y="266" width="188" height="120" fill="#caa063" fill-opacity="0.42" stroke="#caa063" stroke-opacity=".9"></rect><text class="rname" x="698" y="340">P. NGỦ 3</text><text class="rarea" x="698" y="355">14.1 m²</text></g><g class="room" data-id="planter" tabindex="0"><rect class="room-fill" x="140" y="266" width="32" height="96" fill="#67ad63" fill-opacity="0.22" stroke="#67ad63" stroke-opacity=".9"></rect><circle class="furn fill" cx="156" cy="290" r="18"></circle><circle class="furn fill" cx="156" cy="346" r="18"></circle><text class="rname" x="156" y="312">Ô CÂY</text></g><g class="furn"><rect class="furn fill" x="288" y="72" width="96.0" height="34.0" rx="2"></rect><line class="furn" x1="288" y1="92.4" x2="384" y2="92.4"></line><line class="furn" x1="320" y1="72" x2="320" y2="92.4"></line><line class="furn" x1="352" y1="72" x2="352" y2="92.4"></line><rect class="furn " x="308" y="124" width="56.0" height="26.0" rx="2"></rect><rect class="furn fill" x="296" y="172" width="34.0" height="24.0" rx="2"></rect><rect class="furn fill" x="340" y="172" width="34.0" height="24.0" rx="2"></rect><rect class="furn fill" x="414" y="112" width="16.0" height="64.0" rx="2"></rect><line class="furn" x1="414" y1="144" x2="430" y2="144"></line><rect class="furn fill" x="496" y="70.8" width="96.0" height="24.0" rx="2"></rect><ellipse class="furn fill" cx="524.8" cy="84" rx="6.0" ry="4.4"></ellipse><ellipse class="furn fill" cx="563.2" cy="84" rx="6.0" ry="4.4"></ellipse><rect class="furn fill" x="568" y="96" width="24.0" height="52.0" rx="2"></rect><circle class="furn " cx="575.2" cy="114.2" r="3.2"></circle><circle class="furn " cx="575.2" cy="132.39999999999998" r="3.2"></circle><circle class="furn " cx="584.8" cy="114.2" r="3.2"></circle><circle class="furn " cx="584.8" cy="132.39999999999998" r="3.2"></circle><rect class="furn fill" x="568" y="150" width="24.0" height="26.0" rx="2"></rect><line class="furn" x1="568" y1="157.28" x2="592" y2="157.28"></line><rect class="furn fill" x="476" y="142" width="56.0" height="34.0" rx="2"></rect><rect class="furn " x="480.79999999999995" y="122" width="16.8" height="16.8" rx="2"></rect><rect class="furn " x="510.40000000000003" y="122" width="16.8" height="16.8" rx="2"></rect><rect class="furn " x="480.79999999999995" y="179.2" width="16.8" height="16.8" rx="2"></rect><rect class="furn " x="510.40000000000003" y="179.2" width="16.8" height="16.8" rx="2"></rect><rect class="furn " x="592" y="70.8" width="60.0" height="36.0" rx="2"></rect><circle class="furn fill" cx="600.8000000000001" cy="79.6" r="2.0"></circle><line class="glass" x1="592" y1="106.8" x2="652" y2="106.8"></line><rect class="furn fill" x="643.6" y="118" width="8.0" height="16.0" rx="2"></rect><ellipse class="furn fill" cx="635.2" cy="126" rx="8.8" ry="7.2"></ellipse><rect class="furn " x="628" y="144" width="22.0" height="16.8" rx="2"></rect><ellipse class="furn fill" cx="639" cy="152.4" rx="8.0" ry="5.2"></ellipse><rect class="furn fill" x="626" y="176" width="24.0" height="24.0" rx="2"></rect><circle class="furn " cx="638" cy="188" r="6.4"></circle><rect class="furn " x="652" y="70.8" width="60.0" height="36.0" rx="2"></rect><circle class="furn fill" cx="660.8000000000001" cy="79.6" r="2.0"></circle><line class="glass" x1="652" y1="106.8" x2="712" y2="106.8"></line><rect class="furn fill" x="654" y="118" width="8.0" height="16.0" rx="2"></rect><ellipse class="furn fill" cx="670.8000000000001" cy="126" rx="8.8" ry="7.2"></ellipse><rect class="furn " x="654" y="144" width="22.0" height="16.8" rx="2"></rect><ellipse class="furn fill" cx="665" cy="152.4" rx="8.0" ry="5.2"></ellipse><rect class="furn fill" x="716" y="72" width="64.0" height="80.0" rx="2"></rect><rect class="furn " x="720" y="76" width="26.0" height="16.8" rx="2"></rect><rect class="furn " x="749.9999999999999" y="76" width="26.0" height="16.8" rx="2"></rect><line class="furn" x1="718.4" y1="100.8" x2="777.5999999999999" y2="100.8"></line><rect class="furn fill" x="716" y="244" width="64.0" height="20.0" rx="2"></rect><line class="furn" x1="737.3333333333333" y1="244" x2="737.3333333333333" y2="264"></line><line class="furn" x1="758.6666666666666" y1="244" x2="758.6666666666666" y2="264"></line><rect class="furn fill" x="252" y="276" width="40.0" height="80.0" rx="2"></rect><line class="furn" x1="252" y1="316" x2="292" y2="316"></line><rect class="furn fill" x="304" y="302" width="64.0" height="80.0" rx="2"></rect><rect class="furn " x="308" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><rect class="furn " x="338" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><line class="furn" x1="306.4" y1="353.20000000000005" x2="365.6" y2="353.20000000000005"></line><rect class="furn fill" x="304" y="250" width="64.0" height="22.0" rx="2"></rect><line class="furn" x1="325.3333333333333" y1="250" x2="325.3333333333333" y2="272"></line><line class="furn" x1="346.66666666666663" y1="250" x2="346.66666666666663" y2="272"></line><rect class="furn fill" x="386" y="360" width="48.0" height="20.0" rx="2"></rect><rect class="furn " x="401.59999999999997" y="338" width="16.8" height="16.8" rx="2"></rect><rect class="furn fill" x="532" y="302" width="64.0" height="80.0" rx="2"></rect><rect class="furn " x="536" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><rect class="furn " x="566" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><line class="furn" x1="534.4000000000001" y1="353.20000000000005" x2="593.5999999999999" y2="353.20000000000005"></line><rect class="furn fill" x="532" y="252" width="64.0" height="22.0" rx="2"></rect><line class="furn" x1="553.3333333333334" y1="252" x2="553.3333333333334" y2="274"></line><line class="furn" x1="574.6666666666667" y1="252" x2="574.6666666666667" y2="274"></line><rect class="furn fill" x="462" y="360" width="48.0" height="20.0" rx="2"></rect><rect class="furn " x="477.59999999999997" y="338" width="16.8" height="16.8" rx="2"></rect><rect class="furn fill" x="708" y="306" width="64.0" height="76.0" rx="2"></rect><rect class="furn " x="712" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><rect class="furn " x="742" y="361.20000000000005" width="26.0" height="16.8" rx="2"></rect><line class="furn" x1="710.4000000000001" y1="353.20000000000005" x2="769.6" y2="353.20000000000005"></line><rect class="furn fill" x="708" y="266.79999999999995" width="64.0" height="20.0" rx="2"></rect><line class="furn" x1="729.3333333333334" y1="266.79999999999995" x2="729.3333333333334" y2="286.79999999999995"></line><line class="furn" x1="750.6666666666667" y1="266.79999999999995" x2="750.6666666666667" y2="286.79999999999995"></line><rect class="furn fill" x="620" y="362" width="44.0" height="20.0" rx="2"></rect><rect class="furn " x="633.6" y="340" width="16.8" height="16.8" rx="2"></rect></g><g><rect class="part" x="592" y="66" width="60" height="108"></rect><rect class="part" x="652" y="66" width="140" height="200"></rect><rect class="part" x="652" y="66" width="60" height="108"></rect><rect class="part" x="172" y="250" width="120" height="136"></rect><rect class="part" x="292" y="250" width="156" height="136"></rect><rect class="part" x="448" y="250" width="156" height="136"></rect><rect class="part" x="604" y="266" width="188" height="120"></rect><g class="lam"><rect x="430.0" y="80" width="4" height="8"></rect><rect x="430.0" y="92.8" width="4" height="8"></rect><rect x="430.0" y="105.6" width="4" height="8"></rect><rect x="430.0" y="118.4" width="4" height="8"></rect><rect x="430.0" y="131.2" width="4" height="8"></rect><rect x="430.0" y="144" width="4" height="8"></rect><rect x="430.0" y="156.8" width="4" height="8"></rect><rect x="430.0" y="169.6" width="4" height="8"></rect><rect x="430.0" y="182.39999999999998" width="4" height="8"></rect><rect x="430.0" y="195.2" width="4" height="8"></rect></g><path class="wallband" fill-rule="evenodd" d="M212.0 66.0 L792.0 66.0 L792.0 386.0 L172.0 386.0 L172.0 250.0 L212.0 250.0 Z M220.0 74.0 L784.0 74.0 L784.0 378.0 L180.0 378.0 L180.0 258.0 L220.0 258.0 Z"></path><rect class="part" x="120" y="250" width="52" height="136" stroke-dasharray="4 4"></rect></g><g class="win"><rect x="380" y="380.4" width="60.0" height="11.2"></rect><line x1="380" y1="381.8" x2="440" y2="381.8"></line><line x1="380" y1="386" x2="440" y2="386"></line><line x1="380" y1="390.2" x2="440" y2="390.2"></line><path class="leaf" d="M 380 386 L 380 416.0 A 30 30 0 0 0 410 386"></path><path class="leaf" d="M 440 386 L 440 416.0 A 30 30 0 0 1 410 386"></path><rect x="456" y="380.4" width="60.0" height="11.2"></rect><line x1="456" y1="381.8" x2="516" y2="381.8"></line><line x1="456" y1="386" x2="516" y2="386"></line><line x1="456" y1="390.2" x2="516" y2="390.2"></line><path class="leaf" d="M 456 386 L 456 416.0 A 30 30 0 0 0 486 386"></path><path class="leaf" d="M 516 386 L 516 416.0 A 30 30 0 0 1 486 386"></path><rect x="612" y="380.4" width="60.0" height="11.2"></rect><line x1="612" y1="381.8" x2="672" y2="381.8"></line><line x1="612" y1="386" x2="672" y2="386"></line><line x1="612" y1="390.2" x2="672" y2="390.2"></line><path class="leaf" d="M 612 386 L 612 416.0 A 30 30 0 0 0 642 386"></path><path class="leaf" d="M 672 386 L 672 416.0 A 30 30 0 0 1 642 386"></path><rect x="166.4" y="286" width="11.2" height="56.0"></rect><line x1="167.8" y1="286" x2="167.8" y2="342"></line><line x1="172" y1="286" x2="172" y2="342"></line><line x1="176.2" y1="286" x2="176.2" y2="342"></line><path class="leaf" d="M 172 286 L 158.0 286 A 14 14 0 0 0 172 300"></path><path class="leaf" d="M 172 314 L 158.0 314 A 14 14 0 0 1 172 300"></path><path class="leaf" d="M 172 314 L 158.0 314 A 14 14 0 0 0 172 328"></path><path class="leaf" d="M 172 342 L 158.0 342 A 14 14 0 0 1 172 328"></path><rect x="292" y="60.4" width="88.0" height="11.2"></rect><line x1="292" y1="61.8" x2="380" y2="61.8"></line><line x1="292" y1="66" x2="380" y2="66"></line><line x1="292" y1="70.2" x2="380" y2="70.2"></line><path class="leaf" d="M 292 66 L 292 22.0 A 44 44 0 0 1 336 66"></path><path class="leaf" d="M 380 66 L 380 22.0 A 44 44 0 0 0 336 66"></path><rect x="500" y="60.4" width="48.0" height="11.2"></rect><line x1="500" y1="61.8" x2="548" y2="61.8"></line><line x1="500" y1="66" x2="548" y2="66"></line><line x1="500" y1="70.2" x2="548" y2="70.2"></line><rect x="612" y="60.4" width="20.0" height="11.2"></rect><line x1="612" y1="61.8" x2="632" y2="61.8"></line><line x1="612" y1="66" x2="632" y2="66"></line><line x1="612" y1="70.2" x2="632" y2="70.2"></line><rect x="672" y="60.4" width="20.0" height="11.2"></rect><line x1="672" y1="61.8" x2="692" y2="61.8"></line><line x1="672" y1="66" x2="692" y2="66"></line><line x1="672" y1="70.2" x2="692" y2="70.2"></line><rect x="724" y="60.4" width="48.0" height="11.2"></rect><line x1="724" y1="61.8" x2="772" y2="61.8"></line><line x1="724" y1="66" x2="772" y2="66"></line><line x1="724" y1="70.2" x2="772" y2="70.2"></line><path class="leaf" d="M 724 66 L 724 42.0 A 24 24 0 0 1 748 66"></path><path class="leaf" d="M 772 66 L 772 42.0 A 24 24 0 0 0 748 66"></path></g><g class="door"><line x1="212" y1="110" x2="212" y2="208" stroke="#0a2349" stroke-width="10"></line><line class="glass" x1="212" y1="110" x2="212" y2="126.4"></line><line class="glass" x1="212" y1="191.6" x2="212" y2="208"></line><line x1="212" y1="126.4" x2="244.6" y2="126.4"></line><line x1="212" y1="191.60000000000002" x2="244.6" y2="191.60000000000002"></line><path d="M 244.6 126.4 A 32.6 32.6 0 0 1 212 159.0"></path><path d="M 244.6 191.60000000000002 A 32.6 32.6 0 0 0 212 159.0"></path><text x="212" y="220" fill="#ffd479" font-size="8" text-anchor="middle">CỬA CHÍNH</text><line x1="446" y1="66" x2="478" y2="66" stroke="#0a2349" stroke-width="10"></line><path d="M 446 98 A 32 32 0 0 1 478 66"></path><line x1="446" y1="66" x2="446" y2="98"></line><line x1="220" y1="250" x2="280" y2="250" stroke="#0a2349" stroke-width="10"></line><path class="curtain" d="M 220 250 A 4 4 0 0 1 227.5 250 A 4 4 0 0 1 235.0 250 A 4 4 0 0 1 242.5 250 A 4 4 0 0 1 250.0 250 A 4 4 0 0 1 257.5 250 A 4 4 0 0 1 265.0 250 A 4 4 0 0 1 272.5 250 A 4 4 0 0 1 280.0 250"></path><text x="250" y="245" fill="#ffd479" font-size="8" text-anchor="middle">rèm</text><line x1="404" y1="250" x2="440" y2="250" stroke="#0a2349" stroke-width="10"></line><path d="M 404 286 A 36 36 0 0 1 440 250"></path><line x1="404" y1="250" x2="404" y2="286"></line><line x1="464" y1="250" x2="500" y2="250" stroke="#0a2349" stroke-width="10"></line><path d="M 464 286 A 36 36 0 0 1 500 250"></path><line x1="464" y1="250" x2="464" y2="286"></line><line x1="612" y1="266" x2="648" y2="266" stroke="#0a2349" stroke-width="10"></line><path d="M 612 302 A 36 36 0 0 1 648 266"></path><line x1="612" y1="266" x2="612" y2="302"></line><line x1="596" y1="174" x2="624" y2="174" stroke="#0a2349" stroke-width="10"></line><path d="M 596 146 A 28 28 0 0 1 624 174"></path><line x1="596" y1="174" x2="596" y2="146"></line><line x1="652" y1="214" x2="652" y2="250" stroke="#0a2349" stroke-width="10"></line><path d="M 688 214 A 36 36 0 0 1 652 250"></path><line x1="652" y1="214" x2="688" y2="214"></line><line x1="676" y1="174" x2="704" y2="174" stroke="#0a2349" stroke-width="10"></line><path d="M 676 146 A 28 28 0 0 1 704 174"></path><line x1="676" y1="174" x2="676" y2="146"></line></g><g class="dim"><g><line x1="172" y1="442" x2="292" y2="442"></line><line class="ext" x1="172" y1="438" x2="172" y2="446"></line><line class="ext" x1="292" y1="438" x2="292" y2="446"></line><text x="232" y="438">3.0</text></g><g><line x1="292" y1="442" x2="448" y2="442"></line><line class="ext" x1="292" y1="438" x2="292" y2="446"></line><line class="ext" x1="448" y1="438" x2="448" y2="446"></line><text x="370" y="438">3.9</text></g><g><line x1="448" y1="442" x2="604" y2="442"></line><line class="ext" x1="448" y1="438" x2="448" y2="446"></line><line class="ext" x1="604" y1="438" x2="604" y2="446"></line><text x="526" y="438">3.9</text></g><g><line x1="604" y1="442" x2="792" y2="442"></line><line class="ext" x1="604" y1="438" x2="604" y2="446"></line><line class="ext" x1="792" y1="438" x2="792" y2="446"></line><text x="698" y="438">4.7</text></g><g><line x1="172" y1="466" x2="792" y2="466"></line><line class="ext" x1="172" y1="462" x2="172" y2="470"></line><line class="ext" x1="792" y1="462" x2="792" y2="470"></line><text x="482" y="462">15.5m</text></g><g><line x1="212" y1="40" x2="432" y2="40"></line><line class="ext" x1="212" y1="36" x2="212" y2="44"></line><line class="ext" x1="432" y1="36" x2="432" y2="44"></line><text x="322" y="36">5.5</text></g><g><line x1="432" y1="40" x2="592" y2="40"></line><line class="ext" x1="432" y1="36" x2="432" y2="44"></line><line class="ext" x1="592" y1="36" x2="592" y2="44"></line><text x="512" y="36">4.0</text></g><g><line x1="592" y1="40" x2="652" y2="40"></line><line class="ext" x1="592" y1="36" x2="592" y2="44"></line><line class="ext" x1="652" y1="36" x2="652" y2="44"></line><text x="622" y="36">1.5</text></g><g><line x1="652" y1="40" x2="792" y2="40"></line><line class="ext" x1="652" y1="36" x2="652" y2="44"></line><line class="ext" x1="792" y1="36" x2="792" y2="44"></line><text x="722" y="36">3.5</text></g><g><line x1="212" y1="16" x2="792" y2="16"></line><line class="ext" x1="212" y1="12" x2="212" y2="20"></line><line class="ext" x1="792" y1="12" x2="792" y2="20"></line><text x="502" y="12">14.5m</text></g><g><line x1="818" y1="66" x2="818" y2="266"></line><line class="ext" x1="814" y1="66" x2="822" y2="66"></line><line class="ext" x1="814" y1="266" x2="822" y2="266"></line><text x="830" y="169" text-anchor="middle">5.0</text></g><g><line x1="818" y1="266" x2="818" y2="386"></line><line class="ext" x1="814" y1="266" x2="822" y2="266"></line><line class="ext" x1="814" y1="386" x2="822" y2="386"></line><text x="830" y="329" text-anchor="middle">3.0</text></g><g><line x1="844" y1="66" x2="844" y2="386"></line><line class="ext" x1="840" y1="66" x2="848" y2="66"></line><line class="ext" x1="840" y1="386" x2="848" y2="386"></line><text x="856" y="229" text-anchor="middle">8.0m</text></g><g><line x1="146" y1="250" x2="146" y2="386"></line><line class="ext" x1="142" y1="250" x2="150" y2="250"></line><line class="ext" x1="142" y1="386" x2="150" y2="386"></line><text x="158" y="321" text-anchor="middle">3.4</text></g></g><g><circle cx="836" cy="84" r="14" fill="none" stroke="#7fd1ff" stroke-width="1"></circle><path d="M 836 73 L 841 88 L 836 84 L 831 88 Z" fill="#7fd1ff"></path><text x="836" y="96" fill="#7fd1ff" font-size="8" text-anchor="middle">B</text></g><g><text x="172" y="482" fill="#9fbbe4" font-size="9">0      1      2      3      4 m</text><rect x="172" y="486" width="40" height="5" fill="#9fbbe4" stroke="#9fbbe4" stroke-width=".7"></rect><rect x="212" y="486" width="40" height="5" fill="#0a2349" stroke="#9fbbe4" stroke-width=".7"></rect><rect x="252" y="486" width="40" height="5" fill="#9fbbe4" stroke="#9fbbe4" stroke-width=".7"></rect><rect x="292" y="486" width="40" height="5" fill="#0a2349" stroke="#9fbbe4" stroke-width=".7"></rect></g></svg></div></div>
+      <aside class="editform" id="roomEdit"><h4 id="re-title">Chỉnh: P. NGỦ 2</h4><div class="area" id="re-area">13.26 m²  •  3.9 × 3.4 m</div><label>Tên phòng</label><input value="P. NGỦ 2" data-kind="room" data-field="name"><label>Nhóm công năng (màu)</label><select data-kind="room" data-field="g"><option value="living">Phòng khách</option><option value="dine">Phòng ăn + Bếp</option><option value="circ">Lối chung</option><option value="bed" selected="">Phòng ngủ</option><option value="master">Phòng master</option><option value="worship">Phòng thờ</option><option value="wc">Vệ sinh</option><option value="out">Ngoài trời</option></select><div class="row2"><div><label>Rộng – ngang (m)</label><input class="mini" type="number" step="0.05" value="3.8" data-kind="room" data-idx="" data-field="w" min="0"></div><div><label>Sâu (m)</label><input class="mini" type="number" step="0.05" value="3.4" data-kind="room" data-idx="" data-field="h" min="0"></div></div><div class="row2"><div><label>Vị trí X (m)</label><input class="mini" type="number" step="0.05" value="7" data-kind="room" data-idx="" data-field="x"></div><div><label>Vị trí Y (m)</label><input class="mini" type="number" step="0.05" value="4.6" data-kind="room" data-idx="" data-field="y"></div></div><label>Mô tả / công năng</label><textarea data-kind="room" data-field="desc">Cửa Bắc đối diện cửa sổ Nam; đầu giường hướng Nam; tủ đối diện giường; bàn kê ở cửa sổ.</textarea><div class="grp"><div class="gh">🚪 Cửa đi</div><div class="fitem"><div class="fn">Cửa phòng <span class="muted">(mở Nam)</span></div><div class="row2"><div><label>Rộng (m)</label><input class="mini" type="number" step="0.05" value="0.9" data-kind="door" data-idx="4" data-field="wide" min="0.3"></div><div><label>Vị trí X (m)</label><input class="mini" type="number" step="0.05" value="7.3" data-kind="door" data-idx="4" data-field="pos"></div></div></div></div><div class="grp"><div class="gh">🪟 Cửa sổ</div><div class="fitem"><div class="fn">Cửa sổ Nam · 2 cánh</div><div class="row2"><div><label>Rộng (m)</label><input class="mini" type="number" step="0.05" value="1.5" data-kind="win" data-idx="1" data-field="wide" min="0.3"></div><div><label>Vị trí (m)</label><input class="mini" type="number" step="0.05" value="7.15" data-kind="win" data-idx="1" data-field="pos"></div></div></div></div><div class="grp"><div class="gh">🛋 Nội thất</div><div class="fitem"><div class="fn">Giường</div><div class="row4"><div><label>Rộng</label><input class="mini" type="number" step="0.05" value="1.6" data-kind="furn" data-idx="22" data-field="w"></div><div><label>Sâu</label><input class="mini" type="number" step="0.05" value="2" data-kind="furn" data-idx="22" data-field="h"></div><div><label>X</label><input class="mini" type="number" step="0.05" value="9" data-kind="furn" data-idx="22" data-field="x"></div><div><label>Y</label><input class="mini" type="number" step="0.05" value="5.9" data-kind="furn" data-idx="22" data-field="y"></div></div><label>Đầu giường hướng</label><select class="mini" data-kind="furn" data-idx="22" data-field="dir"><option value="n">Bắc</option><option value="s" selected="">Nam</option><option value="e">Đông</option><option value="w">Tây</option></select></div><div class="fitem"><div class="fn">Tủ áo</div><div class="row4"><div><label>Rộng</label><input class="mini" type="number" step="0.05" value="1.6" data-kind="furn" data-idx="23" data-field="w"></div><div><label>Sâu</label><input class="mini" type="number" step="0.05" value="0.55" data-kind="furn" data-idx="23" data-field="h"></div><div><label>X</label><input class="mini" type="number" step="0.05" value="9" data-kind="furn" data-idx="23" data-field="x"></div><div><label>Y</label><input class="mini" type="number" step="0.05" value="4.65" data-kind="furn" data-idx="23" data-field="y"></div></div></div><div class="fitem"><div class="fn">Bàn</div><div class="row4"><div><label>Rộng</label><input class="mini" type="number" step="0.05" value="1.2" data-kind="furn" data-idx="24" data-field="w"></div><div><label>Sâu</label><input class="mini" type="number" step="0.05" value="0.5" data-kind="furn" data-idx="24" data-field="h"></div><div><label>X</label><input class="mini" type="number" step="0.05" value="7.3" data-kind="furn" data-idx="24" data-field="x"></div><div><label>Y</label><input class="mini" type="number" step="0.05" value="7.35" data-kind="furn" data-idx="24" data-field="y"></div></div></div></div><div class="savebar"><button class="btn" id="re-save">⬇ Tải file đã cập nhật</button><button class="btn ghost" id="re-copy">Sao chép dữ liệu</button></div><div class="hint" style="font-size:11.5px;color:var(--line-soft);margin-top:10px;border-top:1px dashed var(--grid);padding-top:8px">Sửa ô bất kỳ → bản vẽ &amp; mặt bằng tổng tự cập nhật. Đổi kích thước PHÒNG xong nên bấm lại tab phòng để danh sách cửa/cửa sổ cập nhật. Bấm "Tải file đã cập nhật" để lưu.</div></aside>
     </div>
   </div>
 </section>
@@ -327,7 +294,7 @@
       <h3>Phối cảnh khối 3D</h3><span class="tag">Minh hoạ</span>
       <p>Mô hình khối cách điệu dựng từ mặt bằng: tường cao 3.30m, mái tôn 2 mái dốc ~20%. Màu sàn theo nhóm công năng.</p>
     </div>
-    <div class="drawing"><div id="isoBox"></div></div>
+    <div class="drawing"><div id="isoBox"><svg viewBox="0 0 570 343" role="img" aria-label="Phối cảnh 3D"><polygon points="237.5,80.0 332.7,135.0 253.0,181.0 157.8,126.0" fill="#3f9e86" fill-opacity="0.85" stroke="#0a2349" stroke-width="1" stroke-linejoin="round"></polygon><text x="245.2" y="130.5" font-size="8" text-anchor="middle" fill="#08203f" style="paint-order:stroke;stroke:#dbe8fb;stroke-width:2px">PHÒNG KHÁCH</text><polygon points="332.7,135.0 402.0,175.0 322.3,221.0 253.0,181.0" fill="#46ab93" fill-opacity="0.85" stroke="#0a2349" stroke-width="1" stroke-linejoin="round"></polygon><text x="327.5" y="178.0" font-size="8" text-anchor="middle" fill="#08203f" style="paint-order:stroke;stroke:#dbe8fb;stroke-width:2px">PHÒNG ĂN + BẾP</text><polygon points="402.0,175.0 428.0,190.0 381.2,217.0 355.2,202.0" fill="#5aa6cf" fill-opacity="0.85" stroke="#0a2349" stroke-width="1" stroke-linejoin="round"></polygon><text x="391.6" y="196.0" font-size="8" text-anchor="middle" fill="#08203f" style="paint-order:stroke;stroke:#dbe8fb;stroke-width:2px">WC1</text><polygon points="346.6,197.0 381.2,217.0 348.3,236.0 313.7,216.0" fill="#5cbba4" fill-opacity="0.85" stroke="#0a2349" stroke-width="1" stroke-linejoin="round"></polygon><text x="347.4" y="216.5" font-size="8" text-anchor="middle" fill="#08203f" style="paint-order:stroke;stroke:#dbe8fb;stroke-width:2px"></text><polygon points="331.0,226.0 348.3,236.0 341.4,240.0 324.1,230.0" fill="#5cbba4" fill-opacity="0.85" stroke="#0a2349" stroke-width="1" stroke-linejoin="round"></polygon><text x="336.2" y="233.0" font-size="8" text-anchor="middle" fill="#08203f" style="paint-order:stroke;stroke:#dbe8fb;stroke-width:2px"></text><polygon points="428.0,190.0 488.6,225.0 402.0,275.0 341.4,240.0" fill="#b8924f" fill-opacity="0.85" stroke="#0a2349" stroke-width="1" stroke-linejoin="round"></polygon><text x="415.0" y="232.5" font-size="8" text-anchor="middle" fill="#08203f" style="paint-order:stroke;stroke:#dbe8fb;stroke-width:2px">P. MASTER</text><polygon points="428.0,190.0 454.0,205.0 407.2,232.0 381.2,217.0" fill="#5aa6cf" fill-opacity="0.85" stroke="#0a2349" stroke-width="1" stroke-linejoin="round"></polygon><text x="417.6" y="211.0" font-size="8" text-anchor="middle" fill="#08203f" style="paint-order:stroke;stroke:#dbe8fb;stroke-width:2px">WC2</text><polygon points="140.5,116.0 192.4,146.0 133.5,180.0 81.6,150.0" fill="#bd7d4a" fill-opacity="0.85" stroke="#0a2349" stroke-width="1" stroke-linejoin="round"></polygon><text x="137.0" y="148.0" font-size="8" text-anchor="middle" fill="#08203f" style="paint-order:stroke;stroke:#dbe8fb;stroke-width:2px">P. THỜ</text><polygon points="192.4,146.0 260.0,185.0 201.1,219.0 133.5,180.0" fill="#caa063" fill-opacity="0.85" stroke="#0a2349" stroke-width="1" stroke-linejoin="round"></polygon><text x="196.8" y="182.5" font-size="8" text-anchor="middle" fill="#08203f" style="paint-order:stroke;stroke:#dbe8fb;stroke-width:2px">P. NGỦ 1</text><polygon points="260.0,185.0 327.5,224.0 268.6,258.0 201.1,219.0" fill="#caa063" fill-opacity="0.85" stroke="#0a2349" stroke-width="1" stroke-linejoin="round"></polygon><text x="264.3" y="221.5" font-size="8" text-anchor="middle" fill="#08203f" style="paint-order:stroke;stroke:#dbe8fb;stroke-width:2px">P. NGỦ 2</text><polygon points="320.6,228.0 402.0,275.0 350.0,305.0 268.6,258.0" fill="#caa063" fill-opacity="0.85" stroke="#0a2349" stroke-width="1" stroke-linejoin="round"></polygon><text x="335.3" y="266.5" font-size="8" text-anchor="middle" fill="#08203f" style="paint-order:stroke;stroke:#dbe8fb;stroke-width:2px">P. NGỦ 3</text><polygon points="220.1,70.0 488.6,225.0 488.6,159.0 220.1,4.0" fill="#bcd4f5" fill-opacity="0.16" stroke="#cfe0f5" stroke-width="1" stroke-linejoin="round"></polygon><polygon points="220.1,70.0 81.6,150.0 81.6,84.0 220.1,4.0" fill="#bcd4f5" fill-opacity="0.16" stroke="#cfe0f5" stroke-width="1" stroke-linejoin="round"></polygon><polygon points="488.6,225.0 350.0,305.0 350.0,239.0 488.6,159.0" fill="#bcd4f5" fill-opacity="0.16" stroke="#cfe0f5" stroke-width="1" stroke-linejoin="round"></polygon><polygon points="220.1,-36.0 530.2,143.0 426.2,187.0 116.2,8.0" fill="#9fb3c6" fill-opacity="0.55" stroke="#e7f0ff" stroke-width="1.2" stroke-linejoin="round"></polygon><polygon points="116.2,8.0 426.2,187.0 350.0,247.0 40.0,68.0" fill="#b6c6d6" fill-opacity="0.62" stroke="#e7f0ff" stroke-width="1.2" stroke-linejoin="round"></polygon><line x1="116.2" y1="8.0" x2="426.2" y2="187.0" stroke="#ffffff" stroke-width="1.4"></line><line x1="150.9" y1="28.0" x2="74.6" y2="88.0" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"></line><line x1="171.6" y1="40.0" x2="95.4" y2="100.0" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"></line><line x1="192.4" y1="52.0" x2="116.2" y2="112.0" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"></line><line x1="213.2" y1="64.0" x2="137.0" y2="124.0" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"></line><line x1="234.0" y1="76.0" x2="157.8" y2="136.0" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"></line><line x1="254.8" y1="88.0" x2="178.6" y2="148.0" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"></line><line x1="275.6" y1="100.0" x2="199.3" y2="160.0" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"></line><line x1="296.3" y1="112.0" x2="220.1" y2="172.0" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"></line><line x1="317.1" y1="124.0" x2="240.9" y2="184.0" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"></line><line x1="337.9" y1="136.0" x2="261.7" y2="196.0" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"></line><line x1="358.7" y1="148.0" x2="282.5" y2="208.0" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"></line><line x1="379.5" y1="160.0" x2="303.3" y2="220.0" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"></line><line x1="400.3" y1="172.0" x2="324.1" y2="232.0" stroke="#dbe8fb" stroke-width=".5" stroke-opacity=".7"></line><polygon points="81.6,150.0 350.0,305.0 350.0,239.0 81.6,84.0" fill="#bcd4f5" fill-opacity="0.16" stroke="#cfe0f5" stroke-width="1" stroke-linejoin="round"></polygon><text x="560" y="333" font-size="9" text-anchor="end" fill="#9fbbe4">Phối cảnh minh hoạ • mái tôn 2 mái dốc ~20%</text></svg></div></div>
   </div>
 </section>
 
@@ -338,17 +305,17 @@
       <h3>Mặt đứng Nam (mặt trước)</h3><span class="tag">Mái tôn dốc ~20%</span>
       <p>Mặt tiền dài 15.5m: cửa sổ phòng ngủ, hiên mái che &amp; tam cấp. Tự cập nhật theo mặt bằng.</p>
     </div>
-    <div class="drawing"><div id="elevBox"></div></div>
+    <div class="drawing"><div id="elevBox"><style>svg .dim line{stroke:#ffd479}svg .dim text{fill:#ffd479}</style><svg viewBox="0 0 725 287" role="img" aria-label="Mặt đứng Nam"><line x1="36" y1="237.39999999999998" x2="631" y2="237.39999999999998" stroke="#9fbbe4" stroke-width="2"></line><line x1="36" y1="237.39999999999998" x2="29.0" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="56.4" y1="237.39999999999998" x2="49.4" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="76.8" y1="237.39999999999998" x2="69.8" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="97.2" y1="237.39999999999998" x2="90.2" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="117.6" y1="237.39999999999998" x2="110.6" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="138" y1="237.39999999999998" x2="131.0" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="158.4" y1="237.39999999999998" x2="151.4" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="178.8" y1="237.39999999999998" x2="171.8" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="199.20000000000002" y1="237.39999999999998" x2="192.2" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="219.60000000000002" y1="237.39999999999998" x2="212.6" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="240" y1="237.39999999999998" x2="233.0" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="260.4" y1="237.39999999999998" x2="253.4" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="280.79999999999995" y1="237.39999999999998" x2="273.8" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="301.19999999999993" y1="237.39999999999998" x2="294.2" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="321.59999999999997" y1="237.39999999999998" x2="314.6" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="341.99999999999994" y1="237.39999999999998" x2="335.0" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="362.3999999999999" y1="237.39999999999998" x2="355.4" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="382.7999999999999" y1="237.39999999999998" x2="375.8" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="403.19999999999993" y1="237.39999999999998" x2="396.2" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="423.5999999999999" y1="237.39999999999998" x2="416.6" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="443.9999999999999" y1="237.39999999999998" x2="437.0" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="464.39999999999986" y1="237.39999999999998" x2="457.4" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="484.79999999999984" y1="237.39999999999998" x2="477.8" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="505.1999999999998" y1="237.39999999999998" x2="498.2" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="525.5999999999999" y1="237.39999999999998" x2="518.6" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="545.9999999999998" y1="237.39999999999998" x2="539.0" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="566.3999999999999" y1="237.39999999999998" x2="559.4" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="586.7999999999998" y1="237.39999999999998" x2="579.8" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="607.1999999999998" y1="237.39999999999998" x2="600.2" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="627.5999999999998" y1="237.39999999999998" x2="620.6" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><rect x="70" y="125.19999999999999" width="527.0" height="112.2" fill="#1b3f72" stroke="#eaf2ff" stroke-width="2"></rect><polygon points="2,125.19999999999999 665,125.19999999999999 529,98 138,98" fill="#7e93a8" stroke="#eaf2ff" stroke-width="2" stroke-linejoin="round"></polygon><line x1="70" y1="125.19999999999999" x2="138" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="104" y1="125.19999999999999" x2="138" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="138" y1="125.19999999999999" x2="138" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="172" y1="125.19999999999999" x2="172" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="206" y1="125.19999999999999" x2="206" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="240" y1="125.19999999999999" x2="240" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="274" y1="125.19999999999999" x2="274" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="308" y1="125.19999999999999" x2="308" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="342" y1="125.19999999999999" x2="342" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="376" y1="125.19999999999999" x2="376" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="410" y1="125.19999999999999" x2="410" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="444" y1="125.19999999999999" x2="444" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="478" y1="125.19999999999999" x2="478" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="512" y1="125.19999999999999" x2="512" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="546" y1="125.19999999999999" x2="529" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="580" y1="125.19999999999999" x2="529" y2="98" stroke="#5d83bd" stroke-width=".6"></line><line x1="614" y1="125.19999999999999" x2="529" y2="98" stroke="#5d83bd" stroke-width=".6"></line><rect x="246.8" y="159.2" width="51.0" height="45.9" fill="#0c2a52" stroke="#7fd1ff" stroke-width="1.4"></rect><line x1="272.3" y1="159.2" x2="272.3" y2="205.09999999999997" stroke="#7fd1ff" stroke-width=".8"></line><rect x="311.4" y="159.2" width="51.0" height="45.9" fill="#0c2a52" stroke="#7fd1ff" stroke-width="1.4"></rect><line x1="336.90000000000003" y1="159.2" x2="336.90000000000003" y2="205.09999999999997" stroke="#7fd1ff" stroke-width=".8"></line><rect x="444" y="159.2" width="51.0" height="45.9" fill="#0c2a52" stroke="#7fd1ff" stroke-width="1.4"></rect><line x1="469.5" y1="159.2" x2="469.5" y2="205.09999999999997" stroke="#7fd1ff" stroke-width=".8"></line><line x1="603" y1="237.39999999999998" x2="637" y2="237.39999999999998" stroke="#ffd479" stroke-width="1"></line><text x="641" y="240.4" fill="#ffd479" font-size="10">±0.00</text><line x1="603" y1="125.19999999999999" x2="637" y2="125.19999999999999" stroke="#ffd479" stroke-width="1"></line><text x="641" y="128.2" fill="#ffd479" font-size="10">+3.30 (mái)</text><line x1="603" y1="98" x2="637" y2="98" stroke="#ffd479" stroke-width="1"></line><text x="641" y="101.0" fill="#ffd479" font-size="10">+4.10 (nóc)</text><g class="dim"><g><line x1="70" y1="271.4" x2="597" y2="271.4"></line><line class="ext" x1="70" y1="267.4" x2="70" y2="275.4"></line><line class="ext" x1="597" y1="267.4" x2="597" y2="275.4"></line><text x="333.5" y="267.4">15.5m</text></g></g><text x="363" y="279" text-anchor="middle" fill="#9fbbe4" font-size="10">MẶT ĐỨNG NAM • cửa sổ phòng ngủ • mái tôn dốc ~20% • cao 3.30m</text></svg></div></div>
     <div class="sec-h" style="margin-top:26px">
       <h3>Mặt đứng Tây (hướng cửa chính)</h3><span class="tag">Cửa chính 4 cánh</span>
       <p>Đầu hồi rộng 8.0m: cửa chính nhôm-kính 4 cánh + mái che lối vào.</p>
     </div>
-    <div class="drawing"><div id="elevWBox"></div></div>
+    <div class="drawing"><div id="elevWBox"><style>svg .dim line{stroke:#ffd479}svg .dim text{fill:#ffd479}</style><svg viewBox="0 0 458 287" role="img" aria-label="Mặt đứng Tây"><line x1="32" y1="237.39999999999998" x2="372" y2="237.39999999999998" stroke="#9fbbe4" stroke-width="2"></line><line x1="32" y1="237.39999999999998" x2="25.0" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="52.4" y1="237.39999999999998" x2="45.4" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="72.8" y1="237.39999999999998" x2="65.8" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="93.2" y1="237.39999999999998" x2="86.2" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="113.6" y1="237.39999999999998" x2="106.6" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="134" y1="237.39999999999998" x2="127.0" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="154.4" y1="237.39999999999998" x2="147.4" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="174.8" y1="237.39999999999998" x2="167.8" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="195.20000000000002" y1="237.39999999999998" x2="188.2" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="215.60000000000002" y1="237.39999999999998" x2="208.6" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="236" y1="237.39999999999998" x2="229.0" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="256.4" y1="237.39999999999998" x2="249.4" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="276.79999999999995" y1="237.39999999999998" x2="269.8" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="297.19999999999993" y1="237.39999999999998" x2="290.2" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="317.59999999999997" y1="237.39999999999998" x2="310.6" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="337.99999999999994" y1="237.39999999999998" x2="331.0" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><line x1="358.3999999999999" y1="237.39999999999998" x2="351.4" y2="246.4" stroke="#5d83bd" stroke-width="1"></line><rect x="66" y="125.19999999999999" width="272.0" height="112.2" fill="#1b3f72" stroke="#eaf2ff" stroke-width="2"></rect><polygon points="-2,125.19999999999999 202,98 406,125.19999999999999" fill="#7e93a8" stroke="#eaf2ff" stroke-width="2" stroke-linejoin="round"></polygon><line x1="66" y1="125.19999999999999" x2="66" y2="125.19999999999999" stroke="#5d83bd" stroke-width=".5" stroke-opacity=".6"></line><line x1="100" y1="125.19999999999999" x2="100" y2="118.39999999999998" stroke="#5d83bd" stroke-width=".5" stroke-opacity=".6"></line><line x1="134" y1="125.19999999999999" x2="134" y2="111.59999999999998" stroke="#5d83bd" stroke-width=".5" stroke-opacity=".6"></line><line x1="168" y1="125.19999999999999" x2="168" y2="104.79999999999998" stroke="#5d83bd" stroke-width=".5" stroke-opacity=".6"></line><line x1="202" y1="125.19999999999999" x2="202" y2="98" stroke="#5d83bd" stroke-width=".5" stroke-opacity=".6"></line><line x1="236" y1="125.19999999999999" x2="236" y2="104.79999999999998" stroke="#5d83bd" stroke-width=".5" stroke-opacity=".6"></line><line x1="270" y1="125.19999999999999" x2="270" y2="111.59999999999998" stroke="#5d83bd" stroke-width=".5" stroke-opacity=".6"></line><line x1="304" y1="125.19999999999999" x2="304" y2="118.39999999999998" stroke="#5d83bd" stroke-width=".5" stroke-opacity=".6"></line><line x1="338" y1="125.19999999999999" x2="338" y2="125.19999999999999" stroke="#5d83bd" stroke-width=".5" stroke-opacity=".6"></line><rect x="103.4" y="145.59999999999997" width="83.3" height="91.8" fill="#0c2a52" stroke="#7fd1ff" stroke-width="1.8"></rect><line x1="103.4" y1="162.59999999999997" x2="186.7" y2="162.59999999999997" stroke="#7fd1ff" stroke-width="1.2"></line><line x1="117.34" y1="162.59999999999997" x2="117.34" y2="237.39999999999998" stroke="#7fd1ff" stroke-width="1"></line><line x1="145.05" y1="162.59999999999997" x2="145.05" y2="237.39999999999998" stroke="#7fd1ff" stroke-width="1"></line><line x1="172.76" y1="162.59999999999997" x2="172.76" y2="237.39999999999998" stroke="#7fd1ff" stroke-width="1"></line><line x1="124.225" y1="162.59999999999997" x2="124.225" y2="145.59999999999997" stroke="#7fd1ff" stroke-width=".6"></line><line x1="145.05" y1="162.59999999999997" x2="145.05" y2="145.59999999999997" stroke="#7fd1ff" stroke-width=".6"></line><line x1="165.875" y1="162.59999999999997" x2="165.875" y2="145.59999999999997" stroke="#7fd1ff" stroke-width=".6"></line><line x1="66.85000000000001" y1="137.09999999999997" x2="223.25" y2="137.09999999999997" stroke="#cfe0f5" stroke-width="3"></line><rect x="63.9" y="137.09999999999997" width="6" height="100.3" fill="none" stroke="#cfe0f5" stroke-width="1.5"></rect><rect x="220.3" y="137.09999999999997" width="6" height="100.3" fill="none" stroke="#cfe0f5" stroke-width="1.5"></rect><rect x="253" y="159.2" width="47.6" height="45.9" fill="#0c2a52" stroke="#7fd1ff" stroke-width="1.4"></rect><line x1="264.9" y1="159.2" x2="264.9" y2="205.09999999999997" stroke="#7fd1ff" stroke-width=".7"></line><line x1="276.8" y1="159.2" x2="276.8" y2="205.09999999999997" stroke="#7fd1ff" stroke-width=".7"></line><line x1="288.70000000000005" y1="159.2" x2="288.70000000000005" y2="205.09999999999997" stroke="#7fd1ff" stroke-width=".7"></line><line x1="344" y1="237.39999999999998" x2="376" y2="237.39999999999998" stroke="#ffd479" stroke-width="1"></line><text x="380" y="240.4" fill="#ffd479" font-size="10">±0.00</text><line x1="344" y1="125.19999999999999" x2="376" y2="125.19999999999999" stroke="#ffd479" stroke-width="1"></line><text x="380" y="128.2" fill="#ffd479" font-size="10">+3.30</text><line x1="344" y1="98" x2="376" y2="98" stroke="#ffd479" stroke-width="1"></line><text x="380" y="101.0" fill="#ffd479" font-size="10">+4.10</text><g class="dim"><g><line x1="66" y1="271.4" x2="338" y2="271.4"></line><line class="ext" x1="66" y1="267.4" x2="66" y2="275.4"></line><line class="ext" x1="338" y1="267.4" x2="338" y2="275.4"></line><text x="202" y="267.4">8.0m</text></g></g><text x="229" y="279" text-anchor="middle" fill="#9fbbe4" font-size="10">MẶT ĐỨNG TÂY • cửa chính 2 cánh + 2 ô kính (2.45m) • đầu hồi mái dốc</text></svg></div></div>
     <div class="sec-h" style="margin-top:26px">
       <h3>Mặt cắt A–A</h3><span class="tag">Minh hoạ kết cấu</span>
       <p>Cắt ngang chiều sâu 8.0m: nền – móng, tường, trần la phông, kết cấu mái tôn (xà gồ + tôn), cao độ.</p>
     </div>
-    <div class="drawing"><div id="sectBox"></div></div>
+    <div class="drawing"><div id="sectBox"><style>svg .dim2 line{stroke:#ffd479}svg .dim2 text{fill:#ffd479;font-size:10px;text-anchor:middle}</style><svg viewBox="0 0 404 271" role="img" aria-label="Mặt cắt A-A"><line x1="74" y1="223" x2="350" y2="223" stroke="#9fbbe4" stroke-width="2"></line><line x1="74" y1="223" x2="67.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="92" y1="223" x2="85.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="110" y1="223" x2="103.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="128" y1="223" x2="121.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="146" y1="223" x2="139.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="164" y1="223" x2="157.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="182" y1="223" x2="175.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="200" y1="223" x2="193.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="218" y1="223" x2="211.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="236" y1="223" x2="229.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="253.99999999999997" y1="223" x2="247.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="272" y1="223" x2="265.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="290" y1="223" x2="283.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="307.99999999999994" y1="223" x2="301.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="325.99999999999994" y1="223" x2="319.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><line x1="343.99999999999994" y1="223" x2="337.0" y2="232.0" stroke="#5d83bd" stroke-width="1"></line><polygon points="77,223 107,223 99.5,241 84.5,241" fill="#1b3f72" stroke="#cfe0f5" stroke-width="1"></polygon><polygon points="215,223 245,223 237.5,241 222.5,241" fill="#1b3f72" stroke="#cfe0f5" stroke-width="1"></polygon><polygon points="317,223 347,223 339.5,241 324.5,241" fill="#1b3f72" stroke="#cfe0f5" stroke-width="1"></polygon><rect x="92" y="223" width="240.0" height="6" fill="#cfe0f5"></rect><rect x="89.0" y="124" width="6" height="99.0" fill="#1b3f72" stroke="#eaf2ff" stroke-width="1.5"></rect><rect x="227.0" y="124" width="6" height="99.0" fill="#1b3f72" stroke="#eaf2ff" stroke-width="1.5"></rect><rect x="329.0" y="124" width="6" height="99.0" fill="#1b3f72" stroke="#eaf2ff" stroke-width="1.5"></rect><line x1="92" y1="124" x2="332" y2="124" stroke="#7fd1ff" stroke-width="1" stroke-dasharray="6 4"></line><polygon points="32,124 212,100.00000000000001 392,124" fill="none" stroke="#eaf2ff" stroke-width="2" stroke-linejoin="round"></polygon><polyline points="32,120.4 212,96.4 392,120.4" fill="none" stroke="#9fb3c6" stroke-width="3" stroke-linejoin="round"></polyline><circle cx="32" cy="124" r="2.2" fill="#9fb3c6"></circle><circle cx="77" cy="118" r="2.2" fill="#9fb3c6"></circle><circle cx="122" cy="112.00000000000001" r="2.2" fill="#9fb3c6"></circle><circle cx="167" cy="106.00000000000001" r="2.2" fill="#9fb3c6"></circle><circle cx="212" cy="100.00000000000001" r="2.2" fill="#9fb3c6"></circle><circle cx="257" cy="106.00000000000001" r="2.2" fill="#9fb3c6"></circle><circle cx="302" cy="112.00000000000001" r="2.2" fill="#9fb3c6"></circle><circle cx="347" cy="118" r="2.2" fill="#9fb3c6"></circle><circle cx="392" cy="124" r="2.2" fill="#9fb3c6"></circle><text x="161" y="175" text-anchor="middle" font-size="10" fill="#bcd4f5">Khu sau (khách/bếp/master)</text><text x="161" y="187" text-anchor="middle" font-size="8" fill="#9fbbe4">sâu 4.6m</text><text x="281" y="175" text-anchor="middle" font-size="10" fill="#bcd4f5">Khu trước (thờ/ngủ)</text><text x="281" y="187" text-anchor="middle" font-size="8" fill="#9fbbe4">sâu 3.4m</text><line x1="86" y1="223" x2="50" y2="223" stroke="#ffd479" stroke-width="1"></line><text x="46" y="226.0" text-anchor="end" fill="#ffd479" font-size="9.5">±0.00</text><line x1="86" y1="124" x2="50" y2="124" stroke="#ffd479" stroke-width="1"></line><text x="46" y="127.0" text-anchor="end" fill="#ffd479" font-size="9.5">+3.30</text><line x1="86" y1="100.00000000000001" x2="50" y2="100.00000000000001" stroke="#ffd479" stroke-width="1"></line><text x="46" y="103.0" text-anchor="end" fill="#ffd479" font-size="9.5">+4.10</text><g class="dim2"><g><line x1="92" y1="253" x2="230" y2="253"></line><line class="ext" x1="92" y1="249" x2="92" y2="257"></line><line class="ext" x1="230" y1="249" x2="230" y2="257"></line><text x="161" y="249">4.6m</text></g><g><line x1="230" y1="253" x2="332" y2="253"></line><line class="ext" x1="230" y1="249" x2="230" y2="257"></line><line class="ext" x1="332" y1="249" x2="332" y2="257"></line><text x="281" y="249">3.4m</text></g></g><text x="202" y="265" text-anchor="middle" fill="#9fbbe4" font-size="10">MẶT CẮT A–A • xà gồ + tôn dốc • trần la phông chống nóng</text></svg></div></div>
   </div>
 </section>
 
@@ -360,13 +327,13 @@
       <p>Phương án <b>móng băng</b> dưới tường chịu lực cho nhà cấp 4 mái tôn (tải nhẹ). Cột hiên dùng móng đơn nối giằng. <b>Số liệu minh hoạ</b> — cần khảo sát địa chất &amp; thiết kế kết cấu của kỹ sư cho công trình thực tế.</p>
     </div>
     <div class="chart-wrap">
-      <div class="drawing"><div id="foundDetail"></div></div>
-      <div class="drawing" style="background:#0a2349"><div id="foundPlan"></div></div>
+      <div class="drawing"><div id="foundDetail"><style>svg .dim2 line{stroke:#ffd479}svg .dim2 text{fill:#ffd479;font-size:10px;text-anchor:middle}</style><svg viewBox="0 0 610 303" role="img" aria-label="Chi tiết móng băng"><rect x="120.0" y="138.5" width="240.0" height="138.0" fill="#12305c"></rect><line x1="120.0" y1="138.5" x2="96.0" y2="162.5" stroke="#264c83" stroke-width=".8"></line><line x1="139.5" y1="138.5" x2="115.5" y2="162.5" stroke="#264c83" stroke-width=".8"></line><line x1="159.0" y1="138.5" x2="135.0" y2="162.5" stroke="#264c83" stroke-width=".8"></line><line x1="178.5" y1="138.5" x2="154.5" y2="162.5" stroke="#264c83" stroke-width=".8"></line><line x1="198.0" y1="138.5" x2="174.0" y2="162.5" stroke="#264c83" stroke-width=".8"></line><line x1="217.5" y1="138.5" x2="193.5" y2="162.5" stroke="#264c83" stroke-width=".8"></line><line x1="237.0" y1="138.5" x2="213.0" y2="162.5" stroke="#264c83" stroke-width=".8"></line><line x1="256.5" y1="138.5" x2="232.5" y2="162.5" stroke="#264c83" stroke-width=".8"></line><line x1="276.0" y1="138.5" x2="252.0" y2="162.5" stroke="#264c83" stroke-width=".8"></line><line x1="295.5" y1="138.5" x2="271.5" y2="162.5" stroke="#264c83" stroke-width=".8"></line><line x1="315.0" y1="138.5" x2="291.0" y2="162.5" stroke="#264c83" stroke-width=".8"></line><line x1="334.5" y1="138.5" x2="310.5" y2="162.5" stroke="#264c83" stroke-width=".8"></line><line x1="354.0" y1="138.5" x2="330.0" y2="162.5" stroke="#264c83" stroke-width=".8"></line><line x1="120" y1="138.5" x2="360" y2="138.5" stroke="#9fbbe4" stroke-width="1.5"></line><rect x="157.5" y="228.5" width="165.0" height="15.0" fill="#6f7f93" stroke="#cfe0f5" stroke-width="1"></rect><polygon points="172.5,228.5 307.5,228.5 307.5,210.5 258.75,183.5 221.25,183.5 172.5,210.5" fill="#3f5b86" stroke="#eaf2ff" stroke-width="1.5"></polygon><rect x="221.3" y="138.5" width="37.5" height="45.0" fill="#3f5b86" stroke="#eaf2ff" stroke-width="1.5"></rect><rect x="225.0" y="93.5" width="30.0" height="45.0" fill="#1b3f72" stroke="#eaf2ff" stroke-width="1.5"></rect><rect x="231.0" y="99.5" width="18.0" height="33.0" fill="none" stroke="#ffd479" stroke-width="1"></rect><circle cx="231.0" cy="99.5" r="2.4" fill="#ffd479"></circle><circle cx="249.0" cy="99.5" r="2.4" fill="#ffd479"></circle><circle cx="231.0" cy="132.5" r="2.4" fill="#ffd479"></circle><circle cx="249.0" cy="132.5" r="2.4" fill="#ffd479"></circle><rect x="225.0" y="26.0" width="30.0" height="67.5" fill="#2a4f86" stroke="#eaf2ff" stroke-width="1.2"></rect><circle cx="186.0" cy="219.5" r="2.3" fill="#ffd479"></circle><circle cx="204.0" cy="219.5" r="2.3" fill="#ffd479"></circle><circle cx="222.0" cy="219.5" r="2.3" fill="#ffd479"></circle><circle cx="240.0" cy="219.5" r="2.3" fill="#ffd479"></circle><circle cx="258.0" cy="219.5" r="2.3" fill="#ffd479"></circle><circle cx="276.0" cy="219.5" r="2.3" fill="#ffd479"></circle><circle cx="294.0" cy="219.5" r="2.3" fill="#ffd479"></circle><rect x="255.0" y="93.5" width="105.0" height="6" fill="#cfe0f5"></rect><rect x="120.0" y="93.5" width="105.0" height="6" fill="#cfe0f5"></rect><line x1="114" y1="93.5" x2="76" y2="93.5" stroke="#ffd479" stroke-width="1"></line><text x="72.0" y="96.5" text-anchor="end" fill="#ffd479" font-size="10">±0.00</text><line x1="114" y1="138.5" x2="76" y2="138.5" stroke="#ffd479" stroke-width="1"></line><text x="72.0" y="141.5" text-anchor="end" fill="#ffd479" font-size="10">-0.30 đất TN</text><line x1="114" y1="183.5" x2="76" y2="183.5" stroke="#ffd479" stroke-width="1"></line><text x="72.0" y="186.5" text-anchor="end" fill="#ffd479" font-size="10">-0.60</text><line x1="114" y1="243.5" x2="76" y2="243.5" stroke="#ffd479" stroke-width="1"></line><text x="72.0" y="246.5" text-anchor="end" fill="#ffd479" font-size="10">-1.00 đáy móng</text><line x1="360" y1="44" x2="376" y2="44" stroke="#5d83bd" stroke-width=".7" stroke-dasharray="3 2"></line><text x="380.0" y="47.0" fill="#cfe0f5" font-size="10">Tường xây gạch</text><line x1="360" y1="116" x2="376" y2="116" stroke="#5d83bd" stroke-width=".7" stroke-dasharray="3 2"></line><text x="380.0" y="119.0" fill="#cfe0f5" font-size="10">Giằng móng BTCT 200×300</text><line x1="360" y1="161.00000000000003" x2="376" y2="161.00000000000003" stroke="#5d83bd" stroke-width=".7" stroke-dasharray="3 2"></line><text x="380.0" y="164.0" fill="#cfe0f5" font-size="10">Cổ móng BTCT</text><line x1="360" y1="206" x2="376" y2="206" stroke="#5d83bd" stroke-width=".7" stroke-dasharray="3 2"></line><text x="380.0" y="209.0" fill="#cfe0f5" font-size="10">Đế móng rộng 900 dày 300 (Ø12a150)</text><line x1="360" y1="236.00000000000003" x2="376" y2="236.00000000000003" stroke="#5d83bd" stroke-width=".7" stroke-dasharray="3 2"></line><text x="380.0" y="239.0" fill="#cfe0f5" font-size="10">BT lót đá 4×6 M100 dày 100</text><line x1="360" y1="183.5" x2="376" y2="183.5" stroke="#5d83bd" stroke-width=".7" stroke-dasharray="3 2"></line><text x="380.0" y="186.5" fill="#cfe0f5" font-size="10">Đất nền đầm chặt</text><g class="dim2"><g><line x1="172.5" y1="263.5" x2="307.5" y2="263.5"></line><line class="ext" x1="172.5" y1="259.5" x2="172.5" y2="267.5"></line><line class="ext" x1="307.5" y1="259.5" x2="307.5" y2="267.5"></line><text x="240" y="259.5">900</text></g></g><text x="305" y="296" text-anchor="middle" fill="#9fbbe4" font-size="10">CHI TIẾT MÓNG BĂNG • chôn sâu 1.00m • minh hoạ</text></svg></div></div>
+      <div class="drawing" style="background:#0a2349"><div id="foundPlan"><svg viewBox="0 0 623 356" role="img" aria-label="Mặt bằng móng"><rect x="94.0" y="32.5" width="435.0" height="27.0" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"></rect><line x1="94" y1="46" x2="529" y2="46" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"></line><rect x="515.5" y="46.0" width="27.0" height="240.0" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"></rect><line x1="529" y1="46" x2="529" y2="286" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"></line><rect x="64.0" y="272.5" width="465.0" height="27.0" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"></rect><line x1="64" y1="286" x2="529" y2="286" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"></line><rect x="50.5" y="184.0" width="27.0" height="102.0" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"></rect><line x1="64" y1="184" x2="64" y2="286" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"></line><rect x="64.0" y="170.5" width="30.0" height="27.0" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"></rect><line x1="64" y1="184" x2="94" y2="184" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"></line><rect x="80.5" y="46.0" width="27.0" height="138.0" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"></rect><line x1="94" y1="46" x2="94" y2="184" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"></line><rect x="64.0" y="170.5" width="465.0" height="27.0" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"></rect><line x1="64" y1="184" x2="529" y2="184" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"></line><rect x="245.5" y="46.0" width="27.0" height="138.0" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"></rect><line x1="259" y1="46" x2="259" y2="184" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"></line><rect x="365.5" y="46.0" width="27.0" height="138.0" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"></rect><line x1="379" y1="46" x2="379" y2="184" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"></line><rect x="410.5" y="46.0" width="27.0" height="138.0" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"></rect><line x1="424" y1="46" x2="424" y2="184" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"></line><rect x="140.5" y="184.0" width="27.0" height="102.0" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"></rect><line x1="154" y1="184" x2="154" y2="286" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"></line><rect x="260.5" y="184.0" width="27.0" height="102.0" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"></rect><line x1="274" y1="184" x2="274" y2="286" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"></line><rect x="374.5" y="184.0" width="27.0" height="102.0" fill="#3f5b86" fill-opacity=".5" stroke="#5d83bd" stroke-width=".6"></rect><line x1="388" y1="184" x2="388" y2="286" stroke="#cfe0f5" stroke-width=".6" stroke-dasharray="6 3"></line><rect x="25.0" y="37.8" width="18.0" height="18.0" fill="#67ad63" fill-opacity=".55" stroke="#cfe0f5" stroke-width="1"></rect><line x1="34" y1="46.750000000000014" x2="94" y2="46.750000000000014" stroke="#5cbba4" stroke-width="1" stroke-dasharray="4 3"></line><rect x="25.0" y="175.8" width="18.0" height="18.0" fill="#67ad63" fill-opacity=".55" stroke="#cfe0f5" stroke-width="1"></rect><line x1="34" y1="184.75" x2="94" y2="184.75" stroke="#5cbba4" stroke-width="1" stroke-dasharray="4 3"></line><text x="34.0" y="115.8" text-anchor="middle" fill="#9fbbe4" font-size="9">móng cột hiên</text><text x="296.5" y="330.0" text-anchor="middle" fill="#9fbbe4" font-size="11">MẶT BẰNG MÓNG • dải móng băng rộng 900mm dưới tường + móng đơn dưới cột hiên</text></svg></div></div>
     </div>
     <div class="sec-h" style="margin-top:24px"><h3>Các bước thi công móng</h3></div>
-    <div class="notes" id="foundSteps"></div>
+    <div class="notes" id="foundSteps"><div class="note"><h4>Bước 1</h4><p>Định vị tim trục &amp; giác móng theo bản vẽ; căng dây, đóng cọc mốc.</p></div><div class="note"><h4>Bước 2</h4><p>Đào hố móng tới cao độ thiết kế (đáy ≈ -1.0m hoặc tới lớp đất tốt); làm phẳng &amp; đầm chặt đáy hố.</p></div><div class="note"><h4>Bước 3</h4><p>Đổ bê tông lót đá 4×6 mác 100 dày 100mm để tạo phẳng &amp; chống mất nước xi măng.</p></div><div class="note"><h4>Bước 4</h4><p>Gia công, lắp đặt cốt thép đế móng + cổ móng; kê con kê đảm bảo lớp bảo vệ.</p></div><div class="note"><h4>Bước 5</h4><p>Ghép cốp pha, nghiệm thu thép – cốp pha trước khi đổ bê tông.</p></div><div class="note"><h4>Bước 6</h4><p>Đổ bê tông móng mác ≥200 (B15), đầm kỹ; bảo dưỡng ẩm ≥7 ngày.</p></div><div class="note"><h4>Bước 7</h4><p>Đổ/đặt giằng móng (đà kiềng) liên kết các móng &amp; chân cột, chống lún lệch.</p></div><div class="note"><h4>Bước 8</h4><p>Lấp đất hố móng theo từng lớp 200–300mm, đầm chặt; tôn nền, đổ bê tông nền nhà.</p></div></div>
     <div class="sec-h" style="margin-top:18px"><h3>Thông số &amp; lưu ý (gồm móng hiên)</h3></div>
-    <div class="notes" id="foundSpecs"></div>
+    <div class="notes" id="foundSpecs"><div class="note "><h4>Chiều sâu chôn móng</h4><p>Đáy móng đặt vào lớp đất chịu lực tốt; chôn sâu thường <b>0.8–1.2m</b> tuỳ địa chất. Đất yếu/bùn → cân nhắc cừ tràm, móng cọc hoặc gia cố nền.</p></div><div class="note "><h4>Đế &amp; giằng móng</h4><p>Đế móng băng rộng <b>0.8–1.0m</b>, dày <b>0.25–0.35m</b>, thép Ø12 a150 hai phương. Giằng móng <b>200×300</b>, thép 4Ø14–16, đai Ø6 a150–200. Bê tông mác ≥200.</p></div><div class="note "><h4>Móng cho HIÊN (cột hiên)</h4><p>Cột hiên đỡ mái che cần <b>móng đơn riêng</b> dưới mỗi chân cột (≈0.6×0.6m) và <b>giằng nối về móng nhà</b> để không lún tách. Hiên KHÔNG nằm chung trên dải móng băng của tường nhà.</p></div><div class="note "><h4>Nền hiên &amp; tam cấp</h4><p>Sàn hiên tải nhẹ: chỉ cần <b>đầm chặt nền + bê tông nền</b>, làm <b>dầm bo (đà kiềng) ở mép hiên</b> để chống nứt/sụt mép. Không phải đào móng sâu như tường nhà.</p></div><div class="note "><h4>Nếu dùng khung cột BTCT</h4><p>Trường hợp nhà khung (cột – kèo BTCT) thay vì tường chịu lực thì chuyển sang <b>móng đơn dưới từng cột</b> + giằng, thay cho móng băng.</p></div><div class="note warn"><h4>⚠ Bắt buộc</h4><p>Đây là phương án MINH HOẠ. Phải có <b>khảo sát địa chất</b> và <b>bản vẽ kết cấu móng do kỹ sư</b> lập &amp; ký cho công trình thực tế — đặc biệt với nền đất yếu.</p></div></div>
   </div>
 </section>
 
@@ -378,8 +345,8 @@
       <p>Diện tích tính theo tim tường (chưa trừ bề dày tường ~0.1–0.22m). Hiên &amp; sân không tính vào diện tích sàn xây dựng.</p>
     </div>
     <div class="chart-wrap">
-      <div id="schedTable"></div>
-      <div class="drawing" style="background:#0a2349"><div id="chartBox"></div></div>
+      <div id="schedTable"><table class="sched"><thead><tr><th>Phòng / Khu vực</th><th class="num">Kích thước (m)</th><th class="num">Diện tích (m²)</th><th class="num">Tỉ lệ</th></tr></thead><tbody><tr><td><span class="swatch" style="background:#3f9e86"></span>PHÒNG KHÁCH</td><td class="num">5.5 × 4.6</td><td class="num">25.3</td><td class="num">20.4%</td></tr><tr><td><span class="swatch" style="background:#46ab93"></span>PHÒNG ĂN + BẾP</td><td class="num">4.0 × 4.6</td><td class="num">18.4</td><td class="num">14.8%</td></tr><tr><td><span class="swatch" style="background:#5aa6cf"></span>WC1</td><td class="num">1.5 × 2.7</td><td class="num">4.1</td><td class="num">3.3%</td></tr><tr><td><span class="swatch" style="background:#5cbba4"></span>Lối chung</td><td class="num">2.0 × 1.9</td><td class="num">3.8</td><td class="num">3.1%</td></tr><tr><td><span class="swatch" style="background:#5cbba4"></span>Lối chung</td><td class="num">1.0 × 0.4</td><td class="num">0.4</td><td class="num">0.3%</td></tr><tr><td><span class="swatch" style="background:#b8924f"></span>P. MASTER</td><td class="num">3.5 × 5.0</td><td class="num">17.5</td><td class="num">14.1%</td></tr><tr><td><span class="swatch" style="background:#5aa6cf"></span>WC2</td><td class="num">1.5 × 2.7</td><td class="num">4.1</td><td class="num">3.3%</td></tr><tr><td><span class="swatch" style="background:#bd7d4a"></span>P. THỜ</td><td class="num">3.0 × 3.4</td><td class="num">10.2</td><td class="num">8.2%</td></tr><tr><td><span class="swatch" style="background:#caa063"></span>P. NGỦ 1</td><td class="num">3.9 × 3.4</td><td class="num">13.3</td><td class="num">10.7%</td></tr><tr><td><span class="swatch" style="background:#caa063"></span>P. NGỦ 2</td><td class="num">3.9 × 3.4</td><td class="num">13.3</td><td class="num">10.7%</td></tr><tr><td><span class="swatch" style="background:#caa063"></span>P. NGỦ 3</td><td class="num">4.7 × 3.0</td><td class="num">14.1</td><td class="num">11.3%</td></tr></tbody><tfoot><tr><td>TỔNG (tim tường)</td><td class="num">15.5 × 8.0</td><td class="num">124.3</td><td class="num">100%</td></tr></tfoot></table><p style="color:var(--muted);font-size:12px;margin-top:8px">Phủ bì 15.5×8.0 = 124.0 m². Chênh lệch nhỏ so với tổng phòng do tường &amp; lối đi chung.</p></div>
+      <div class="drawing" style="background:#0a2349"><div id="chartBox"><svg viewBox="0 0 320 240" role="img"><path d="M 130 35 A 85 85 0 0 1 211.398928698033 95.52114367842026 L 175.96645385300684 106.17664584193145 A 48 48 0 0 0 130 72 Z" fill="#3f9e86" fill-opacity=".85" stroke="#0a2349" stroke-width="1.5"></path><path d="M 211.398928698033 95.52114367842026 A 85 85 0 0 1 198.28863105718605 170.61287255566043 L 168.5629916558227 148.58138685496118 A 48 48 0 0 0 175.96645385300684 106.17664584193145 Z" fill="#46ab93" fill-opacity=".85" stroke="#0a2349" stroke-width="1.5"></path><path d="M 198.28863105718605 170.61287255566043 A 85 85 0 0 1 172.5 193.61215932167727 L 154 161.56921938165306 A 48 48 0 0 0 168.5629916558227 148.58138685496118 Z" fill="#5aa6cf" fill-opacity=".85" stroke="#0a2349" stroke-width="1.5"></path><path d="M 172.5 193.61215932167727 A 85 85 0 0 1 156.0375416665766 200.91382096997575 L 144.70355294112562 165.69251066539806 A 48 48 0 0 0 154 161.56921938165306 Z" fill="#5cbba4" fill-opacity=".85" stroke="#0a2349" stroke-width="1.5"></path><path d="M 156.0375416665766 200.91382096997575 A 85 85 0 0 1 83.90762817213053 191.41773770766912 L 103.97136649720312 160.3300165878602 A 48 48 0 0 0 144.70355294112562 165.69251066539806 Z" fill="#b8924f" fill-opacity=".85" stroke="#0a2349" stroke-width="1.5"></path><path d="M 83.90762817213053 191.41773770766912 A 85 85 0 0 1 54.690217767540844 159.41366133841893 L 87.4721229746113 142.25712640287185 A 48 48 0 0 0 103.97136649720312 160.3300165878602 Z" fill="#bd7d4a" fill-opacity=".85" stroke="#0a2349" stroke-width="1.5"></path><path d="M 54.690217767540844 159.41366133841893 A 85 85 0 0 1 129.99999999999997 35 L 130 72 A 48 48 0 0 0 87.4721229746113 142.25712640287185 Z" fill="#caa063" fill-opacity=".85" stroke="#0a2349" stroke-width="1.5"></path><text x="130" y="116" text-anchor="middle" fill="#eaf2ff" font-size="16" font-weight="700">124 m²</text><text x="130" y="132" text-anchor="middle" fill="#9fbbe4" font-size="9">tổng phòng</text><rect x="240" y="30" width="11" height="11" rx="2" fill="#3f9e86"></rect><text x="256" y="39" fill="#cfe0f5" font-size="9">Phòng khách (25.3)</text><rect x="240" y="50" width="11" height="11" rx="2" fill="#46ab93"></rect><text x="256" y="59" fill="#cfe0f5" font-size="9">Phòng ăn + Bếp (18.4)</text><rect x="240" y="70" width="11" height="11" rx="2" fill="#5aa6cf"></rect><text x="256" y="79" fill="#cfe0f5" font-size="9">Vệ sinh (8.1)</text><rect x="240" y="90" width="11" height="11" rx="2" fill="#5cbba4"></rect><text x="256" y="99" fill="#cfe0f5" font-size="9">Lối chung (4.2)</text><rect x="240" y="110" width="11" height="11" rx="2" fill="#b8924f"></rect><text x="256" y="119" fill="#cfe0f5" font-size="9">Phòng master (17.5)</text><rect x="240" y="130" width="11" height="11" rx="2" fill="#bd7d4a"></rect><text x="256" y="139" fill="#cfe0f5" font-size="9">Phòng thờ (10.2)</text><rect x="240" y="150" width="11" height="11" rx="2" fill="#caa063"></rect><text x="256" y="159" fill="#cfe0f5" font-size="9">Phòng ngủ (40.6)</text></svg></div></div>
     </div>
   </div>
 </section>
@@ -404,104 +371,576 @@
    Toạ độ tính bằng MÉT. Gốc (0,0) ở góc trên-trái khối nhà chính.
    ======================================================================= */
 const PLAN = {
-  meta:{
-    name:"NHÀ Ở GIA ĐÌNH — CẤP 4 MÁI TÔN (15.5 × 8m)",
-    owner:"(điền tên)", addr:"(điền địa chỉ)", date:"04/06/2026",
-    W:15.5, D:8.0, wall:0.20, wallH:3.30, ridgeRise:0.80, overhang:2.0, roofSlope:0.20,
-    entryPorchD:2.0, entryPorchW:4.6, entryStepD:0.5, // HIÊN + TAM CẤP CỬA CHÍNH (Tây): sâu / rộng / tam cấp (m)
-    found:{ Df:1.0, footW:0.9, footH:0.3, lotT:0.1, neck:0.25, beamW:0.2, beamH:0.3 } // MÓNG BĂNG (m): sâu chôn / rộng đế / dày đế / lót / cổ / giằng
+  "meta": {
+    "name": "NHÀ Ở GIA ĐÌNH — CẤP 4 MÁI TÔN (15.5 × 8m)",
+    "owner": "(điền tên)",
+    "addr": "(điền địa chỉ)",
+    "date": "04/06/2026",
+    "W": 15.5,
+    "D": 8,
+    "wall": 0.2,
+    "wallH": 3.3,
+    "ridgeRise": 0.8,
+    "overhang": 2,
+    "roofSlope": 0.2,
+    "entryPorchD": 2,
+    "entryPorchW": 4.6,
+    "entryStepD": 0.5,
+    "found": {
+      "Df": 1,
+      "footW": 0.9,
+      "footH": 0.3,
+      "lotT": 0.1,
+      "neck": 0.25,
+      "beamW": 0.2,
+      "beamH": 0.3
+    }
   },
-  // Hệ trục: X 0→15.5 (dài), Y 0→8 (sâu). Y0 = SAU (khách/bếp), Y8 = TRƯỚC (hiên, thờ+ngủ).
-  groups:{
-    living:{c:"#3f9e86", t:"Phòng khách"},
-    dine:{c:"#46ab93", t:"Phòng ăn + Bếp"},
-    circ:{c:"#5cbba4", t:"Lối chung"},
-    bed:{c:"#caa063", t:"Phòng ngủ"},
-    master:{c:"#b8924f", t:"Phòng master"},
-    worship:{c:"#bd7d4a", t:"Phòng thờ"},
-    wc:{c:"#5aa6cf", t:"Vệ sinh"},
-    out:{c:"#67ad63", t:"Ngoài trời"}
+  "groups": {
+    "living": {
+      "c": "#3f9e86",
+      "t": "Phòng khách"
+    },
+    "dine": {
+      "c": "#46ab93",
+      "t": "Phòng ăn + Bếp"
+    },
+    "circ": {
+      "c": "#5cbba4",
+      "t": "Lối chung"
+    },
+    "bed": {
+      "c": "#caa063",
+      "t": "Phòng ngủ"
+    },
+    "master": {
+      "c": "#b8924f",
+      "t": "Phòng master"
+    },
+    "worship": {
+      "c": "#bd7d4a",
+      "t": "Phòng thờ"
+    },
+    "wc": {
+      "c": "#5aa6cf",
+      "t": "Vệ sinh"
+    },
+    "out": {
+      "c": "#67ad63",
+      "t": "Ngoài trời"
+    }
   },
-  // rooms: x,y = góc trên-trái (m); w,h = rộng,sâu (m); nameY = vị trí đặt tên (m, tuỳ chọn)
-  rooms:[
-    // ===== DẢI TRÊN / SAU (Y 0–4.6) =====
-    {id:"living", name:"PHÒNG KHÁCH",   x:1.0,  y:0,   w:5.5, h:4.6, g:"living", open:true, nameY:2.0, desc:"To nhất, khu chung phân phối phòng. CỬA CHÍNH 4 cánh nhôm-kính tường Tây (~2.45m, khung 4.5cm). Thông phòng thờ qua ô mở 1.5m + rèm; ngăn bếp bằng LAM (X6.5). Không cửa nhỏ phía khách (ở sau lam bên bếp). Mặt Tây có cửa chính nên không cửa sổ; mặt Bắc 1 cửa sổ to."},
-    {id:"dine",   name:"PHÒNG ĂN + BẾP", x:6.5, y:0,   w:4.0, h:4.6, g:"dine",   open:true, nameY:2.0, desc:"Bếp chữ L: bồn rửa 2 chậu áp tường Bắc; bàn nấu & tủ lạnh quay DỌC áp tường Đông (giáp WC1). Cửa bên 1 cánh ngay sau lam. Mở liên thông khách & khoảng chung."},
-    {id:"wc1",    name:"WC1",            x:10.5,y:0,   w:1.5, h:2.7, g:"wc",      desc:"Buồng tắm kính 1m phía trong (Bắc) + bồn cầu & lavabo 1.7m còn lại. Cửa mở lên (Bắc). Máy giặt ở góc giáp master. Cạnh WC2 (chung bể phốt)."},
-    {id:"pocket", name:"",               x:10.0,y:2.7, w:2.0, h:1.9, g:"circ", open:true, desc:"Khoảng chung trước WC1 — nơi cửa WC1/Master/PN3 gặp nhau."},
-    {id:"throat", name:"",               x:11.0,y:4.6, w:1.0, h:0.4, g:"circ", open:true, desc:""},
-    {id:"master", name:"P. MASTER",      x:12.0,y:0,   w:3.5, h:5.0, g:"master",  nameY:3.7, desc:"Phòng ngủ chính, sâu 5m. WC2 ensuite. Không cần bàn. Giường sát cửa sổ, đầu giường hướng Bắc; tủ đối diện giường. Cửa vào lùi xuống tránh máy giặt."},
-    {id:"wc2",    name:"WC2",            x:12.0,y:0,   w:1.5, h:2.7, g:"wc",      desc:"WC trong master, sát vách WC1 (chung bể phốt). Buồng tắm kính phía Bắc; lavabo & bồn cầu đặt cạnh nhau phía Nam."},
-    // ===== DẢI DƯỚI / TRƯỚC (Y 4.6–8) =====
-    {id:"worship",name:"P. THỜ",         x:0,   y:4.6, w:3.0, h:3.4, g:"worship", nameY:6.7, desc:"Khối thờ nhô ra trái. Cửa vào 1.5m có rèm; cửa sổ hồi Tây nhìn ra ô cây; bàn thờ rộng 2m sâu 1m áp tường Đông, đối diện cửa sổ."},
-    {id:"bed1",   name:"P. NGỦ 1",       x:3.0, y:4.6, w:4.0, h:3.4, g:"bed",     nameY:6.7, desc:"4.0×3.4. Cửa ở tường Bắc đối diện cửa sổ Nam; đầu giường hướng Nam; tủ đối diện giường; bàn kê ở cửa sổ lấy sáng."},
-    {id:"bed2",   name:"P. NGỦ 2",       x:7.0, y:4.6, w:3.8, h:3.4, g:"bed",     nameY:6.7, desc:"Cửa Bắc đối diện cửa sổ Nam; đầu giường hướng Nam; tủ đối diện giường; bàn kê ở cửa sổ."},
-    {id:"bed3",   name:"P. NGỦ 3",       x:10.8,y:5.0, w:4.7, h:3.0, g:"bed",     nameY:6.9, desc:"Lùi Y5. Cửa vào khoảng chung; cửa sổ đối diện cửa; đầu giường hướng Nam; tủ đối diện; bàn kê ở cửa sổ."},
-    // ===== NGOÀI TRỜI =====
-    {id:"planter",name:"Ô CÂY",          x:-0.8,y:5.0, w:0.8, h:2.4, g:"out", outdoor:true, desc:"Bồn cây xanh đầu hồi trái, trước cửa sổ phòng thờ."}
+  "rooms": [
+    {
+      "id": "living",
+      "name": "PHÒNG KHÁCH",
+      "x": 1,
+      "y": 0,
+      "w": 5.5,
+      "h": 4.6,
+      "g": "living",
+      "open": true,
+      "nameY": 2,
+      "desc": "To nhất, khu chung phân phối phòng. CỬA CHÍNH 4 cánh nhôm-kính tường Tây (~2.45m, khung 4.5cm). Thông phòng thờ qua ô mở 1.5m + rèm; ngăn bếp bằng LAM (X6.5). Không cửa nhỏ phía khách (ở sau lam bên bếp). Mặt Tây có cửa chính nên không cửa sổ; mặt Bắc 1 cửa sổ to."
+    },
+    {
+      "id": "dine",
+      "name": "PHÒNG ĂN + BẾP",
+      "x": 6.5,
+      "y": 0,
+      "w": 4,
+      "h": 4.6,
+      "g": "dine",
+      "open": true,
+      "nameY": 2,
+      "desc": "Bếp chữ L: bồn rửa 2 chậu áp tường Bắc; bàn nấu & tủ lạnh quay DỌC áp tường Đông (giáp WC1). Cửa bên 1 cánh ngay sau lam. Mở liên thông khách & khoảng chung."
+    },
+    {
+      "id": "wc1",
+      "name": "WC1",
+      "x": 10.5,
+      "y": 0,
+      "w": 1.5,
+      "h": 2.7,
+      "g": "wc",
+      "desc": "Buồng tắm kính 1m phía trong (Bắc) + bồn cầu & lavabo 1.7m còn lại. Cửa mở lên (Bắc). Máy giặt ở góc giáp master. Cạnh WC2 (chung bể phốt)."
+    },
+    {
+      "id": "pocket",
+      "name": "",
+      "x": 10,
+      "y": 2.7,
+      "w": 2,
+      "h": 1.9,
+      "g": "circ",
+      "open": true,
+      "desc": "Khoảng chung trước WC1 — nơi cửa WC1/Master/PN3 gặp nhau."
+    },
+    {
+      "id": "throat",
+      "name": "",
+      "x": 11,
+      "y": 4.6,
+      "w": 1,
+      "h": 0.4,
+      "g": "circ",
+      "open": true,
+      "desc": ""
+    },
+    {
+      "id": "master",
+      "name": "P. MASTER",
+      "x": 12,
+      "y": 0,
+      "w": 3.5,
+      "h": 5,
+      "g": "master",
+      "nameY": 3.7,
+      "desc": "Phòng ngủ chính, sâu 5m. WC2 ensuite. Không cần bàn. Giường sát cửa sổ, đầu giường hướng Bắc; tủ đối diện giường. Cửa vào lùi xuống tránh máy giặt."
+    },
+    {
+      "id": "wc2",
+      "name": "WC2",
+      "x": 12,
+      "y": 0,
+      "w": 1.5,
+      "h": 2.7,
+      "g": "wc",
+      "desc": "WC trong master, sát vách WC1 (chung bể phốt). Buồng tắm kính phía Bắc; lavabo & bồn cầu đặt cạnh nhau phía Nam."
+    },
+    {
+      "id": "worship",
+      "name": "P. THỜ",
+      "x": 0,
+      "y": 4.6,
+      "w": 3,
+      "h": 3.4,
+      "g": "worship",
+      "nameY": 6.7,
+      "desc": "Khối thờ nhô ra trái. Cửa vào 1.5m có rèm; cửa sổ hồi Tây nhìn ra ô cây; bàn thờ rộng 2m sâu 1m áp tường Đông, đối diện cửa sổ."
+    },
+    {
+      "id": "bed1",
+      "name": "P. NGỦ 1",
+      "x": 3,
+      "y": 4.6,
+      "w": 3.9,
+      "h": 3.4,
+      "g": "bed",
+      "nameY": 6.7,
+      "desc": "4.0×3.4. Cửa ở tường Bắc đối diện cửa sổ Nam; đầu giường hướng Nam; tủ đối diện giường; bàn kê ở cửa sổ lấy sáng."
+    },
+    {
+      "id": "bed2",
+      "name": "P. NGỦ 2",
+      "x": 6.9,
+      "y": 4.6,
+      "w": 3.9,
+      "h": 3.4,
+      "g": "bed",
+      "nameY": 6.7,
+      "desc": "Cửa Bắc đối diện cửa sổ Nam; đầu giường hướng Nam; tủ đối diện giường; bàn kê ở cửa sổ."
+    },
+    {
+      "id": "bed3",
+      "name": "P. NGỦ 3",
+      "x": 10.8,
+      "y": 5,
+      "w": 4.7,
+      "h": 3,
+      "g": "bed",
+      "nameY": 6.9,
+      "desc": "Lùi Y5. Cửa vào khoảng chung; cửa sổ đối diện cửa; đầu giường hướng Nam; tủ đối diện; bàn kê ở cửa sổ."
+    },
+    {
+      "id": "planter",
+      "name": "Ô CÂY",
+      "x": -0.8,
+      "y": 5,
+      "w": 0.8,
+      "h": 2.4,
+      "g": "out",
+      "outdoor": true,
+      "desc": "Bồn cây xanh đầu hồi trái, trước cửa sổ phòng thờ."
+    }
   ],
-  // cửa sổ: wall N(Y0)/S(Y8)/W/E; a,b = vị trí dọc tường; pos = toạ độ tường (cho W/E); cm = 2 cánh
-  windows:[
-    {wall:"S",a:5.3, b:6.8, cm:true},                    // PN1 mặt trước (đối diện cửa)
-    {wall:"S",a:7.15,b:8.65,cm:true},                    // PN2 mặt trước (đối diện cửa)
-    {wall:"S",a:11.0,b:12.5,cm:true},                    // PN3 mặt trước (đối diện cửa)
-    {wall:"W",pos:0,a:5.5,b:6.9,leaves:4},               // phòng thờ - hồi Tây ra ô cây (4 cánh)
-    {wall:"N",a:3.0, b:5.2, cm:true},                    // KHÁCH - 1 cửa sổ to tường Bắc
-    {wall:"N",a:8.2, b:9.4},                             // BẾP - tường Bắc (trên bồn rửa, lấy sáng)
-    {wall:"N",a:11.0,b:11.5},{wall:"N",a:12.5,b:13.0},   // WC1, WC2 - tường sau (nhỏ, thông gió)
-    {wall:"N",a:13.8,b:15.0,cm:true}                     // master - cửa sổ tường sau (Bắc, 2 cánh)
+  "windows": [
+    {
+      "wall": "S",
+      "a": 5.2,
+      "b": 6.7,
+      "cm": true
+    },
+    {
+      "wall": "S",
+      "a": 7.1,
+      "b": 8.600000000000001,
+      "cm": true
+    },
+    {
+      "wall": "S",
+      "a": 11,
+      "b": 12.5,
+      "cm": true
+    },
+    {
+      "wall": "W",
+      "pos": 0,
+      "a": 5.5,
+      "b": 6.9,
+      "leaves": 4
+    },
+    {
+      "wall": "N",
+      "a": 3,
+      "b": 5.2,
+      "cm": true
+    },
+    {
+      "wall": "N",
+      "a": 8.2,
+      "b": 9.4
+    },
+    {
+      "wall": "N",
+      "a": 11,
+      "b": 11.5
+    },
+    {
+      "wall": "N",
+      "a": 12.5,
+      "b": 13
+    },
+    {
+      "wall": "N",
+      "a": 13.8,
+      "b": 15,
+      "cm": true
+    }
   ],
-  // cửa đi: {x,y} bản lề (m), dir = hướng mở (n,s,e,w), wide; main/master/curtain = cờ; leaves = số cánh (2/4)
-  doors:[
-    {x:1.0, y:1.1,  dir:"e", wide:2.45, main:true, leaves:2, sidelight:0.41}, // CỬA CHÍNH: 2 cánh lớn + 2 ô kính bên (1/2 cánh)
-    {x:6.85,y:0,    dir:"s", wide:0.8, back:true},     // CỬA SAU 1 cánh, ngay sau lam (bên bếp)
-    {x:1.2, y:4.6,  dir:"n", wide:1.5, curtain:true},  // THỜ ↔ KHÁCH (ô mở 1.5m + rèm)
-    {x:5.8, y:4.6,  dir:"s", wide:0.9},                // PN1 (tường Bắc, đối diện cửa sổ)
-    {x:7.3, y:4.6,  dir:"s", wide:0.9},                // PN2 (tường Bắc, đối diện cửa sổ)
-    {x:11.0,y:5.0,  dir:"s", wide:0.9},                // PN3 (tường bắc Y5, mở xuống)
-    {x:10.6,y:2.7,  dir:"n", wide:0.7},                // WC1 (tường nam Y2.7, mở lên)
-    {x:12.0,y:3.7,  dir:"e", wide:0.9, master:true},   // MASTER (tường Tây X12, lùi xuống tránh máy giặt)
-    {x:12.6,y:2.7,  dir:"n", wide:0.7}                 // WC2 (trong master)
+  "doors": [
+    {
+      "x": 1,
+      "y": 1.1,
+      "dir": "e",
+      "wide": 2.45,
+      "main": true,
+      "leaves": 2,
+      "sidelight": 0.41
+    },
+    {
+      "x": 6.85,
+      "y": 0,
+      "dir": "s",
+      "wide": 0.8,
+      "back": true
+    },
+    {
+      "x": 1.2,
+      "y": 4.6,
+      "dir": "n",
+      "wide": 1.5,
+      "curtain": true
+    },
+    {
+      "x": 5.8,
+      "y": 4.6,
+      "dir": "s",
+      "wide": 0.9
+    },
+    {
+      "x": 7.3,
+      "y": 4.6,
+      "dir": "s",
+      "wide": 0.9
+    },
+    {
+      "x": 11,
+      "y": 5,
+      "dir": "s",
+      "wide": 0.9
+    },
+    {
+      "x": 10.6,
+      "y": 2.7,
+      "dir": "n",
+      "wide": 0.7
+    },
+    {
+      "x": 12,
+      "y": 3.7,
+      "dir": "e",
+      "wide": 0.9,
+      "master": true
+    },
+    {
+      "x": 12.6,
+      "y": 2.7,
+      "dir": "n",
+      "wide": 0.7
+    }
   ],
-  // NỘI THẤT — dữ liệu sửa được (room = phòng; type quyết định cách vẽ; x,y góc; w rộng (X), h sâu (Y); dir cho giường = cạnh kê đầu)
-  furniture:[
-    // PHÒNG KHÁCH
-    {room:"living", type:"sofa",        name:"Sofa",        x:2.9, y:0.15, w:2.4, h:0.85},
-    {room:"living", type:"coffee",      name:"Bàn trà",     x:3.4, y:1.45, w:1.4, h:0.65},
-    {room:"living", type:"armchair",    name:"Ghế đơn 1",   x:3.1, y:2.65, w:0.85,h:0.6},
-    {room:"living", type:"armchair",    name:"Ghế đơn 2",   x:4.2, y:2.65, w:0.85,h:0.6},
-    {room:"living", type:"tv",          name:"Kệ tivi",     x:6.05,y:1.15, w:0.4, h:1.6},
-    // BẾP + ĂN — chữ L: bồn rửa (Bắc) + bàn nấu & tủ lạnh quay dọc (Đông)
-    {room:"dine",   type:"washcounter", name:"Bàn rửa 2 bồn",x:8.1,y:0.12, w:2.4, h:0.6},
-    {room:"dine",   type:"cooktop",     name:"Bàn nấu",     x:9.9, y:0.75, w:0.6, h:1.3},
-    {room:"dine",   type:"fridge",      name:"Tủ lạnh",     x:9.9, y:2.1,  w:0.6, h:0.65},
-    {room:"dine",   type:"diningtable", name:"Bàn ăn",      x:7.6, y:1.9,  w:1.4, h:0.85},
-    // WC1
-    {room:"wc1",    type:"shower",      name:"Buồng tắm kính",x:10.5,y:0.12,w:1.5,h:0.9, glass:"s"},
-    {room:"wc1",    type:"toilet",      name:"Bồn cầu",     x:11.35,y:1.3, w:0.4, h:0.6, dir:"w"},
-    {room:"wc1",    type:"lavabo",      name:"Lavabo",      x:11.4, y:1.95,w:0.55,h:0.42},
-    {room:"wc1",    type:"washer",      name:"Máy giặt",    x:11.35,y:2.75,w:0.6, h:0.6},
-    // WC2 — lavabo & bồn cầu cạnh nhau phía Nam
-    {room:"wc2",    type:"shower",      name:"Buồng tắm kính",x:12.0,y:0.12,w:1.5,h:0.9, glass:"s"},
-    {room:"wc2",    type:"toilet",      name:"Bồn cầu",     x:12.05,y:1.3, w:0.4, h:0.6, dir:"e"},
-    {room:"wc2",    type:"lavabo",      name:"Lavabo",      x:12.05,y:1.95,w:0.55,h:0.42},
-    // MASTER
-    {room:"master", type:"bed",         name:"Giường",      x:13.6, y:0.15,w:1.6, h:2.0, dir:"n"},
-    {room:"master", type:"wardrobe",    name:"Tủ áo",       x:13.6, y:4.45,w:1.6, h:0.5},
-    // PHÒNG THỜ
-    {room:"worship",type:"altar",       name:"Bàn thờ",     x:2.0, y:5.25, w:1.0, h:2.0},
-    // PN1
-    {room:"bed1",   type:"bed",         name:"Giường",      x:3.3, y:5.9,  w:1.6, h:2.0, dir:"s"},
-    {room:"bed1",   type:"wardrobe",    name:"Tủ áo",       x:3.3, y:4.6,  w:1.6, h:0.55},
-    {room:"bed1",   type:"desk",        name:"Bàn",         x:5.45,y:7.35, w:1.2, h:0.5},
-    // PN2
-    {room:"bed2",   type:"bed",         name:"Giường",      x:9.0, y:5.9,  w:1.6, h:2.0, dir:"s"},
-    {room:"bed2",   type:"wardrobe",    name:"Tủ áo",       x:9.0, y:4.65, w:1.6, h:0.55},
-    {room:"bed2",   type:"desk",        name:"Bàn",         x:7.3, y:7.35, w:1.2, h:0.5},
-    // PN3
-    {room:"bed3",   type:"bed",         name:"Giường",      x:13.4,y:6.0,  w:1.6, h:1.9, dir:"s"},
-    {room:"bed3",   type:"wardrobe",    name:"Tủ áo",       x:13.4,y:5.02, w:1.6, h:0.5},
-    {room:"bed3",   type:"desk",        name:"Bàn",         x:11.2, y:7.4, w:1.1, h:0.5}
+  "furniture": [
+    {
+      "room": "living",
+      "type": "sofa",
+      "name": "Sofa",
+      "x": 2.9,
+      "y": 0.15,
+      "w": 2.4,
+      "h": 0.85
+    },
+    {
+      "room": "living",
+      "type": "coffee",
+      "name": "Bàn trà",
+      "x": 3.4,
+      "y": 1.45,
+      "w": 1.4,
+      "h": 0.65
+    },
+    {
+      "room": "living",
+      "type": "armchair",
+      "name": "Ghế đơn 1",
+      "x": 3.1,
+      "y": 2.65,
+      "w": 0.85,
+      "h": 0.6
+    },
+    {
+      "room": "living",
+      "type": "armchair",
+      "name": "Ghế đơn 2",
+      "x": 4.2,
+      "y": 2.65,
+      "w": 0.85,
+      "h": 0.6
+    },
+    {
+      "room": "living",
+      "type": "tv",
+      "name": "Kệ tivi",
+      "x": 6.05,
+      "y": 1.15,
+      "w": 0.4,
+      "h": 1.6
+    },
+    {
+      "room": "dine",
+      "type": "washcounter",
+      "name": "Bàn rửa 2 bồn",
+      "x": 8.1,
+      "y": 0.12,
+      "w": 2.4,
+      "h": 0.6
+    },
+    {
+      "room": "dine",
+      "type": "cooktop",
+      "name": "Bàn nấu",
+      "x": 9.9,
+      "y": 0.75,
+      "w": 0.6,
+      "h": 1.3
+    },
+    {
+      "room": "dine",
+      "type": "fridge",
+      "name": "Tủ lạnh",
+      "x": 9.9,
+      "y": 2.1,
+      "w": 0.6,
+      "h": 0.65
+    },
+    {
+      "room": "dine",
+      "type": "diningtable",
+      "name": "Bàn ăn",
+      "x": 7.6,
+      "y": 1.9,
+      "w": 1.4,
+      "h": 0.85
+    },
+    {
+      "room": "wc1",
+      "type": "shower",
+      "name": "Buồng tắm kính",
+      "x": 10.5,
+      "y": 0.12,
+      "w": 1.5,
+      "h": 0.9,
+      "glass": "s"
+    },
+    {
+      "room": "wc1",
+      "type": "toilet",
+      "name": "Bồn cầu",
+      "x": 11.35,
+      "y": 1.3,
+      "w": 0.4,
+      "h": 0.6,
+      "dir": "w"
+    },
+    {
+      "room": "wc1",
+      "type": "lavabo",
+      "name": "Lavabo",
+      "x": 11.4,
+      "y": 1.95,
+      "w": 0.55,
+      "h": 0.42
+    },
+    {
+      "room": "wc1",
+      "type": "washer",
+      "name": "Máy giặt",
+      "x": 11.35,
+      "y": 2.75,
+      "w": 0.6,
+      "h": 0.6
+    },
+    {
+      "room": "wc2",
+      "type": "shower",
+      "name": "Buồng tắm kính",
+      "x": 12,
+      "y": 0.12,
+      "w": 1.5,
+      "h": 0.9,
+      "glass": "s"
+    },
+    {
+      "room": "wc2",
+      "type": "toilet",
+      "name": "Bồn cầu",
+      "x": 12.05,
+      "y": 1.3,
+      "w": 0.4,
+      "h": 0.6,
+      "dir": "e"
+    },
+    {
+      "room": "wc2",
+      "type": "lavabo",
+      "name": "Lavabo",
+      "x": 12.05,
+      "y": 1.95,
+      "w": 0.55,
+      "h": 0.42
+    },
+    {
+      "room": "master",
+      "type": "bed",
+      "name": "Giường",
+      "x": 13.6,
+      "y": 0.15,
+      "w": 1.6,
+      "h": 2,
+      "dir": "n"
+    },
+    {
+      "room": "master",
+      "type": "wardrobe",
+      "name": "Tủ áo",
+      "x": 13.6,
+      "y": 4.45,
+      "w": 1.6,
+      "h": 0.5
+    },
+    {
+      "room": "worship",
+      "type": "altar",
+      "name": "Bàn thờ",
+      "x": 2,
+      "y": 5.25,
+      "w": 1,
+      "h": 2
+    },
+    {
+      "room": "bed1",
+      "type": "bed",
+      "name": "Giường",
+      "x": 3.3,
+      "y": 5.9,
+      "w": 1.6,
+      "h": 2,
+      "dir": "s"
+    },
+    {
+      "room": "bed1",
+      "type": "wardrobe",
+      "name": "Tủ áo",
+      "x": 3.3,
+      "y": 4.6,
+      "w": 1.6,
+      "h": 0.55
+    },
+    {
+      "room": "bed1",
+      "type": "desk",
+      "name": "Bàn",
+      "x": 5.35,
+      "y": 7.35,
+      "w": 1.2,
+      "h": 0.5
+    },
+    {
+      "room": "bed2",
+      "type": "bed",
+      "name": "Giường",
+      "x": 9,
+      "y": 5.9,
+      "w": 1.6,
+      "h": 2,
+      "dir": "s"
+    },
+    {
+      "room": "bed2",
+      "type": "wardrobe",
+      "name": "Tủ áo",
+      "x": 9,
+      "y": 4.65,
+      "w": 1.6,
+      "h": 0.55
+    },
+    {
+      "room": "bed2",
+      "type": "desk",
+      "name": "Bàn",
+      "x": 7.25,
+      "y": 7.35,
+      "w": 1.2,
+      "h": 0.5
+    },
+    {
+      "room": "bed3",
+      "type": "bed",
+      "name": "Giường",
+      "x": 13.4,
+      "y": 6,
+      "w": 1.6,
+      "h": 1.9,
+      "dir": "s"
+    },
+    {
+      "room": "bed3",
+      "type": "wardrobe",
+      "name": "Tủ áo",
+      "x": 13.4,
+      "y": 5.02,
+      "w": 1.6,
+      "h": 0.5
+    },
+    {
+      "room": "bed3",
+      "type": "desk",
+      "name": "Bàn",
+      "x": 11.2,
+      "y": 7.4,
+      "w": 1.1,
+      "h": 0.5
+    }
   ]
 };
 
@@ -1327,7 +1766,7 @@ function downloadHTML(){
   const blob=new Blob([html],{type:'text/html;charset=utf-8'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
-  a.download='index.html';
+  a.download='thiet-ke-nha.html';
   document.body.appendChild(a); a.click();
   setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},800);
 }
@@ -1382,5 +1821,6 @@ function init(){
 }
 document.addEventListener('DOMContentLoaded',init);
 </script>
-</body>
-</html>
+
+
+</body></html>
